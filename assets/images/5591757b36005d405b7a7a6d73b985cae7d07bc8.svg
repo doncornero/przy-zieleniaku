@@ -1,0 +1,24 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 1296 1476" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 171">
+<ellipse id="Ellipse 4" cx="361" cy="1104" rx="361" ry="372" fill="url(#paint0_radial_151_330)"/>
+<ellipse id="Ellipse 5" cx="934.999" cy="371.5" rx="361" ry="371.5" fill="url(#paint1_radial_151_330)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_151_330" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 732) scale(361 372)">
+<stop stop-color="#C5DCBA" stop-opacity="0.858824"/>
+<stop offset="0.142857" stop-color="#C4DBB9" stop-opacity="0.709804"/>
+<stop offset="0.344828" stop-color="#C3DBB9" stop-opacity="0.654902"/>
+<stop offset="0.571429" stop-color="#BCD5B5" stop-opacity="0.447059"/>
+<stop offset="0.82266" stop-color="#97BA9F" stop-opacity="0.168627"/>
+<stop offset="1" stop-color="#0C564E" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_151_330" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(573.999) scale(361 371.5)">
+<stop stop-color="#C5DCBA" stop-opacity="0.858824"/>
+<stop offset="0.142857" stop-color="#C4DBB9" stop-opacity="0.709804"/>
+<stop offset="0.344828" stop-color="#C3DBB9" stop-opacity="0.654902"/>
+<stop offset="0.571429" stop-color="#BCD5B5" stop-opacity="0.447059"/>
+<stop offset="0.82266" stop-color="#97BA9F" stop-opacity="0.168627"/>
+<stop offset="1" stop-color="#0C564E" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

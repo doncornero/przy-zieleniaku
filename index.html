@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przy Zieleniaku – Opieka Ortopedyczna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page page--home">
+
+    <!-- ══════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════ -->
+    <section class="hero">
+
+      <!-- Full page teal background -->
+      <div class="hero-bg-color"></div>
+
+      <!-- Background photo (top: -1px, opacity 94%) -->
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="assets/images/home page background.png" alt="" />
+      </div>
+
+      <!-- ── NAVIGATION ── -->
+      <header class="nav">
+        <!-- Frosted teal blur layer -->
+        <div class="nav-blur"></div>
+
+        <!-- Logo (left: 77px) -->
+        <a href="/" class="logo" aria-label="Przy Zieleniaku">
+          <!-- Icon square -->
+          <div class="logo-icon-wrap">
+            <img src="assets/logo/logo-icon.svg" alt="" class="logo-icon-img" />
+          </div>
+          <!-- Wordmark -->
+          <img src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" class="logo-wordmark" />
+        </a>
+
+        <!-- Nav pill (left: 479px, w: 962px) -->
+        <nav class="nav-pill" aria-label="Menu główne">
+          <a href="#uslugi">Usługi</a>
+          <a href="specjalisci.html">Specjaliści</a>
+          <a href="#cennik">Cennik</a>
+          <a href="#opinie">Opinie</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <!-- Phone icon (right: 78px) -->
+        <a href="tel:665664695" class="nav-phone" aria-label="Zadzwoń">
+          <img src="assets/icons/Phone.svg" alt="" />
+        </a>
+
+        <!-- Hamburger — mobile only (hidden on desktop via CSS) -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Otwórz menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </header>
+
+      <!-- ── HERO COPY ── -->
+      <div class="hero-copy">
+        <h1>Wspieramy sprawność na każdym etapie życia.</h1>
+        <p class="hero-sub">Opieka ortopedyczna dla dzieci, dorosłych i seniorów<span class="hero-sub-garwolin"> w
+            Garwolinie</span>.</p>
+        <a href="tel:665664695" class="cta-phone">
+          <img src="assets/icons/Phone.svg" alt="" />
+          <span>665 664 695</span>
+        </a>
+      </div>
+
+      <!-- ── USP CARDS (top: 889px) ── -->
+      <div class="usp-row">
+
+        <div class="usp-card">
+          <img src="assets/icons/arrow.svg" alt="" style="width:64px;height:44px" />
+          <p>
+            Pomagamy ponad<br>
+            <strong>2 000 pacjentów</strong><br>
+            rocznie.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <img src="assets/icons/75+.svg" alt="" style="width:64px;height:29px" />
+          <p>
+            Rozumiemy potrzeby<br>
+            starszych pacjentów.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <img src="assets/icons/clock.svg" alt="" style="width:58px;height:58px" />
+          <p>
+            Szybki i łatwy dostęp<br>
+            do specjalisty.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Sage-green blurred gradient — sits between hero and reviews as a page-level bg element -->
+    <div class="hero-sage-gradient"></div>
+
+    <!-- Background photos for audience section — z-index:1, peek around the white cards -->
+    <img class="audience-bg-photo audience-bg-photo--dzieci" src="assets/images/home page left background.png" alt="" />
+    <img class="audience-bg-photo audience-bg-photo--seniorzy" src="assets/images/homepage right background.png"
+      alt="" />
+    <!-- Blurred teal overlays — fade photos into teal (top, center, bottom) -->
+    <div class="audience-teal-blur audience-teal-blur--top"></div>
+    <div class="audience-teal-blur audience-teal-blur--center"></div>
+    <div class="audience-teal-blur audience-teal-blur--bottom"></div>
+
+    <!-- Radial gradient ellipses (from original XD design) — after teal blurs so they paint on top -->
+    <div class="radial-ellipse radial-ellipse--right"></div>
+    <div class="radial-ellipse radial-ellipse--left"></div>
+
+    <!-- ══════════════════════════════════════
+       REVIEWS SECTION  (top: 1103px in design)
+  ══════════════════════════════════════ -->
+    <section class="reviews" id="reviews-carousel">
+      <div class="reviews-row">
+
+        <!-- Card 1 — P. Elżbieta -->
+        <article class="review-card">
+          <div class="review-stars" aria-label="Ocena: 5 na 5 gwiazdek">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="review-body">
+            Dr Piotr Melon jest najwyższej klasy specjalistą w swoim zawodzie.
+            Bardzo wyraźnie wyróżnia się kompetencjami zawodowymi oraz najlepszymi
+            standardami i szczegółową uważnością w procesie leczenia pacjentów.
+            Z dużym uznaniem polecam leczenie pod jego opieką.
+          </p>
+          <p class="review-author">P. Elżbieta</p>
+        </article>
+
+        <!-- Card 2 — P. Małgorzata -->
+        <article class="review-card">
+          <div class="review-stars" aria-label="Ocena: 5 na 5 gwiazdek">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="review-body">
+            Świetny specjalista, szybka diagnoza, skuteczna pomoc, wskazówki
+            dotyczące stanu zdrowia i dalszego leczenia rzeczowe bez owijania
+            w bawełnę. Szczerze polecam Dr. Pawelec.
+          </p>
+          <p class="review-author">P. Małgorzata</p>
+        </article>
+
+        <!-- Card 3 — Julia R. -->
+        <article class="review-card">
+          <div class="review-stars" aria-label="Ocena: 5 na 5 gwiazdek">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="review-body">
+            Dr Kosiecz bardzo pomógł mojej babci i otoczył ją troskliwą opieką.
+            Szybko wdrożył leczenie. Dzięki klarownym wyjaśnieniom i uważnej
+            kontroli procesu powrotu do zdrowia, mimo 84 lat babcia bardzo szybko
+            wróciła do formy. Dziś znów chodzi samodzielnie, bez laski ani
+            chodzika. Jestem mu ogromnie wdzięczna.
+          </p>
+          <p class="review-author">Julia R.</p>
+        </article>
+
+      </div>
+
+      <!-- Dot indicators (mobile carousel only) -->
+      <div class="carousel-dots" aria-hidden="true">
+        <button class="carousel-dot active"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════
+       USŁUGI SECTION  (y: 1475px in design)
+  ══════════════════════════════════════ -->
+    <section class="services" id="uslugi">
+
+      <!-- Sage header pill -->
+      <div class="services-header-pill">USŁUGI</div>
+
+      <!-- Left column -->
+      <a href="ortopedia.html" class="service-pill" style="left:524px;top:163px;width:385px">
+        Ortopedia<span class="chevron"></span>
+      </a>
+      <a href="ortopedia-dziecieca.html" class="service-pill" style="left:524px;top:257px;width:385px">
+        Ortopedia dziecięca<span class="chevron"></span>
+      </a>
+      <a href="usg.html" class="service-pill" style="left:524px;top:350px;width:385px">
+        USG narządu ruchu<span class="chevron"></span>
+      </a>
+      <a href="leczenie-biologiczne.html" class="service-pill" style="left:524px;top:444px;width:385px">
+        Leczenie biologiczne<span class="chevron"></span>
+      </a>
+
+      <!-- Sage CTA pill — doctors (mobile: between left and right groups) -->
+      <a href="lekarze.html" class="service-pill service-pill--sage" style="left:522px;top:591px;width:395px">
+        Lekarze specjaliści<span class="chevron"></span>
+      </a>
+
+      <!-- Right column -->
+      <a href="rehabilitacja.html" class="service-pill" style="left:1003px;top:163px;width:386px">
+        Rehabilitacja<span class="chevron"></span>
+      </a>
+      <a href="psychoterapia.html" class="service-pill" style="left:1009px;top:257px;width:380px">
+        Psychoterapia<span class="chevron"></span>
+      </a>
+      <a href="dietetyka.html" class="service-pill" style="left:1009px;top:350px;width:380px">
+        Dietetyka<span class="chevron"></span>
+      </a>
+
+      <!-- Sage CTA pill — specialists -->
+      <a href="specjalisci-mgr.html" class="service-pill service-pill--sage" style="left:1003px;top:591px;width:394px">
+        Specjaliści<span class="chevron"></span>
+      </a>
+
+    </section>
+
+    <!-- ══════════════════════════════════════
+       DLA KOGO? — 0+ / 18+ / 75+ CARDS
+  ══════════════════════════════════════ -->
+    <section class="audience">
+
+      <article class="audience-card">
+        <p class="audience-age">0+</p>
+        <p class="audience-title">Dzieci</p>
+        <p class="audience-desc">Dbamy o prawidłowy rozwój od pierwszych miesięcy życia. Prowadzimy poradnie
+          preluksacyjną.</p>
+      </article>
+
+      <article class="audience-card">
+        <p class="audience-age">18+</p>
+        <p class="audience-title">Dorośli</p>
+        <p class="audience-desc">Pomagamy i leczymy dolegliwości bólowe, dążąc do komfortu w codziennych aktywnościach.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <p class="audience-age">75+</p>
+        <p class="audience-title">Seniorzy</p>
+        <p class="audience-desc">Wspieramy aktywność i samodzielność na dłużej. Wykonujemy USG narządu ruchu.</p>
+      </article>
+
+    </section>
+
+    <!-- ══════════════════════════════════════
+       KONTAKT SECTION
+  ══════════════════════════════════════ -->
+    <section class="kontakt" id="kontakt">
+
+      <!-- KONTAKT header pill -->
+      <div class="kontakt-header-pill">KONTAKT</div>
+
+      <!-- ── Reception card (Justyna + Ewa) ── -->
+      <div class="kontakt-hero-card">
+        <img class="kontakt-justyna" src="assets/images/Pani Justyna.png" alt="" />
+        <p class="kontakt-hero-text">
+          Pani Justyna i Ewa pomogą w wyborze odpowiedniego specjalisty i umówią wizytę w&nbsp;dogodnym
+          terminie.<br><br>
+          W razie pytań chętnie wszystko wyjaśnią.<br><br>
+          Aby umówić wizytę, prosimy o kontakt telefoniczny.
+        </p>
+      </div>
+
+      <a href="tel:665664695" class="kontakt-cta-phone">
+        <img src="assets/icons/Phone.svg" alt="" />
+        <span>665 664 695</span>
+      </a>
+
+      <!-- ── Clinic description ── -->
+      <p class="kontakt-clinic-desc">
+        Jesteśmy poradnią ortopedyczną w Garwolinie działającą od 2017 roku. Każdego roku pomagamy ponad 2000 pacjentów
+        wracać
+        do zdrowia i sprawności. Nasza przychodnia znajduje się w samym centrum Garwolina, przy zieleniaku, w łatwo
+        dostępnym
+        i dobrze skomunikowanym punkcie. Umożliwiamy szybki i łatwy dostęp do specjalistów.
+      </p>
+
+      <!-- ── Info card (address / hours / email) ── -->
+      <div class="kontakt-info-card">
+        <div class="kontakt-info-row">
+          <img src="assets/icons/clock-green.svg" alt="" style="width:34px;height:34px" />
+          <span>Pon. - Pt. 9:00 - 18:00</span>
+        </div>
+        <div class="kontakt-info-row">
+          <img src="assets/icons/Map green.svg" alt="" style="width:28px;height:41px" />
+          <span>Ul. Krótka 1, piętro 2<br>08 - 400 Garwolin</span>
+        </div>
+        <div class="kontakt-info-row">
+          <img src="assets/icons/mail.svg" alt="" style="width:39px;height:25px" />
+          <span>rejestracja.ziel23@gmail.com</span>
+        </div>
+        <div class="kontakt-legal">
+          <a href="#" class="kontakt-legal-pill">Regulamin</a>
+          <a href="#" class="kontakt-legal-pill">Polityka prywatności</a>
+        </div>
+      </div>
+
+      <!-- ── Social card ── -->
+      <div class="kontakt-social-card">
+        <p class="kontakt-social-heading">Obserwuj nas, aby być na bieżąco!</p>
+        <div class="kontakt-social-btns">
+          <a href="#" class="kontakt-social-btn">
+            <img src="assets/icons/Facebook.svg" alt="Facebook" />
+            <span class="chevron"></span>
+          </a>
+          <a href="#" class="kontakt-social-btn">
+            <img src="assets/icons/instagram.svg" alt="Instagram" />
+            <span class="chevron"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── Map image (right column) ── -->
+      <img class="kontakt-map" src="assets/images/map view.png" alt="Mapa dojazdu" />
+
+      <!-- ── Mapa pill ── -->
+      <a href="#" class="kontakt-mapa-pill">Mapa<span class="chevron"></span></a>
+
+      <!-- ── GODZINY PRACY LEKARZY pill ── -->
+      <div class="kontakt-godziny-pill">GODZINY PRACY LEKARZY</div>
+
+      <!-- ── Schedule ── -->
+      <div class="kontakt-schedule">
+        <table class="schedule-table">
+          <tbody>
+            <!-- Poniedziałek -->
+            <tr>
+              <td class="sch-day" rowspan="3">Poniedziałek</td>
+              <td class="sch-spec">Fizjoterapeuta<br><span>Mgr. Michał Kondej</span></td>
+              <td class="sch-time">15:00 – 19:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Psycholog<br><span>Mgr. Izabela Baran</span></td>
+              <td class="sch-time">9:00 – 18:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Dietetyk<br><span>Mgr. Julia Kołodziejczyk</span></td>
+              <td class="sch-time">15:00 – 20:00</td>
+            </tr>
+
+            <!-- Wtorek -->
+            <tr>
+              <td class="sch-day" rowspan="3">Wtorek</td>
+              <td class="sch-spec">Lek. Piotr Melon</td>
+              <td class="sch-time">10:30 – 14:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Lek. Daniel Kosiecz</td>
+              <td class="sch-time">15:30 – 21:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Psycholog<br><span>Mgr. Izabela Baran</span></td>
+              <td class="sch-time">9:00 – 14:00</td>
+            </tr>
+
+            <!-- Środa -->
+            <tr>
+              <td class="sch-day" rowspan="2">Środa</td>
+              <td class="sch-spec">Lek. Piotr Melon</td>
+              <td class="sch-time">16:00 – 18:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Psycholog<br><span>Mgr. Katarzyna Wesołowska</span></td>
+              <td class="sch-time">15:00 – 19:00</td>
+            </tr>
+
+            <!-- Czwartek -->
+            <tr>
+              <td class="sch-day" rowspan="3">Czwartek</td>
+              <td class="sch-spec">Lek. Łukasz Michałek</td>
+              <td class="sch-time">8:30 – 13:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Lek. Bartłomiej Pawelec</td>
+              <td class="sch-time">17:30 – 19:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Psycholog<br><span>Mgr. Katarzyna Wesołowska</span></td>
+              <td class="sch-time">15:00 – 19:00</td>
+            </tr>
+
+            <!-- Piątek -->
+            <tr>
+              <td class="sch-day" rowspan="3">Piątek</td>
+              <td class="sch-spec">Lek. Kamila Smarż</td>
+              <td class="sch-time">9:30 – 13:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Lek. Piotr Melon</td>
+              <td class="sch-time">16:00 – 18:00</td>
+            </tr>
+            <tr>
+              <td class="sch-spec">Psycholog<br><span>Mgr. Izabela Baran</span></td>
+              <td class="sch-time">9:00 – 18:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════
+       CENNIK SECTION
+  ══════════════════════════════════════ -->
+    <section class="cennik" id="cennik">
+
+      <!-- CENNIK header pill -->
+      <div class="cennik-header-pill">CENNIK</div>
+
+      <!-- ── Card 1: Ortopedia / USG / Iniekcje ── -->
+      <div class="cennik-card cennik-card--1">
+        <div class="cennik-row"><span>Konsultacja Ortopedyczna</span><span>270 PLN</span></div>
+        <div class="cennik-row"><span>Konsultacja Ortopedyczna Dziecięca</span><span>270 PLN</span></div>
+        <div class="cennik-row"><span>Wszystkie badania USG</span><span>250 PLN</span></div>
+        <div class="cennik-row"><span>Punkcja</span><span>100 PLN</span></div>
+        <div class="cennik-row"><span>Podanie leku (blokada)</span><span>150 PLN</span></div>
+        <div class="cennik-row"><span>Konsultacja z USG</span><span>370 PLN</span></div>
+        <div class="cennik-row"><span>Kwas hialuronowy</span><span>200 PLN / 600 PLN</span></div>
+        <div class="cennik-row"><span>PRP</span><span>750 PLN</span></div>
+        <div class="cennik-row"><span>PRP z kwasem hialuronowym</span><span>950 PLN</span></div>
+        <div class="cennik-row"><span>Gips zwykły</span><span>50 PLN / 100 PLN</span></div>
+        <div class="cennik-row"><span>Gips plastikowy</span><span>50 PLN / 250 PLN</span></div>
+      </div>
+
+      <!-- ── Card 2: Rehabilitacja / Psycholog / Dietetyka ── -->
+      <div class="cennik-card cennik-card--2">
+        <div class="cennik-row"><span>Konsultacja rehabilitacyjna</span><span>100 PLN</span></div>
+        <div class="cennik-row cennik-row--cat"><span>Konsultacja psychologiczna</span></div>
+        <div class="cennik-row cennik-row--sub">
+          <span>
+            <img src="assets/icons/przyzieleniaku dots.svg" alt="" class="cennik-bullet" />
+            Mgr. Izabela Baran
+          </span>
+          <span>240 PLN</span>
+        </div>
+        <div class="cennik-row cennik-row--sub">
+          <span>
+            <img src="assets/icons/przyzieleniaku dots.svg" alt="" class="cennik-bullet" />
+            Mgr. Katarzyna Wesołowska
+          </span>
+          <span>210 PLN</span>
+        </div>
+        <div class="cennik-row"><span>Pierwsza konsultacja dietetyczna</span><span>200 PLN</span></div>
+        <div class="cennik-row"><span>Konsultacja dietetyczna</span><span>150 PLN</span></div>
+        <div class="cennik-row"><span>Dieta kliniczna</span><span>250 PLN</span></div>
+        <div class="cennik-row cennik-row--cat"><span>Pakiety konsultacji dietetycznych:</span></div>
+        <div class="cennik-row cennik-row--sub">
+          <span>
+            <img src="assets/icons/przyzieleniaku dots.svg" alt="" class="cennik-bullet" />
+            Basic – współpraca miesięczna
+          </span>
+          <span>400 PLN</span>
+        </div>
+        <div class="cennik-row cennik-row--sub">
+          <span>
+            <img src="assets/icons/przyzieleniaku dots.svg" alt="" class="cennik-bullet" />
+            Premium – współpraca 3-miesięczna
+          </span>
+          <span>900 PLN</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="site-footer">
+
+      <!-- Off-white rounded card -->
+      <div class="footer-card">
+
+        <!-- ── Logo ── -->
+        <div class="footer-logo">
+          <div class="footer-logo-icon">
+            <img src="assets/logo/logo-icon.svg" alt="" />
+          </div>
+          <img class="footer-logo-wordmark" src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" />
+        </div>
+
+        <!-- ── Nav links ── -->
+        <nav class="footer-nav">
+          <a href="#uslugi" class="footer-pill">Usługi</a>
+          <a href="#specjalisci" class="footer-pill">Specjaliści</a>
+          <a href="#cennik" class="footer-pill">Cennik</a>
+          <a href="#opinie" class="footer-pill">Opinie</a>
+          <a href="#kontakt" class="footer-pill">Kontakt</a>
+        </nav>
+
+        <!-- ── Legal + back to top ── -->
+        <div class="footer-legal">
+          <a href="regulamin.html" class="footer-pill">Regulamin</a>
+          <a href="polityka-prywatnosci.html" class="footer-pill">Polityka prywatności</a>
+          <button class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            <img src="assets/icons/go to the top arrow.svg" alt="" />
+            Powrót do góry
+          </button>
+        </div>
+
+        <!-- ── Contact info ── -->
+        <div class="footer-contact">
+          <div class="footer-contact-row footer-contact-phone">
+            <img src="assets/icons/Phone.svg" alt="" />
+            <span>665 664 695</span>
+          </div>
+          <div class="footer-contact-row">
+            <img src="assets/icons/clock-green.svg" alt="" class="icon-clock" />
+            <span>Pon. - Pt. 9:00 - 18:00</span>
+          </div>
+          <div class="footer-contact-row">
+            <img src="assets/icons/Map green.svg" alt="" class="icon-pin" />
+            <span>Ul. Krótka 1, piętro 2<br>08 - 400 Garwolin</span>
+          </div>
+          <div class="footer-contact-row">
+            <img src="assets/icons/mail.svg" alt="" class="icon-email" />
+            <span>Rejestracja.ziel23@gmail.com</span>
+          </div>
+          <div class="footer-contact-row">
+            <div class="footer-social-icons">
+              <img src="assets/icons/instagram.svg" alt="" class="icon-social" />
+              <img src="assets/icons/Facebook.svg" alt="" class="icon-social" />
+            </div>
+            <span>Przychodnia_przy_zieleniaku</span>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <p class="footer-copy">© 2026 Przychodnia Lekarzy Specjalistów przy zieleniaku</p>
+
+      </div><!-- .footer-card -->
+
+    </footer>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <a href="index.html" class="mobile-menu-home-btn" aria-label="Strona główna"></a>
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Zamknij menu">
+          <span class="mobile-menu-x"></span>
+        </button>
+        <nav class="mobile-menu-nav">
+          <a href="uslugi.html" class="mobile-menu-item">Usługi</a>
+          <a href="lekarze.html" class="mobile-menu-item">Lekarze</a>
+          <a href="specjalisci-mgr.html" class="mobile-menu-item">Specjaliści</a>
+          <a href="#cennik" class="mobile-menu-item">Cennik</a>
+          <a href="#kontakt" class="mobile-menu-item">Kontakt</a>
+        </nav>
+        <div class="mobile-menu-secondary">
+          <a href="regulamin.html" class="mobile-menu-secondary-btn">Regulamin</a>
+          <a href="polityka-prywatnosci.html" class="mobile-menu-secondary-btn">Polityka prywatności</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .page -->
+
+  <script>
+    // Scale the 1920px design to fit any viewport — skip on mobile
+    function applyScale() {
+      if (window.innerWidth < 768) {
+        var page = document.querySelector('.page');
+        page.style.transform = 'none';
+        page.style.width = '100%';
+        document.body.style.height = '';
+        return;
+      }
+      const scale = Math.min(window.innerWidth / 1920, 1);
+      document.querySelector('.page').style.transform = `scale(${scale})`;
+      document.querySelector('.page').style.transformOrigin = '0 0';
+      document.body.style.height = (document.querySelector('.page').offsetHeight * scale) + 'px';
+    }
+    applyScale();
+    window.addEventListener('resize', applyScale);
+  </script>
+
+  <script>
+    // Centered-scale auto-rotating reviews carousel (mobile only)
+    (function () {
+      if (window.innerWidth > 768) return;
+
+      var CARD_W = 246;   // matches CSS width
+      var GAP = 32;    // matches CSS gap
+      var STEP = CARD_W + GAP;
+
+      var section = document.getElementById('reviews-carousel');
+      var track = section.querySelector('.reviews-row');
+      var cards = Array.prototype.slice.call(section.querySelectorAll('.review-card'));
+      var dots = section.querySelectorAll('.carousel-dot');
+      if (!track || !cards.length) return;
+
+      var total = cards.length;
+      var current = 0;
+      var timer;
+
+      // Offset so the active card is centered in the section
+      function centerOffset(index) {
+        return section.offsetWidth / 2 - CARD_W / 2 - index * STEP;
+      }
+
+      function goTo(index, skipAnim) {
+        current = index;
+        if (skipAnim) track.style.transition = 'none';
+        track.style.transform = 'translateX(' + centerOffset(index) + 'px)';
+        if (skipAnim) requestAnimationFrame(function () { track.style.transition = ''; });
+
+        cards.forEach(function (c, i) { c.classList.toggle('is-active', i === index); });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+      }
+
+      function next() { goTo((current + 1) % total); }
+      function startTimer() { timer = setInterval(next, 4000); }
+      function resetTimer() { clearInterval(timer); startTimer(); }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+      });
+
+      var startX = 0;
+      track.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+        clearInterval(timer);
+      }, { passive: true });
+      track.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) {
+          goTo(dx < 0 ? (current + 1) % total : (current - 1 + total) % total);
+        }
+        startTimer();
+      }, { passive: true });
+
+      goTo(0, true);
+      startTimer();
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth <= 768) goTo(current, true);
+      });
+    })();
+  </script>
+
+  <script src="sticky-nav.js"></script>
+</body>
+
+</html>

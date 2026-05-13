@@ -1,0 +1,5209 @@
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --teal: #015e55;
+  --sage: #c5dcba;
+  --white: #f4f4f4;
+}
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  font-variation-settings: 'wdth' 100;
+  background: var(--teal);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   RADIAL GRADIENT ELLIPSES (XD originals)
+   Stops and positions extracted directly from the .xd source file.
+   Every ellipse is 2451×2522px (rx=1226, ry=1261).
+   Gradient: sage centre (0.86 opacity) → transparent edge.
+══════════════════════════════════════════ */
+
+/* Shorthand stops — used inline in every gradient below */
+/* rgba(197,220,186,.86) 0% → rgba(196,219,185,.71) 14.29% → rgba(195,219,185,.65) 34.48%
+   → rgba(188,213,181,.45) 57.14% → rgba(151,186,159,.17) 82.27% → transparent 100% */
+
+/* ── HOME PAGE: two individual divs, each sized to the ellipse ── */
+.radial-ellipse {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse 50% 50% at center,
+      rgba(197, 220, 186, .86) 0%,
+      rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%,
+      rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%,
+      transparent 100%);
+}
+
+/* Right ellipse — sage glow, mid-page (kontakt area) */
+/* Figma: x=656, y=2654, 2451×2522px */
+.radial-ellipse--right {
+  left: 656px;
+  top: 2654px;
+  width: 2451px;
+  height: 2522px;
+}
+
+/* Left ellipse — sage glow, bottom-page (cennik/footer area) */
+/* Figma: x=-1291, y=5142, 2451×2522px */
+.radial-ellipse--left {
+  left: -1291px;
+  top: 5142px;
+  width: 2451px;
+  height: 2522px;
+}
+
+/* Page container — 1920px wide, scaled via JS */
+.page {
+  position: relative;
+  width: 1920px;
+  background: var(--teal);
+  overflow: hidden;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 1920px;
+  /* tall enough for photo + USP row */
+  height: 1100px;
+  /* no overflow:hidden — the sage gradient intentionally extends into the reviews section */
+}
+
+/* Full-page teal fill */
+.hero-bg-color {
+  position: absolute;
+  inset: 0;
+  background: var(--teal);
+}
+
+/* ── Background photo ── */
+.hero-photo-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 955px;
+  opacity: 0.94;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Sage-green blurred gradient — child of .page, not .hero ── */
+/* y=810–1285px: starts as 80% sage above the element (negative stops),
+   reaches full sage at 34.56%, fades to teal at 82%. The 33px blur creates
+   the soft light-green glow visible between the hero photo and reviews. */
+.hero-sage-gradient {
+  position: absolute;
+  left: -81px;
+  top: 810px;
+  width: 2083px;
+  /* Extended to y≈1470 so sage covers the full reviews section;
+     teal moved to 100% so the fade only completes at the reviews/services boundary */
+  height: 660px;
+  background: linear-gradient(180deg,
+      rgba(197, 220, 186, 0.00) -38.45%,
+      rgba(197, 220, 186, 0.80) -6.39%,
+      #C5DCBA 34.56%,
+      #015E55 100%);
+  filter: blur(33.672px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* ══════════════════════════════════════════
+   PAGE HEADER (subpages — wraps nav on non-hero pages)
+══════════════════════════════════════════ */
+.page-header {
+  position: relative;
+  width: 1920px;
+  height: 158px;
+  background: var(--teal);
+}
+
+/* ══════════════════════════════════════════
+   NAVIGATION  (158px tall)
+══════════════════════════════════════════ */
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 158px;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  will-change: transform;
+}
+
+/* Teal overlay — extends 60px below the nav and fades to transparent so
+   there is no visible hard edge when the nav sticks over page content. */
+.nav-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  background: rgba(1, 94, 85, 0.72);
+  filter: blur(17.552px);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* ── Logo box — left: 77px ── */
+.logo {
+  position: absolute;
+  left: 77px;
+  top: 29px;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 21px;
+  width: 317px;
+  height: 101px;
+  padding-left: 10px;
+  gap: 4px;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.logo-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-icon-img {
+  width: 69px;
+  height: 69px;
+  display: block;
+}
+
+.logo-wordmark {
+  width: 189px;
+  height: 49px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Nav pill — left: 479px, w: 962px, h: 50px ── */
+.nav-pill {
+  position: absolute;
+  left: 479px;
+  top: 55px;
+  width: 962px;
+  height: 50px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 24px;
+  z-index: 1;
+}
+
+.nav-pill a {
+  text-decoration: none;
+  color: var(--teal);
+  font-size: 24px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.nav-pill a:hover {
+  opacity: 0.6;
+}
+
+/* ── Phone icon box — left: 1742px ── */
+.nav-phone {
+  position: absolute;
+  left: 1742px;
+  top: 29px;
+  width: 100px;
+  height: 101px;
+  background: var(--white);
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.nav-phone img {
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+
+/* ══════════════════════════════════════════
+   HERO COPY
+══════════════════════════════════════════ */
+.hero-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 505px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  font-size: 50px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.hero-sub {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  white-space: nowrap;
+  margin-top: 12px;
+  /* design: left 591px (169px right of h1's 422px) */
+  margin-left: 0;
+}
+
+/* CTA phone button — left: 734px, w: 452px, h: 114px */
+.cta-phone {
+  position: absolute;
+  left: 734px;
+  top: 158px;
+  /* 663 - 505 = 158px from .hero-copy top */
+  width: 452px;
+  height: 114px;
+  background: var(--white);
+  border: 4px solid var(--teal);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cta-phone:hover {
+  background: var(--teal);
+  border-color: var(--white);
+}
+
+.cta-phone:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.cta-phone:hover span {
+  color: var(--white);
+}
+
+.cta-phone img {
+  width: 45px;
+  height: 45px;
+  display: block;
+  transition: filter 0.2s;
+}
+
+.cta-phone span {
+  font-size: 35px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: color 0.2s;
+}
+
+/* ══════════════════════════════════════════
+   USP CARDS  (absolute top: 889px)
+══════════════════════════════════════════ */
+.usp-row {
+  position: absolute;
+  top: 889px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 81px;
+  z-index: 10;
+}
+
+.usp-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--teal);
+  border-radius: 39px;
+  width: 386px;
+  height: 134px;
+  padding: 0 28px;
+  /* Subtle ring so cards are visible against the teal bg */
+  box-shadow: inset 0 0 0 1.5px rgba(197, 220, 186, 0.3);
+}
+
+.usp-card img {
+  flex-shrink: 0;
+  display: block;
+}
+
+.usp-card p {
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+}
+
+.usp-card p strong {
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════
+   REVIEWS SECTION
+══════════════════════════════════════════ */
+.reviews {
+  /* 1103px in design, hero is 1100px → 3px gap */
+  padding: 3px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.reviews-row {
+  display: flex;
+  justify-content: center;
+  gap: 81px;
+}
+
+/* ── Individual card ── */
+.review-card {
+  background: var(--sage);
+  border-radius: 39px;
+  width: 386px;
+  min-height: 287px;
+  padding: 44px 29px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Stars ── */
+.review-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+.review-stars span {
+  font-size: 28px;
+  color: var(--teal);
+  display: inline-block;
+  transform: rotate(-3deg);
+  line-height: 1;
+}
+
+/* ── Review body text ── */
+.review-body {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.45;
+  flex: 1;
+}
+
+/* ── Author name (right-aligned, sits at bottom) ── */
+.review-author {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  text-align: right;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════════════════
+   SERVICES SECTION
+══════════════════════════════════════════ */
+.services {
+  position: relative;
+  width: 1920px;
+  height: 672px;
+  background: var(--teal);
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Teal gradient extending below services — fades photos in without touching buttons */
+.services::after {
+  content: '';
+  position: absolute;
+  left: -100px;
+  bottom: -130px;
+  width: calc(100% + 200px);
+  height: 130px;
+  background: linear-gradient(to bottom, var(--teal), transparent);
+  pointer-events: none;
+}
+
+.services-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 0;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+.service-pill {
+  position: absolute;
+  height: 74px;
+  background: var(--white);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 46px;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: background 0.15s;
+}
+
+.service-pill:hover {
+  background: var(--sage);
+}
+
+.service-pill--sage {
+  background: var(--sage);
+}
+
+.service-pill--sage:hover {
+  background: var(--white);
+}
+
+/* ">" chevron built with two CSS borders */
+.chevron {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-right: 3px solid var(--teal);
+  border-top: 3px solid var(--teal);
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+/* ══════════════════════════════════════════
+   AUDIENCE SECTION  (0+ / 18+ / 75+)
+══════════════════════════════════════════ */
+.audience {
+  display: flex;
+  justify-content: center;
+  gap: 97px;
+  padding: 124px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.audience-card {
+  background: var(--white);
+  border-radius: 39px;
+  width: 352px;
+  padding: 26px 45px 30px;
+}
+
+/* Blurred teal overlays — fade photos into teal background */
+.audience-teal-blur {
+  position: absolute;
+  background: var(--teal);
+  filter: blur(50px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.audience-teal-blur--top {
+  left: -138px;
+  top: 2120px;
+  width: 2113px;
+  height: 100px;
+  filter: blur(50px);
+}
+
+.audience-teal-blur--center {
+  left: 570px;
+  top: 1922px;
+  width: 738px;
+  height: 1518px;
+}
+
+.audience-teal-blur--bottom {
+  left: -138px;
+  top: 2726px;
+  width: 2113px;
+  height: 699px;
+}
+
+/* Background photos — absolute in .page, z-index:1, peek around cards */
+.audience-bg-photo {
+  position: absolute;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.audience-bg-photo--dzieci {
+  left: -263px;
+  top: 1837px;
+  width: 1030px;
+  height: 1030px;
+  opacity: 0.95;
+  /* long gradual fade-in (20–55%) and fade-out (72–95%) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 20%, black 55%, black 72%, transparent 95%);
+  mask-image: linear-gradient(to bottom, transparent 20%, black 55%, black 72%, transparent 95%);
+}
+
+.audience-bg-photo--seniorzy {
+  left: 1185px;
+  top: 2132px;
+  width: 735px;
+  height: 735px;
+  /* long gradual fade-in (0–35%) and fade-out (63–88%) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 63%, transparent 88%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 63%, transparent 88%);
+}
+
+.audience-age {
+  font-size: 69px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  margin-bottom: 21px;
+}
+
+.audience-title {
+  font-size: 31px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  margin-bottom: 19px;
+}
+
+.audience-desc {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.site-footer {
+  position: relative;
+  width: 1920px;
+  padding: 123px 0 52px;
+  z-index: 2;
+}
+
+/* Off-white rounded card — Figma: left=212, w=1496, h=278, rounded=71px */
+.footer-card {
+  position: relative;
+  margin: 0 212px;
+  /* 212px each side = 1920-212*2=1496px wide */
+  height: 278px;
+  background: var(--white);
+  border-radius: 71px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Logo ── */
+/* Figma: left=265 (53px from card left=212), w=336, h=107, top=80 (card-relative 80px) */
+.footer-logo {
+  position: absolute;
+  left: 53px;
+  /* 265-212 */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 336px;
+}
+
+.footer-logo-icon {
+  flex-shrink: 0;
+  width: 73px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-icon img {
+  width: 74px;
+  height: 74px;
+  display: block;
+}
+
+.footer-logo-wordmark {
+  width: 200px;
+  height: 52px;
+  display: block;
+}
+
+/* ── Nav links ── */
+/* Figma: left=665, top=7046-7009=37, pills spaced ~43px apart */
+.footer-nav {
+  position: absolute;
+  left: 453px;
+  /* 665-212 */
+  top: 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* ── Legal + back to top ── */
+/* Figma: left=852, top same as nav */
+.footer-legal {
+  position: absolute;
+  left: 640px;
+  /* 852-212 */
+  top: 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Shared pill style for nav + legal */
+.footer-pill {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  border-radius: 69px;
+  font-size: 18px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  padding: 6px 32px;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  transition: opacity 0.15s;
+}
+
+.footer-pill:hover {
+  opacity: 0.75;
+}
+
+/* "Powrót do góry" button */
+/* Figma: top=182.68 (from section), left=852, w=231, h=58 */
+.footer-back-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 60px;
+  width: 265px;
+  height: 58px;
+  white-space: nowrap;
+  background: var(--teal);
+  border: none;
+  border-radius: 69px;
+  padding: 0 24px;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  font-family: 'Instrument Sans', sans-serif;
+  transition: opacity 0.15s;
+}
+
+.footer-back-top:hover {
+  opacity: 0.75;
+}
+
+.footer-back-top img {
+  width: 46px;
+  height: 50px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Contact info ── */
+/* Figma: clock icon at left=1251.99 → card-relative: 1252-212=1040px */
+.footer-contact {
+  position: absolute;
+  left: 1040px;
+  /* 1252-212 */
+  top: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: flex-start;
+  column-gap: 16px;
+}
+
+.footer-contact-row img {
+  display: block;
+  margin: 1px auto 0;
+}
+
+/* Desktop icon sizes */
+.footer-contact-row img.icon-clock {
+  width: 34px;
+  height: 34px;
+}
+
+.footer-contact-row img.icon-pin {
+  width: 28px;
+  height: 41px;
+}
+
+.footer-contact-row img.icon-email {
+  width: 39px;
+  height: 25px;
+}
+
+.footer-contact-row img.icon-social {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin: 1px auto 0;
+}
+
+.footer-contact-row span {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+}
+
+/* ── Copyright ── */
+/* Figma: left=318, top=7235, section top=7009 → relative top=226+123padding */
+.footer-copy {
+  position: absolute;
+  bottom: 16px;
+  left: 318px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* On home page, footer-copy is inside the card — centered under the logo */
+.page--home .footer-copy {
+  left: 40px;
+  bottom: 28px;
+  width: 336px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════
+   CENNIK SECTION
+══════════════════════════════════════════ */
+.cennik {
+  position: relative;
+  width: 1920px;
+  height: 1300px;
+  z-index: 2;
+}
+
+/* Header pill — same visual style as all other section pills */
+.cennik-header-pill {
+  position: absolute;
+  top: 0;
+  left: 319px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Both price cards share the same position / shape */
+/* Figma: left=589.29, w=741.411, bg=#f4f4f4, rounded=39px */
+.cennik-card {
+  position: absolute;
+  left: 589px;
+  width: 741px;
+  background: var(--white);
+  border-radius: 39px;
+  padding: 48px 45px 48px 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card 1 — Ortopedia / USG: top=202px (5844-5642) */
+.cennik-card--1 {
+  top: 202px;
+}
+
+/* Card 2 — Rehab / Psych / Dietetyka: top=779px (6421-5642) */
+.cennik-card--2 {
+  top: 779px;
+}
+
+/* Standard price row */
+.cennik-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.35;
+}
+
+.cennik-row > span:first-child {
+  min-width: 390px;
+  flex-shrink: 0;
+}
+
+/* Category header row (no price, slightly more space above) */
+.cennik-row--cat {
+  margin-top: 4px;
+}
+
+/* Sub-item row (indented, has bullet icon) */
+.cennik-row--sub {
+  padding-left: 16px;
+}
+
+.cennik-row--sub>span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 374px;
+}
+
+/* Bullet icon — Figma: 24.105 × 12.915px */
+.cennik-bullet {
+  display: inline-block;
+  width: 24px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   ORTOPEDIA PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — right at top, left at mid-page */
+.ort-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 1882px 800px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -66px 2600px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.ortopedia {
+  position: relative;
+  width: 1920px;
+  padding-bottom: 80px;
+  z-index: 2;
+  /* height: auto — grows with content */
+}
+
+/* ORTOPEDIA header pill — same style as all section header pills */
+/* Absolutely positioned so text content flows below it via padding-top */
+.ort-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* ── Text content block ── */
+/* Flow layout (not absolute) — pushes doctor cards down naturally.
+   padding-top: 210px clears the header pill (pill at section-top+70px, h=88px → bottom at 158px;
+   we want text to start at ~210px so 210px padding gives a clean 52px gap below the pill). */
+.ort-content {
+  margin-left: 386px;
+  padding-top: 210px;
+  width: 1148px;
+}
+
+.ort-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-top: 28px;
+  margin-bottom: 14px;
+}
+
+.ort-content h2:first-child {
+  margin-top: 0;
+}
+
+.ort-content p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+/* Bullet list */
+.ort-list {
+  list-style: none;
+  margin: 0 0 8px;
+}
+
+.ort-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 2px;
+}
+
+.ort-list li img {
+  width: 18px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ── Doctors wrapper ── */
+/* Flow element after text; cards/photos/pills all absolutely positioned within it.
+   Height = tallest card (299px) + pill height (44px) to ensure wrapper is tall enough. */
+.ort-doctors {
+  position: relative;
+  width: 1920px;
+  height: 310px;
+  margin-top: 50px;
+}
+
+/* Sage background card — no overflow:hidden so PM photo can peek above card top */
+.ort-doctor-card {
+  position: absolute;
+  background: var(--sage);
+  border-radius: 39px;
+}
+
+/* Transparent cutout photo — sits over sage card */
+.ort-doctor-photo {
+  position: absolute;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Doctor name pills ── */
+/* Figma: h=44px, white bg, teal border 2px, rounded=69px
+   top≈234px within .ort-doctors (near bottom of ~295px cards) */
+.ort-doctor-pill {
+  position: absolute;
+  height: 44px;
+  background: var(--white);
+  border: 2px solid var(--teal);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  white-space: nowrap;
+  z-index: 2;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ort-doctor-pill:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+/* Mobile doctor grid — hidden on desktop, shown via mobile media query */
+.ort-doctors-mobile {
+  display: none;
+}
+
+/* ══════════════════════════════════════════
+   KONTAKT SECTION
+══════════════════════════════════════════ */
+.kontakt {
+  position: relative;
+  width: 1920px;
+  height: 2820px;
+  /* No background — page/body teal shows through, allowing radial ellipses to be visible */
+  z-index: 2;
+  margin-top: 170px;
+}
+
+/* ── Shared pill style (KONTAKT / GODZINY headers) ── */
+.kontakt-header-pill,
+.kontakt-godziny-pill {
+  position: absolute;
+  left: 319px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+.kontakt-header-pill {
+  top: 0;
+}
+
+.kontakt-godziny-pill {
+  top: 1595px;
+}
+
+/* ── Reception hero card (Justyna / Ewa) ── */
+/* Figma: left=362, top=173 (2966-2793), w=1199, h=456 */
+.kontakt-hero-card {
+  position: absolute;
+  top: 173px;
+  left: 362px;
+  width: 1199px;
+  height: 456px;
+  background: var(--sage);
+  border-radius: 39px;
+  overflow: hidden;
+}
+
+/* Photo: right side of card, top=23px (2989-2966), left=780px (1141.5-362=779.5) */
+.kontakt-justyna {
+  position: absolute;
+  top: 23px;
+  left: 780px;
+  width: 324px;
+  height: 433px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Body text: top=59px (3025-2966), left=110px (471.5-362=109.5), w=670px */
+.kontakt-hero-text {
+  position: absolute;
+  top: 59px;
+  left: 110px;
+  width: 670px;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.5;
+}
+
+/* Phone CTA: card top(173) + 286 = 459, card left(362) + 110 = 472 */
+.kontakt-cta-phone {
+  position: absolute;
+  top: 459px;
+  left: 472px;
+  width: 452px;
+  height: 114px;
+  background: var(--white);
+  border: 4px solid var(--teal);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.kontakt-cta-phone:hover {
+  background: var(--teal);
+  border-color: var(--white);
+}
+
+.kontakt-cta-phone:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.kontakt-cta-phone:hover span {
+  color: var(--white);
+}
+
+.kontakt-cta-phone img {
+  width: 45px;
+  height: 45px;
+  display: block;
+  transition: filter 0.2s;
+}
+
+.kontakt-cta-phone span {
+  font-size: 35px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: color 0.2s;
+}
+
+/* ── Clinic description ── */
+/* Figma: top=706px (3499-2793), left=369px, w=1185px, color=#f4f4f4 */
+.kontakt-clinic-desc {
+  position: absolute;
+  top: 706px;
+  left: 369px;
+  width: 1185px;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* ── Info card (address / hours / email) ── */
+/* Figma: top=859px (3652-2793), left=369px, w=500px, h=329px */
+.kontakt-info-card {
+  position: absolute;
+  top: 859px;
+  left: 369px;
+  width: 500px;
+  height: 329px;
+  background: var(--white);
+  border-radius: 39px;
+  padding: 49px 30px 30px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kontakt-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.kontakt-info-row img {
+  flex-shrink: 0;
+  display: block;
+  margin-top: 2px;
+}
+
+.kontakt-info-row span {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+}
+
+/* Legal pills — Figma: top=251px from card, Regulamin left=51, Polityka left=228 */
+.kontakt-legal {
+  display: flex;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.kontakt-legal-pill {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  border-radius: 69px;
+  font-size: 18px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  padding: 6px 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.kontakt-legal-pill:hover {
+  opacity: 0.75;
+}
+
+/* ── Social card ── */
+/* Figma: top=1250px (4043-2793), left=369px, w=500px, h=232px */
+.kontakt-social-card {
+  position: absolute;
+  top: 1250px;
+  left: 369px;
+  width: 500px;
+  height: 232px;
+  background: var(--white);
+  border-radius: 39px;
+  padding: 46px 30px 30px 55px;
+}
+
+.kontakt-social-heading {
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  margin-bottom: 28px;
+}
+
+.kontakt-social-btns {
+  display: flex;
+  gap: 34px;
+}
+
+/* Social btn pill: h=67px, w=165px, bg=sage */
+.kontakt-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  width: 165px;
+  height: 67px;
+  background: var(--sage);
+  border-radius: 69px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.kontakt-social-btn:hover {
+  background: var(--white);
+  box-shadow: inset 0 0 0 2px var(--sage);
+}
+
+.kontakt-social-btn img {
+  width: 38px;
+  height: 38px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Map image ── */
+/* Figma: top=859px (3652-2793), left=1009px, w=545px, h=489px */
+.kontakt-map {
+  position: absolute;
+  top: 859px;
+  left: 1009px;
+  width: 545px;
+  height: 489px;
+  border-radius: 39px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Mapa pill ── */
+/* Figma: top=1408px (4201-2793), left=1009px, w=295px, h=74px */
+.kontakt-mapa-pill {
+  position: absolute;
+  top: 1408px;
+  left: 1009px;
+  width: 295px;
+  height: 74px;
+  background: var(--white);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 34px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: background 0.15s;
+}
+
+.kontakt-mapa-pill:hover {
+  background: var(--sage);
+}
+
+/* ── Schedule section ── */
+/* Figma: top=1806px (4599-2793), shape left=589px */
+.kontakt-schedule {
+  position: absolute;
+  top: 1806px;
+  left: 589px;
+  width: 743px;
+  height: 921px;
+  background: white;
+  border-radius: 39px;
+}
+
+.schedule-bg-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Table sits on top of the bg shape */
+.schedule-table {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-collapse: collapse;
+  padding: 42px 0;
+  display: table;
+  margin-top: 42px;
+}
+
+.sch-day {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  vertical-align: top;
+  padding: 16px 24px 16px 75px;
+  white-space: nowrap;
+  width: 175px;
+  position: relative;
+}
+
+/* Teal line above each day group except the first */
+tbody tr:not(:first-child):has(.sch-day) .sch-day {
+  padding-top: 40px;
+}
+tbody tr:not(:first-child):has(.sch-day) .sch-spec,
+tbody tr:not(:first-child):has(.sch-day) .sch-time {
+  padding-top: 40px;
+}
+tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 44px;
+  width: 655px; /* card 743px - 44px left - 44px right */
+  height: 2px;
+  background: #015e55;
+}
+
+.sch-spec {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  vertical-align: top;
+  padding: 10px 20px 4px 0;
+  line-height: 1.35;
+  width: 300px;
+}
+
+.sch-spec span {
+  display: block;
+  /* specialist name shown smaller or same size, second line */
+}
+
+.sch-time {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  vertical-align: top;
+  padding: 10px 75px 4px 0;
+  white-space: nowrap;
+  text-align: right;
+}
+
+
+/* Full-width teal divider between day groups */
+.sch-divider td {
+  padding: 8px 0 0;
+  border: none;
+  background: transparent;
+}
+
+.sch-divider td+td {
+  background: #015e55;
+  height: 2px;
+  padding: 0;
+  line-height: 2px;
+  font-size: 0;
+}
+
+/* ══════════════════════════════════════════
+   REHABILITACJA PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — single right-side ellipse near page top */
+.rehab-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 7000px;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse 1226px 1261px at 1882px 700px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.rehabilitacja {
+  position: relative;
+  width: 1920px;
+  padding-bottom: 72px;
+  z-index: 2;
+}
+
+/* Header pill — identical style to .ort-header-pill */
+.rehab-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Content block — Figma: left=387, top=376 (218px below section top at 158) */
+.rehab-content {
+  margin-left: 387px;
+  padding-top: 218px;
+  width: 1147px;
+}
+
+.rehab-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+.rehab-content p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* "Nasi specjaliści:" heading — Figma has a blank 22px spacer line above it */
+.rehab-specialists-heading {
+  margin-top: 40px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Specialist pill — Figma: w=205, h=44, white bg, sage border 2px, rounded 69px */
+.rehab-specialist-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  width: 205px;
+  background: var(--white);
+  border: 2px solid var(--sage);
+  border-radius: 69px;
+  padding: 0 24px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.rehab-specialist-pill:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+/* ══════════════════════════════════════════
+   PSYCHOTERAPIA PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — right at top, left at mid-page */
+.psych-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 1882px 800px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -66px 2600px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.psychoterapia {
+  position: relative;
+  width: 1920px;
+  padding-bottom: 80px;
+  z-index: 2;
+}
+
+/* Header pill — Figma: left=319, top=228 (abs); section starts at 158 → top=70px */
+.psych-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Content block — Figma: left=386, text top=385 (abs) → padding-top=227px */
+.psych-content {
+  margin-left: 386px;
+  padding-top: 227px;
+  width: 1147px;
+}
+
+.psych-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-top: 28px;
+  margin-bottom: 14px;
+}
+
+.psych-content h2:first-child {
+  margin-top: 0;
+}
+
+.psych-content p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+/* Bullet list */
+.psych-list {
+  list-style: none;
+  margin: 0 0 16px;
+}
+
+.psych-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.psych-list li img {
+  width: 19px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+/* KW shaped card background image */
+.psych-card-bg {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════
+   DIETETYKA PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — right at top, left at mid-page */
+.diet-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 1882px 800px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -66px 2600px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.dietetyka {
+  position: relative;
+  width: 1920px;
+  padding-bottom: 80px;
+  z-index: 2;
+}
+
+/* Header pill — same position as other service pages */
+.diet-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Main text content block — white text, same margins as other service pages */
+/* Figma: left=386, text abs top=385 → padding-top = 385-158 = 227px */
+.diet-content {
+  margin-left: 386px;
+  padding-top: 227px;
+  width: 1147px;
+  margin-bottom: 36px;
+}
+
+.diet-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-top: 28px;
+  margin-bottom: 14px;
+}
+
+.diet-content h2:first-child {
+  margin-top: 0;
+}
+
+.diet-content p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* Bullet list — white text */
+.diet-list {
+  list-style: none;
+  margin: 0 0 16px;
+}
+
+.diet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.diet-list li img {
+  width: 19px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ── Packages sage box ── */
+/* Figma: left=455, w=1010, bg=sage, rounded=69px */
+/* Margins: left=455, right=1920-455-1010=455 (centered) */
+.diet-packages {
+  margin: 0 455px;
+  background: var(--sage);
+  border-radius: 69px;
+  padding: 42px 69px 48px;
+}
+
+/* "Pakiety współpracy." heading inside box */
+.diet-pkg-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.diet-packages p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* Bold package headings — "Pakiet Basic / Premium" */
+.diet-pkg-bold {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  font-variation-settings: 'wdth' 100;
+  margin-top: 18px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Bullet list inside sage box — teal text */
+.diet-pkg-list {
+  list-style: none;
+  margin: 8px 0 12px;
+}
+
+.diet-pkg-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.diet-pkg-list li img {
+  width: 19px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ── "Pierwszy krok" + Nasi specjaliści section ── */
+/* Figma: left=386, abs top=1843 → after packages box (ends ~1787) + 56px gap */
+.diet-lower {
+  margin-left: 386px;
+  margin-top: 56px;
+  width: 1108px;
+}
+
+.diet-lower h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.diet-lower p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+.diet-lower h2:last-child {
+  margin-top: 34px;
+  margin-bottom: 0;
+}
+
+/* ── "Umów wizytę" CTA button ── */
+/* Figma: left=926, top=2153 (abs) → 81px below card top (2072); w=539, h=101, rounded=50px */
+.diet-umow {
+  position: absolute;
+  left: 926px;
+  top: 81px;
+  width: 539px;
+  height: 101px;
+  background: var(--sage);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: background 0.15s;
+}
+
+.diet-umow:hover {
+  background: var(--white);
+}
+
+/* Large chevron for "Umów wizytę" — matches Figma's bigger arrow */
+.chevron-lg {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-right: 5px solid var(--teal);
+  border-top: 5px solid var(--teal);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════
+   LEKARZE SPECJALIŚCI PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — three ellipses covering short and tall pages */
+/* Short pages (~1500px) see first; specjalisci.html (9797px) sees all three */
+.spec-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 1882px 700px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -66px 2500px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at 1882px 5500px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+/* Section container — absolutely positioned children, explicit height.
+   Figma total page: 5212px; nav: 158px; footer starts: 4038px abs (3880px from section).
+   CTA button ends at 3741px from section. Set height to carry all content. */
+.spec {
+  position: relative;
+  width: 1920px;
+  height: 3760px;
+  z-index: 2;
+}
+
+/* Header pill — Figma abs top=235 → relative 77px; 30px (larger than service pages) */
+.spec-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 77px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Sage photo card — shared by all doctors */
+.spec-photo-card {
+  position: absolute;
+  background: var(--sage);
+  border-radius: 39px;
+}
+
+/* Transparent cutout photo — sits over sage card */
+.spec-photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Doctor text block — left=356px, top set per doctor via inline style */
+.spec-text {
+  position: absolute;
+  left: 356px;
+  width: 690px;
+  /* 1122-356-76px gap = fits left of photo card */
+}
+
+.spec-lek {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  margin-bottom: 2px;
+}
+
+.spec-name {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.spec-specialty {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  margin-bottom: 22px;
+}
+
+.spec-desc {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+}
+
+/* Hours card — white rounded box, left=356, top+height per doctor via inline style */
+/* Figma: text starts at left=420 → padding-left = 420-356 = 64px */
+.spec-hours {
+  position: absolute;
+  left: 356px;
+  width: 404px;
+  background: var(--white);
+  border-radius: 39px;
+  display: flex;
+  align-items: center;
+  padding-left: 64px;
+}
+
+.spec-hours p {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: normal;
+  white-space: pre;
+}
+
+/* Mobile-only hours paragraph (shown only inside @media 768px block) */
+.spec-hours-m { display: none; }
+
+/* CTA "Specjaliści" button — Figma abs top=3799 → relative 3641px */
+.spec-cta {
+  position: absolute;
+  left: 711px;
+  top: 3641px;
+  width: 537px;
+  height: 101px;
+  background: var(--sage);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-decoration: none;
+  font-size: 29px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  transition: background 0.15s;
+}
+
+.spec-cta:hover {
+  background: var(--white);
+}
+
+/* Absolutely-positioned description block used in specjalisci-mgr.html */
+.spec-mgr-desc {
+  position: absolute;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+}
+
+/* Bullet list inside .spec-mgr-desc */
+.spec-mgr-list {
+  list-style: none;
+  margin: 8px 0 12px;
+  padding: 0;
+}
+
+.spec-mgr-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.spec-mgr-list li img {
+  width: 19px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════════════════
+   POLITYKA PRYWATNOŚCI / REGULAMIN PAGE
+══════════════════════════════════════════ */
+
+/* Policy/regulamin pages — three XD ellipses (artboard 23):
+   Top-right: centre (2022,677)  Centre-left: centre (−10,3129)  Bottom: centre (2004,5651) */
+.policy-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 2022px 677px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -10px 3129px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at 2004px 5651px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.polityka {
+  position: relative;
+  width: 1920px;
+  padding-top: 240px;
+  /* prevents margin-collapse with .policy-card */
+  padding-bottom: 133px;
+  z-index: 2;
+}
+
+.policy-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* abs left=337, w=1246 → 337px side margins; abs top=398, pill bottom=250+88=338, section top=158 → margin-top=240px */
+.policy-card {
+  margin: 0 337px;
+  background: var(--white);
+  border-radius: 39px;
+  /* abs text left=424 → padding-left=424−337=87px; abs text top=453 → padding-top=453−398=55px */
+  padding: 55px 87px 60px;
+}
+
+.policy-card p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  font-style: normal;
+}
+
+.policy-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Heading: "KLAUZULA INFORMACYJNA..." */
+.policy-card .policy-title {
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+/* Point 5 — uppercase, semibold */
+.policy-card .policy-bold {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Last paragraph — italic */
+.policy-card .policy-italic {
+  font-style: italic;
+}
+
+/* Sub-items (a, b, c) with no gap below */
+.policy-card .policy-sub {
+  margin-bottom: 2px;
+}
+
+/* ══════════════════════════════════════════
+   LECZENIE BIOLOGICZNE PAGE
+══════════════════════════════════════════ */
+
+/* Decorative radial gradient — right at top, left at mid-page */
+.bio-radial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 10000px;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 1226px 1261px at 1882px 800px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+    radial-gradient(ellipse 1226px 1261px at -66px 2600px,
+      rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+      rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+      rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+}
+
+.leczenie-bio {
+  position: relative;
+  width: 1920px;
+  padding-bottom: 80px;
+  z-index: 2;
+}
+
+/* Main header pill — same style as .ort-header-pill */
+.bio-header-pill {
+  position: absolute;
+  left: 319px;
+  top: 70px;
+  width: 1283px;
+  height: 88px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Content block — mirrors .ort-content, aligned to Figma left edge 401px */
+.bio-content {
+  margin-left: 401px;
+  padding-top: 210px;
+  width: 1120px;
+}
+
+.bio-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.bio-content p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  /* Figma uses blank <p> spacers ≈ 26px between paragraphs */
+  margin-bottom: 26px;
+}
+
+/* Bold sub-headings within content */
+.bio-bold {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  /* Preceding p already has 26px margin-bottom; add 8px more for visual separation */
+  margin-top: 8px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Sub-pill — 62px, centered text (e.g. "Osocze bogatopłytkowe", "Kwas hialuronowy") */
+.bio-sub-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  background: var(--sage);
+  border-radius: 69px;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  white-space: nowrap;
+  /* Figma: ~29px gap above pill (last p's 26px covers it), 53px gap below */
+  margin: 8px 0 48px;
+}
+
+/* Process pill — 62px, left-aligned with bold+regular text */
+.bio-process-pill {
+  display: flex;
+  align-items: center;
+  height: 62px;
+  background: var(--sage);
+  border-radius: 69px;
+  padding: 0 54px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  white-space: nowrap;
+  /* Figma: ~137px gap above (after two-col section), 58px gap below to first step */
+  margin: 120px 0 42px;
+}
+
+.bio-process-pill strong {
+  font-size: 20px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Bullet list */
+.bio-list {
+  list-style: none;
+  /* Figma: bullets start ~38px after preceding text, end with ~26px gap before next element */
+  margin: 8px 0 32px;
+}
+
+.bio-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 2px;
+}
+
+.bio-list li img {
+  width: 19px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Two-column layout for collagen / PRP technology cards */
+.bio-two-col {
+  display: flex;
+  gap: 90px;
+  /* bottom margin is handled by bio-process-pill's large top margin */
+  margin: 20px 0 0;
+}
+
+.bio-col {
+  width: 511px;
+  flex-shrink: 0;
+}
+
+/* Column header pill — 52px, sage bg */
+.bio-col-pill {
+  height: 52px;
+  background: var(--sage);
+  border-radius: 69px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.bio-col p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+/* Numbered steps */
+.bio-steps {
+  margin: 8px 0 32px;
+}
+
+.bio-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  /* Figma: ~77-80px between circle centers; circle is 52px → ~26px bottom gap */
+  margin-bottom: 26px;
+}
+
+.bio-step-circle {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage);
+  border-radius: 50%;
+}
+
+.bio-step-circle img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bio-step-circle span {
+  position: relative;
+  z-index: 1;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1;
+}
+
+.bio-step-text {
+  padding-top: 4px;
+  flex: 1;
+}
+
+.bio-step-text strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.bio-step-text span {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.55;
+}
+
+/* FAQ card — sage rounded box, inset 54px each side within .bio-content */
+/* Figma: left=455px, w=1010px; content starts at 401px → 54px inset each side */
+/* Figma: 63px gap above (from step 4 bottom), 65px gap below to KH pill */
+.bio-faq {
+  background: var(--sage);
+  border-radius: 69px;
+  padding: 42px 80px;
+  margin: 48px 54px 50px;
+}
+
+/* Use .bio-content .bio-faq p (specificity 0,2,1) to beat .bio-content p (0,1,1) */
+.bio-content .bio-faq p {
+  color: var(--teal);
+  margin-bottom: 0;
+}
+
+.bio-faq-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 100;
+  margin-bottom: 16px;
+}
+
+.bio-faq-q {
+  font-size: 17px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 100;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.bio-faq-a {
+  font-size: 17px;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.5;
+}
+
+/* CTA button — "Lekarze specjaliści" */
+/* Figma: left=691, w=539, h=101, rounded=50px, bg=sage */
+/* Figma: ~100px gap above (from end of KH text), ~76px gap below to footer */
+.bio-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 539px;
+  height: 101px;
+  background: var(--sage);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--teal);
+  font-variation-settings: 'wdth' 100;
+  margin: 80px auto 56px;
+  transition: background 0.15s;
+}
+
+.bio-cta:hover {
+  background: var(--white);
+}
+
+
+/* Mobile-only text additions hidden on desktop */
+.hero-sub-garwolin {
+  display: none;
+}
+
+.footer-contact-phone {
+  display: none;
+}
+
+/* Carousel dots — hidden on desktop, shown via mobile media query */
+.carousel-dots {
+  display: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE  (≤ 768 px)
+   Home-page layout rules are scoped to .page--home so subpages
+   keep their JS-scaled desktop layout unchanged.
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Hide hamburger on desktop (default hidden, shown only inside query) ── */
+  .nav-hamburger {
+    display: none;
+  }
+
+  /* ══════════════════════════
+     HOME PAGE LAYOUT RESET
+  ══════════════════════════ */
+  .page--home {
+    width: 100%;
+    overflow: visible;
+    transform: none !important;
+    transform-origin: 0 0;
+  }
+
+  /* Collapse page-header so hero starts at y:0 (nav is position:fixed) */
+  .page--home .page-header {
+    height: 0;
+    overflow: visible;
+    width: 100%;
+  }
+
+  /* Hide desktop-only decorative elements */
+  .page--home .radial-ellipse,
+  .page--home .audience-bg-photo,
+  .page--home .audience-teal-blur {
+    display: none;
+  }
+
+  /* Mobile sage gradient — spans from photo fade through reviews into teal */
+  .page--home .hero-sage-gradient {
+    display: block;
+    left: -30px;
+    width: calc(100% + 60px);
+    top: 480px;
+    height: 900px;
+    background: linear-gradient(180deg,
+      rgba(197, 220, 186, 0.00) 0%,
+      rgba(197, 220, 186, 0.95) 22%,
+      #C5DCBA 38%,
+      #C5DCBA 62%,
+      #015E55 84%,
+      #015E55 100%
+    );
+    filter: blur(24px);
+    z-index: 1;
+  }
+
+  /* ══════════════
+     NAVIGATION
+  ══════════════ */
+  .page--home .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 123px;
+    padding: 0 39px 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    overflow: visible;
+    z-index: 100;
+  }
+
+  .page--home .nav-blur {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -80px;
+    background: rgba(1, 94, 85, 0.72);
+    filter: blur(35.104px);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    z-index: -1;
+  }
+
+  .page--home .logo {
+    position: static;
+    width: 222px;
+    height: 75px;
+    padding-left: 19px;
+    padding-right: 0;
+    border-radius: 14px;
+    gap: 16px;
+    left: auto;
+    top: auto;
+  }
+
+  .page--home .logo-icon-wrap {
+    width: 45px;
+    height: 45px;
+    border-radius: 0;
+    background: none;
+  }
+
+  .page--home .logo-icon-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .page--home .logo-wordmark {
+    width: 123px;
+    height: 32px;
+  }
+
+  .page--home .nav-pill {
+    display: none !important;
+  }
+
+  .page--home .nav-phone {
+    display: none !important;
+  }
+
+  /* Hamburger — shown only inside this media query */
+  .page--home .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 75px;
+    height: 75px;
+    background: var(--white);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .page--home .nav-hamburger span {
+    display: block;
+    width: 48px;
+    height: 5px;
+    background: var(--teal);
+    border-radius: 3px;
+  }
+
+  /* ══════════════════════
+     MOBILE MENU OVERLAY
+  ══════════════════════ */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(1, 94, 85, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+
+  .mobile-menu-inner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 78%;
+    max-width: 320px;
+    background: rgba(197, 220, 186, 0.95);
+    border-radius: 26px 0 0 26px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 24px 36px;
+  }
+
+  .mobile-menu-home-btn {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 52px;
+    height: 52px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .mobile-menu-home-btn::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 22px;
+    background: var(--teal);
+    clip-path: polygon(50% 0%, 0% 45%, 12% 45%, 12% 100%, 38% 100%, 38% 65%, 62% 65%, 62% 100%, 88% 100%, 88% 45%, 100% 45%);
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.45);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .mobile-menu-x {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-x::before,
+  .mobile-menu-x::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2.8px;
+    background: var(--teal);
+    border-radius: 3px;
+  }
+
+  .mobile-menu-x::before {
+    transform: rotate(45deg);
+  }
+
+  .mobile-menu-x::after {
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 96px;
+  }
+
+  .mobile-menu-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 22px;
+    background: var(--white);
+    border-radius: 50px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    font-variation-settings: 'wdth' 100;
+    align-self: flex-start;
+    white-space: nowrap;
+  }
+
+  .mobile-menu-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 24px;
+  }
+
+  .mobile-menu-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 22px;
+    background: var(--teal);
+    border-radius: 50px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+    font-variation-settings: 'wdth' 100;
+    align-self: flex-start;
+    white-space: nowrap;
+  }
+
+  /* ══════
+     HERO
+  ══════ */
+  .page--home .hero {
+    position: relative;
+    width: 100%;
+    height: 902px;
+    overflow: visible;
+    padding: 0;
+  }
+
+
+  .page--home .hero-photo-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 764px;
+    opacity: 0.94;
+    overflow: hidden;
+  }
+
+  .page--home .hero-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    content: url('assets/images/Mobile home page background.png');
+  }
+
+  .page--home .hero-copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  .page--home .hero-copy h1 {
+    position: absolute;
+    left: 85px;
+    top: 151px;
+    font-size: 24px;
+    font-weight: 500;
+    white-space: normal;
+    line-height: 1.3;
+    color: var(--teal);
+    text-shadow: 5px 0px 3px rgba(255, 255, 255, 0.99);
+    margin: 0;
+  }
+
+  .hero-sub-garwolin {
+    display: inline;
+  }
+
+  .page--home .hero-sub {
+    position: absolute;
+    left: 85px;
+    top: 211px;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: normal;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--teal);
+    text-shadow: 5px 0px 3px rgba(255, 255, 255, 0.99);
+  }
+
+  .page--home .cta-phone {
+    position: absolute;
+    left: 86px;
+    top: 460px;
+    width: 258px;
+    height: 65px;
+    border-width: 2px;
+  }
+
+  .page--home .cta-phone span {
+    font-size: 18px;
+  }
+
+  .page--home .cta-phone img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* USP cards */
+  .page--home .usp-row {
+    position: absolute;
+    left: 82px;
+    top: 569px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 0;
+  }
+
+  .page--home .usp-card {
+    width: 267px;
+    height: 92px;
+    border-radius: 14px;
+    overflow: hidden;
+    padding: 0 16px;
+    gap: 14px;
+  }
+
+  .page--home .usp-card:nth-child(3) {
+    border-radius: 12px;
+  }
+
+  .page--home .usp-card p {
+    font-size: 13px;
+    color: #f4f4f4;
+  }
+
+  .page--home .usp-card:nth-child(1) img {
+    width: 44px !important;
+    height: 30px !important;
+    flex-shrink: 0;
+  }
+
+  .page--home .usp-card:nth-child(2) img {
+    width: 44px !important;
+    height: 20px !important;
+    flex-shrink: 0;
+  }
+
+  .page--home .usp-card:nth-child(3) img {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════
+     REVIEWS
+  ═══════════ */
+  .page--home .reviews {
+    margin: 0 0 32px;
+    padding: 20px 0 18px;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+
+  .page--home .reviews-row {
+    display: flex;
+    justify-content: flex-start;
+    /* override desktop center — JS translateX assumes items start at x:0 */
+    gap: 32px;
+    padding: 10px 0;
+  }
+
+  .page--home .review-card {
+    flex-shrink: 0;
+    width: 246px;
+    /* fixed — JS centers based on this */
+    height: 183px;
+    /* fixed height so all cards match and section stays compact */
+    overflow: hidden;
+    padding: 28px 30px 23px;
+    border-radius: 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
+    transform: scale(0.88);
+    opacity: 0.72;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+
+  .page--home .review-card.is-active {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  .page--home .review-stars {
+    margin-bottom: 22px;
+    justify-content: center;
+  }
+
+  .page--home .review-stars span {
+    font-size: 16px;
+  }
+
+  .page--home .review-body {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .page--home .review-author {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  /* ── Carousel dots ── */
+  .page--home .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .page--home .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(1, 94, 85, 0.28);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+  }
+
+  .page--home .carousel-dot.active {
+    background: var(--teal);
+    transform: scale(1.35);
+  }
+
+  /* ═════════════
+     SERVICES
+  ═════════════ */
+  .page--home .services {
+    width: 100%;
+    height: auto !important;
+    background: transparent;
+    padding: 0 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page--home .services::after {
+    display: none;
+  }
+
+  .page--home .services-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 0 auto 16px;
+    font-size: 20px;
+    left: auto;
+    top: auto;
+  }
+
+  .page--home .service-pill {
+    position: static !important;
+    width: 240px !important;
+    height: 50px !important;
+    padding: 0 20px !important;
+    font-size: 15px !important;
+    margin-bottom: 10px;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* ══════════
+     AUDIENCE
+  ══════════ */
+  .page--home .audience {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 16px 60px;
+  }
+
+  .page--home .audience-card {
+    width: 268px;
+    padding: 20px 24px 24px;
+    border-radius: 20px;
+  }
+
+  .page--home .audience-age {
+    font-size: 51px;
+    margin-bottom: 8px;
+  }
+
+  .page--home .audience-title {
+    font-size: 21px;
+    margin-bottom: 8px;
+  }
+
+  .page--home .audience-desc {
+    font-size: 13px;
+  }
+
+  /* ══════════
+     KONTAKT
+  ══════════ */
+  .page--home .kontakt {
+    width: 100%;
+    height: auto !important;
+    margin-top: 0;
+    padding: 0 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .page--home .kontakt-header-pill,
+  .page--home .kontakt-godziny-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    left: auto;
+    top: auto;
+    font-size: 18px;
+  }
+
+  /* Reception card */
+  .page--home .kontakt-hero-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 360px;
+    height: 340px;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 18px;
+  }
+
+  .page--home .kontakt-justyna {
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    right: 15px;
+    left: auto;
+    height: 290px;
+    width: auto;
+    object-fit: initial;
+  }
+
+  .page--home .kontakt-hero-text {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 46%;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .page--home .kontakt-cta-phone {
+    position: relative;
+    top: auto;
+    left: auto;
+    align-self: center;
+    width: 220px;
+    height: 56px;
+    font-size: 16px;
+    border-width: 2px;
+    flex-shrink: 0;
+    margin: 20px 0;
+  }
+
+  .page--home .kontakt-cta-phone span {
+    font-size: 16px;
+  }
+
+  .page--home .kontakt-cta-phone img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .page--home .kontakt-clinic-desc {
+    display: none;
+  }
+
+  .page--home .kontakt-info-card {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    padding: 28px 24px 24px;
+    border-radius: 26px;
+  }
+
+  .page--home .kontakt-info-row span {
+    font-size: 15px;
+  }
+
+  .page--home .kontakt-legal {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .page--home .kontakt-legal-pill {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+
+  .page--home .kontakt-legal-pill:last-child {
+    flex: 1;
+    text-align: center;
+  }
+
+  .page--home .kontakt-social-card {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    padding: 28px 24px 28px;
+    border-radius: 26px;
+  }
+
+  .page--home .kontakt-social-heading {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .page--home .kontakt-social-btn {
+    width: 119px;
+    height: 48px;
+    padding: 0 14px;
+  }
+
+  .page--home .kontakt-social-btn img {
+    width: 27px;
+    height: 27px;
+  }
+
+  .page--home .kontakt-map {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 350px;
+    height: 260px;
+    border-radius: 26px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .page--home .kontakt-mapa-pill {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 220px;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 0 28px;
+  }
+
+  .page--home .kontakt-schedule {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 370px;
+    height: auto;
+    background: var(--white);
+    border-radius: 26px;
+    padding: 20px 0 24px;
+  }
+
+  .page--home .schedule-bg-shape {
+    display: none;
+  }
+
+  .page--home .schedule-table {
+    padding: 0;
+    margin-top: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .page--home .sch-day {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 8px 10px 18px;
+    white-space: nowrap;
+    width: auto;
+    vertical-align: top;
+  }
+
+  .page--home .sch-spec {
+    font-size: 11px;
+    padding: 6px 6px 3px 0;
+    width: auto;
+    line-height: 1.4;
+  }
+
+  .page--home .sch-spec span {
+    font-size: 10px;
+    opacity: 0.75;
+  }
+
+  .page--home .sch-time {
+    font-size: 11px;
+    padding: 6px 18px 3px 0;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .page--home .sch-divider td {
+    height: 2px;
+    background: #015e55;
+    padding: 0;
+    border: none;
+  }
+
+  /* ═══════════
+     CENNIK
+  ═══════════ */
+  .page--home .cennik {
+    width: 100%;
+    height: auto !important;
+    padding: 0 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .page--home .cennik-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 0 auto 16px;
+    font-size: 20px;
+    left: auto;
+    top: auto;
+  }
+
+  .page--home .cennik-card {
+    position: static !important;
+    width: 100%;
+    max-width: 370px;
+    padding: 24px 16px 24px 20px;
+    margin-bottom: 16px;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .page--home .cennik-row {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .page--home .cennik-row span:last-child {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .page--home .cennik-row--sub {
+    padding-left: 8px;
+  }
+
+  .page--home .cennik-bullet {
+    width: 16px;
+    height: 9px;
+  }
+
+  /* ═══════════
+     FOOTER
+  ═══════════ */
+  .page--home .site-footer {
+    width: 100%;
+    padding: 0 0 24px;
+  }
+
+  /* Card: flex row — teal circle left, contact block right */
+  .page--home .footer-card {
+    position: relative;
+    width: calc(100% - 60px);
+    max-width: 371px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 21px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+    padding: 16px 16px 28px 43px;
+    height: auto;
+    min-height: 162px;
+  }
+
+  /* Hide desktop-only sections */
+  .page--home .footer-logo,
+  .page--home .footer-nav {
+    display: none !important;
+  }
+
+  .page--home .footer-pill {
+    display: none !important;
+  }
+
+  /* footer-legal: just the circle button, flex-shrink so it doesn't grow */
+  .page--home .footer-legal {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Teal circle back-to-top button — SVG already contains the full circle+arrow */
+  .page--home .footer-back-top {
+    position: static !important;
+    width: 53px !important;
+    height: 53px !important;
+    min-width: 53px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer;
+    flex-shrink: 0 !important;
+  }
+
+  .page--home .footer-back-top img {
+    width: 53px !important;
+    height: 53px !important;
+    display: block !important;
+    filter: none !important;
+  }
+
+  /* Contact block — takes remaining width */
+  .page--home .footer-contact {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .page--home .footer-contact-row {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    align-items: center;
+  }
+
+  /* Icons: normalized height, centered in the 26px column */
+  .page--home .footer-contact-row img,
+  .page--home .footer-contact-row img.icon-clock,
+  .page--home .footer-contact-row img.icon-email {
+    display: block !important;
+    width: auto !important;
+    height: 14px !important;
+    max-width: 18px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    justify-self: center;
+  }
+
+  .page--home .footer-contact-row img.icon-pin {
+    display: block !important;
+    width: auto !important;
+    height: 20px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    justify-self: center;
+  }
+
+  /* Social icons: side-by-side, centered in the 26px grid column */
+  .page--home .footer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+  }
+
+  .page--home .footer-contact-row img.icon-social {
+    display: block !important;
+    width: 11px !important;
+    height: 11px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+
+  .page--home .footer-contact-row span {
+    font-size: 10px;
+    line-height: 1.3;
+    color: var(--teal);
+    font-weight: 500;
+    font-variation-settings: 'wdth' 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+  }
+
+  .page--home .footer-contact-phone {
+    display: grid !important;
+  }
+
+  /* Copyright — absolute at card bottom */
+  .page--home .footer-copy {
+    display: none;
+  }
+
+  .page--home .footer-card::after {
+    content: '© 2026 Przychodnia Lekarzy Specjalistów przy zieleniaku';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 7px;
+    color: var(--teal);
+    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
+    font-variation-settings: 'wdth' 100;
+    white-space: nowrap;
+  }
+
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE — ALL NON-HOME PAGES
+   Appended second mobile block so non-home rules can
+   co-exist with the home-page block above.
+═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Body / page global reset ── */
+  body {
+    height: auto !important;
+    overflow-x: hidden;
+  }
+
+  .page {
+    transform: none !important;
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .page-header {
+    width: 100%;
+  }
+
+  /* Hide desktop decorative radials */
+  .spec-radial,
+  .ort-radial,
+  .rehab-radial,
+  .psych-radial,
+  .diet-radial,
+  .bio-radial,
+  .policy-radial {
+    display: none !important;
+  }
+
+  /* ════════════════════════
+     NAV — NON-HOME PAGES
+  ════════════════════════ */
+  .page:not(.page--home) .nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    z-index: 100;
+    overflow: visible;
+  }
+
+  .page:not(.page--home) .nav-blur {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -60px;
+    background: rgba(1, 94, 85, 0.72);
+    filter: blur(35px);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    z-index: -1;
+  }
+
+  .page:not(.page--home) .logo {
+    position: static;
+    background: var(--white);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 12px;
+    height: 68px;
+    width: auto;
+    flex-shrink: 1;
+    min-width: 0;
+    text-decoration: none;
+  }
+
+  .page:not(.page--home) .logo-icon-wrap {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border-radius: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page:not(.page--home) .logo-icon-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .page:not(.page--home) .logo-wordmark {
+    width: 110px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .page:not(.page--home) .nav-pill,
+  .page:not(.page--home) .nav-phone {
+    display: none !important;
+  }
+
+  /* Hamburger — injected by sticky-nav.js, also applies to home page */
+  .page .nav-hamburger {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 68px;
+    height: 68px;
+    background: var(--white);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .page .nav-hamburger span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 3px;
+  }
+
+  /* ════════════════════════════
+     FOOTER — NON-HOME PAGES
+  ════════════════════════════ */
+  .page:not(.page--home) .site-footer {
+    width: 100%;
+    padding: 0 0 24px;
+  }
+
+  .page:not(.page--home) .footer-card {
+    position: relative;
+    width: calc(100% - 60px);
+    max-width: 371px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 21px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+    padding: 16px 16px 28px 43px;
+    height: auto;
+    min-height: 162px;
+  }
+
+  .page:not(.page--home) .footer-logo,
+  .page:not(.page--home) .footer-nav {
+    display: none !important;
+  }
+
+  .page:not(.page--home) .footer-pill {
+    display: none !important;
+  }
+
+  .page:not(.page--home) .footer-legal {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .page:not(.page--home) .footer-back-top {
+    position: static !important;
+    width: 53px !important;
+    height: 53px !important;
+    min-width: 53px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer;
+    flex-shrink: 0 !important;
+  }
+
+  .page:not(.page--home) .footer-back-top img {
+    display: block !important;
+    width: 53px !important;
+    height: 53px !important;
+    flex-shrink: 0;
+    filter: none !important;
+  }
+
+  .page:not(.page--home) .footer-contact {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .page:not(.page--home) .footer-contact-row {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    align-items: center;
+  }
+
+  .page:not(.page--home) .footer-contact-row img,
+  .page:not(.page--home) .footer-contact-row img.icon-clock,
+  .page:not(.page--home) .footer-contact-row img.icon-email {
+    display: block !important;
+    width: auto !important;
+    height: 14px !important;
+    max-width: 18px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    justify-self: center;
+  }
+
+  .page:not(.page--home) .footer-contact-row img.icon-pin {
+    display: block !important;
+    width: auto !important;
+    height: 20px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    justify-self: center;
+  }
+
+  .page:not(.page--home) .footer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+  }
+
+  .page:not(.page--home) .footer-contact-row img.icon-social {
+    display: block !important;
+    width: 11px !important;
+    height: 11px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+
+  .page:not(.page--home) .footer-contact-row span {
+    font-size: 10px;
+    line-height: 1.3;
+    color: var(--teal);
+    font-weight: 500;
+    font-variation-settings: 'wdth' 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+  }
+
+  .page:not(.page--home) .footer-contact-phone {
+    display: grid !important;
+  }
+
+  .page:not(.page--home) .footer-copy {
+    display: none;
+  }
+
+  .page:not(.page--home) .footer-card::after {
+    content: '© 2026 Przychodnia Lekarzy Specjalistów przy zieleniaku';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 7px;
+    color: var(--teal);
+    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
+    font-variation-settings: 'wdth' 100;
+    white-space: nowrap;
+  }
+
+  /* ══════════════════════════════════════════
+     DOCTOR PROFILE & LISTING PAGES  (.spec)
+  ══════════════════════════════════════════ */
+  .page:not(.page--home) .spec {
+    position: relative;
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px 30px 48px;
+  }
+
+  /* Header pill — listing pages (lekarze, specjalisci) */
+  .page:not(.page--home) .spec-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 4px auto 20px;
+    font-size: 20px;
+    left: auto;
+    top: auto;
+    border-radius: 50px;
+  }
+
+  /* Photo card: absolute right column — right: 41px matches Figma (430px frame: left=203, w=186 → 430-389=41) */
+  .page:not(.page--home) .spec-photo-card {
+    position: absolute !important;
+    right: 41px !important;
+    left: auto !important;
+    top: 46px !important;
+    width: 186px !important;
+    height: 221px !important;
+    border-radius: 27px;
+  }
+
+  /* Doctor photo: absolute right — right: 52px (Figma: left=210, w=168 → 430-378=52) */
+  .page:not(.page--home) .spec-photo {
+    position: absolute !important;
+    right: 52px !important;
+    left: auto !important;
+    top: 43px !important;
+    width: 168px !important;
+    height: 224px !important;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 3;
+  }
+
+  /* Text block: static flow, full width. padding-top pushes lek/name/specialty
+     down to sit beside the photo card's visual centre, matching mobile Figma. */
+  .page:not(.page--home) .spec-text {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    min-height: 209px;
+    padding-top: 98px;
+  }
+
+  /* Constrain first three items to left column */
+  .page:not(.page--home) .spec-lek,
+  .page:not(.page--home) .spec-name,
+  .page:not(.page--home) .spec-specialty {
+    max-width: 56%;
+  }
+
+  .page:not(.page--home) .spec-lek {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .page:not(.page--home) .spec-name {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .spec-specialty {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .spec-desc {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  /* Hours: static, rendered as inline card */
+  .page:not(.page--home) .spec-hours {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    height: 38px !important;
+    width: auto !important;
+    max-width: 100%;
+    padding: 0 16px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .spec-hours p {
+    font-size: 10px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  /* CTA button */
+  .page:not(.page--home) .spec-cta {
+    position: static;
+    width: 100%;
+    max-width: 280px;
+    height: 56px;
+    font-size: 18px;
+    margin: 24px auto 0;
+    display: flex;
+    left: auto;
+    top: auto;
+    border-radius: 50px;
+  }
+
+  /* Mgr description block */
+  .page:not(.page--home) .spec-mgr-desc {
+    font-size: 15px;
+    margin-left: 0;
+  }
+
+  .page:not(.page--home) .spec-mgr-list li {
+    font-size: 14px;
+  }
+
+  /* ══════════════════════════════════════════
+     LEKARZE — DOCTOR-ENTRY MOBILE LAYOUT
+  ══════════════════════════════════════════ */
+
+  /*
+   * Grid: left col (text+hours) | right col (photo, 186px)
+   * Row 1 = 230px — photo card height; spec-text (align-self:start) and
+   *          spec-hours (align-self:end) both live here so hours bottom
+   *          aligns exactly with photo card bottom
+   * Row 2 = description (spans both columns)
+   */
+  .page:not(.page--home) .doctor-entry {
+    display: grid;
+    grid-template-columns: 1fr 186px;
+    grid-template-rows: 230px auto;
+    position: relative;
+    padding-bottom: 48px;
+  }
+
+  /* Photo card (sage bg): full height, starts at same level as photo */
+  .page:not(.page--home) .doctor-entry .spec-photo-card {
+    position: absolute !important;
+    right: 0 !important;
+    left: auto !important;
+    top: 10px !important;
+    width: 186px !important;
+    height: 220px !important;
+    border-radius: 24px;
+  }
+
+  /* Photo link: smaller than card, same top — card background visible as frame */
+  .page:not(.page--home) .spec-photo-link {
+    position: absolute !important;
+    left: auto !important;
+    right: 12px !important;
+    top: 10px !important;
+    width: 162px !important;
+    height: 220px !important;
+    display: block !important;
+    z-index: 3;
+  }
+
+  /* Photo inside the link */
+  .page:not(.page--home) .spec-photo-link .spec-photo {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 162px !important;
+    height: 220px !important;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* Text: left col, row 1 — margin-top pushes it below photo's top area */
+  .page:not(.page--home) .doctor-entry .spec-text {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    margin-top: 40px;
+    padding: 0 !important;
+    min-height: 0 !important;
+    width: auto !important;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-lek,
+  .page:not(.page--home) .doctor-entry .spec-name,
+  .page:not(.page--home) .doctor-entry .spec-specialty {
+    max-width: 100%;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-lek {
+    font-size: 13px;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-name {
+    font-size: 24px;
+    line-height: normal;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-specialty {
+    font-size: 13px;
+    line-height: normal;
+  }
+
+  /* Hours: left col, row 1 — pinned to bottom so it aligns with photo card bottom */
+  .page:not(.page--home) .doctor-entry .spec-hours {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1;
+    background: #f4f4f4 !important;
+    border-radius: 18px !important;
+    padding: 13px 18px !important;
+    align-items: flex-start !important;
+    align-self: end;
+    justify-self: start;
+    width: calc(100% - 24px) !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-hours p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--teal);
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Description: full width, row 2 */
+  .page:not(.page--home) .doctor-entry .spec-desc {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  /* ══════════════════════════════════════════
+     SPECJALIŚCI — SPEC-MGR-DESC & STACKED ENTRIES
+  ══════════════════════════════════════════ */
+
+  /* spec-mgr-desc inside doctor-entry: full width, grid row 2 (same as spec-desc) */
+  .page:not(.page--home) .doctor-entry .spec-mgr-desc {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-mgr-desc p {
+    margin-bottom: 12px;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-mgr-desc p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Stacked variant: description is inside spec-text; use block layout */
+  .page:not(.page--home) .doctor-entry--stacked {
+    display: block !important;
+    padding-right: 200px;
+    min-height: 240px;
+  }
+
+  .page:not(.page--home) .doctor-entry--stacked .spec-text .spec-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 16px;
+  }
+
+  .page:not(.page--home) .doctor-entry--stacked .spec-hours {
+    margin-top: 16px !important;
+  }
+
+  /* No-photo stacked variant */
+  .page:not(.page--home) .doctor-entry--stacked.doctor-entry--no-photo {
+    padding-right: 0;
+    min-height: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     ORTOPEDIA / USG / ORTOPEDIA DZIECIĘCA
+  ══════════════════════════════════════════ */
+  .page:not(.page--home) .ortopedia {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 30px 48px;
+    position: relative;
+  }
+
+  .page:not(.page--home) .ort-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 24px auto 0;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .ort-content {
+    margin-left: 0;
+    padding-top: 20px;
+    padding-left: 22px;
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  .page:not(.page--home) .ort-content h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .ort-content p {
+    font-size: 12px;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .page:not(.page--home) .ort-list {
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .ort-list li {
+    font-size: 12px;
+    gap: 8px;
+    margin-bottom: 1px;
+    line-height: 1.5;
+  }
+
+  .page:not(.page--home) .ort-list li img {
+    width: 14px;
+    height: 7px;
+    flex-shrink: 0;
+  }
+
+  .page:not(.page--home) .ort-doctors {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .page:not(.page--home) .ort-doctor-card {
+    display: none !important;
+  }
+
+  .page:not(.page--home) .ort-doctor-photo {
+    display: none !important;
+  }
+
+  .page:not(.page--home) .ort-doctor-pill {
+    position: static !important;
+    width: auto !important;
+    height: 44px !important;
+    left: auto !important;
+    top: auto !important;
+    padding: 0 20px !important;
+    font-size: 15px !important;
+    display: inline-flex !important;
+  }
+
+  /* Mobile doctor grid */
+  .page:not(.page--home) .ort-doctors {
+    display: none !important;
+  }
+
+  .ort-doctors-mobile {
+    display: grid;
+    grid-template-columns: 143px 143px;
+    justify-content: center;
+    gap: 24px 16px;
+    margin-top: 20px;
+    padding-bottom: 8px;
+  }
+
+  .ort-mobile-card {
+    position: relative;
+  }
+
+  .ort-mobile-card-bg {
+    position: relative;
+    background: var(--sage);
+    border-radius: 13px;
+    height: 170px;
+    overflow: hidden;
+  }
+
+  .ort-mobile-card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    pointer-events: none;
+  }
+
+  .ort-mobile-card-pill {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f4f4f4;
+    border: 1.5px solid var(--teal);
+    border-radius: 69px;
+    width: 88%;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 12px;
+    text-decoration: none;
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
+    font-variation-settings: 'wdth' 100;
+    line-height: 1.25;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  .ort-mobile-card-pill .chevron {
+    width: 8px;
+    height: 8px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+
+  .ort-mobile-card--pill-only {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .ort-mobile-card--pill-only .ort-mobile-card-pill {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  /* ════════════════════
+     REHABILITACJA
+  ════════════════════ */
+  .page:not(.page--home) .rehabilitacja {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 30px 120px;
+    position: relative;
+  }
+
+  .page:not(.page--home) .rehab-header-pill {
+    position: static;
+    width: 100%;
+    height: 55px;
+    margin: 24px 0 0;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .rehab-content {
+    margin-left: 0;
+    padding-top: 28px;
+    padding-left: 30px;
+    width: 100%;
+  }
+
+  .page:not(.page--home) .rehab-content h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .page:not(.page--home) .rehab-content p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .page:not(.page--home) .rehab-specialists-heading {
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .page:not(.page--home) .rehab-specialist-pill {
+    position: static !important;
+    width: 125px !important;
+    height: 41px !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.25;
+    white-space: normal;
+    border: 1.5px solid var(--teal);
+    border-radius: 69px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* ════════════════════
+     PSYCHOTERAPIA
+  ════════════════════ */
+  .page:not(.page--home) .psychoterapia {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 30px 48px;
+  }
+
+  .page:not(.page--home) .psych-header-pill {
+    position: static;
+    width: 100%;
+    height: 55px;
+    margin: 24px 0 0;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .psych-content {
+    margin-left: 0;
+    padding-top: 20px;
+    padding-left: 22px;
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  .page:not(.page--home) .psych-content h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .psych-content p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .psych-list {
+    margin: 8px 0 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .page:not(.page--home) .psych-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .psych-list li img {
+    width: 14px;
+    height: 7px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* ════════════════════
+     DIETETYKA
+  ════════════════════ */
+  .page:not(.page--home) .dietetyka {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 30px 48px;
+  }
+
+  .page:not(.page--home) .diet-header-pill {
+    position: static;
+    width: 100%;
+    height: 55px;
+    margin: 24px 0 0;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .diet-content {
+    margin-left: 0;
+    padding-top: 20px;
+    padding-left: 22px;
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  .page:not(.page--home) .diet-content h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .diet-content p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .diet-list {
+    margin: 6px 0 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .page:not(.page--home) .diet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .diet-list li img {
+    width: 14px;
+    height: 7px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .page:not(.page--home) .diet-packages {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 20px 0 0;
+    padding: 20px 22px;
+    border-radius: 24px;
+  }
+
+  .page:not(.page--home) .diet-pkg-title {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .page:not(.page--home) .diet-packages p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .page:not(.page--home) .diet-pkg-bold {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-top: 12px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .page:not(.page--home) .diet-pkg-list {
+    margin: 4px 0 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .page:not(.page--home) .diet-pkg-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .diet-pkg-list li img {
+    width: 14px;
+    height: 7px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .page:not(.page--home) .diet-lower {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    margin-left: 0;
+    width: 100%;
+    padding-left: 22px;
+    padding-right: 16px;
+    padding-top: 20px;
+  }
+
+  .page:not(.page--home) .diet-lower h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .diet-lower h2:last-child {
+    margin-top: 24px;
+  }
+
+  .page:not(.page--home) .diet-lower p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .diet-umow--mobile {
+    display: none;
+  }
+
+  .page:not(.page--home) .diet-umow--mobile {
+    display: flex;
+    position: static;
+    width: 243px;
+    height: 50px;
+    font-size: 15px;
+    margin: 20px auto 0;
+    left: auto;
+    top: auto;
+    border-radius: 50px;
+  }
+
+  /* ════════════════════════════
+     LECZENIE BIOLOGICZNE
+  ════════════════════════════ */
+  .page:not(.page--home) .leczenie-bio {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 30px 48px;
+  }
+
+  .page:not(.page--home) .bio-header-pill {
+    position: static;
+    width: 100%;
+    height: 55px;
+    margin: 24px 0 0;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .bio-content {
+    margin-left: 0;
+    padding-top: 32px;
+    padding-left: 33px;
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  .page:not(.page--home) .bio-content h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+
+  .page:not(.page--home) .bio-content p {
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .page:not(.page--home) .bio-faq p {
+    margin-bottom: 6px;
+  }
+
+  .page:not(.page--home) .bio-bold {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-top: 20px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .page:not(.page--home) .bio-list {
+    margin: 8px 0 20px;
+  }
+
+  .page:not(.page--home) .bio-list li {
+    font-size: 12px;
+    gap: 8px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .bio-list li img {
+    width: 14px;
+    height: 7px;
+    margin-top: 4px;
+  }
+
+  .page:not(.page--home) .bio-sub-pill {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: calc(100% + 49px) !important;
+    margin-left: -33px;
+    height: auto !important;
+    min-height: 55px;
+    padding: 14px 20px;
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .page:not(.page--home) .bio-two-col {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    left: auto !important;
+    top: auto !important;
+    position: static !important;
+  }
+
+  .page:not(.page--home) .bio-col {
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+  }
+
+  .page:not(.page--home) .bio-col p {
+    font-size: 12px;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .page:not(.page--home) .bio-col-pill {
+    position: static !important;
+    width: calc(100% + 49px) !important;
+    margin-left: -33px;
+    height: auto !important;
+    left: auto !important;
+    top: auto !important;
+    padding: 14px 20px;
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .page:not(.page--home) .bio-process-pill {
+    position: static !important;
+    width: calc(100% + 49px) !important;
+    margin-left: -33px;
+    height: auto !important;
+    left: auto !important;
+    top: auto !important;
+    padding: 14px 28px;
+    font-size: 12px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    white-space: normal;
+    line-height: 1.5;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page:not(.page--home) .bio-process-pill strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .page:not(.page--home) .bio-steps {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .bio-step {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .page:not(.page--home) .bio-step-circle {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    background: var(--sage);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .page:not(.page--home) .bio-step-circle span {
+    font-size: 28px;
+  }
+
+  .page:not(.page--home) .bio-step-text {
+    padding-top: 4px;
+  }
+
+  .page:not(.page--home) .bio-step-text strong {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .page:not(.page--home) .bio-step-text span {
+    font-size: 12px;
+  }
+
+  .page:not(.page--home) .bio-faq {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: calc(100% + 49px) !important;
+    margin-left: -33px;
+    height: auto !important;
+    margin-top: 36px;
+    margin-bottom: 0;
+    padding: 24px 28px;
+    border-radius: 30px;
+  }
+
+  .page:not(.page--home) .bio-faq-title {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .page:not(.page--home) .bio-faq-q {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+
+  .page:not(.page--home) .bio-faq-a {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .page:not(.page--home) .bio-cta {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 291px;
+    height: 54px;
+    margin: 20px auto 0;
+    font-size: 14px;
+    border-radius: 50px;
+    gap: 10px;
+  }
+
+  /* ════════════════════════════════
+     POLITYKA PRYWATNOŚCI / REGULAMIN
+  ════════════════════════════════ */
+  .page:not(.page--home) .polityka {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 16px 48px;
+  }
+
+  .page:not(.page--home) .policy-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 24px auto 16px;
+    font-size: 18px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .policy-card {
+    margin: 0;
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .page:not(.page--home) .policy-card p {
+    font-size: 13px;
+  }
+
+  /* ════════════════════════════════
+     USŁUGI PAGE (standalone uslugi.html)
+  ════════════════════════════════ */
+  .page:not(.page--home) .services {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page:not(.page--home) .services::after {
+    display: none;
+  }
+
+  .page:not(.page--home) .services-header-pill {
+    position: static;
+    width: 100%;
+    max-width: 370px;
+    height: 55px;
+    margin: 24px auto 16px;
+    font-size: 20px;
+    border-radius: 50px;
+    left: auto;
+    top: auto;
+  }
+
+  .page:not(.page--home) .service-pill {
+    position: static !important;
+    width: 240px !important;
+    height: 50px !important;
+    padding: 0 20px !important;
+    font-size: 15px !important;
+    margin-bottom: 10px;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* ════════════════════════════════
+     KOSIECZ — hours pill bottom aligned with photo card bottom
+     Selector specificity 0,3,0 — beats the shared 0,3,0 rule via source order
+  ════════════════════════════════ */
+  .page--kosiecz .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;   /* photo card center(157) + 10px gap */
+    left: 30px !important;
+    right: auto !important;
+    margin-top: 0 !important;
+  }
+
+  /* padding-top: 55px → text ends at 20+55+72=147px (photo center 157px − 10px gap) */
+  /* min-height: 247px → spec-text bottom at 267px = photo card bottom → desc starts there */
+  .page--kosiecz .spec .spec-text {
+    padding-top: 55px !important;
+    min-height: 247px !important;
+  }
+
+  /* Photo slightly inset from card edges — forehead stays inside card */
+  .page--kosiecz .spec .spec-photo {
+    top: 52px !important;
+    height: 215px !important;
+  }
+
+  /* ════════════════════════════════
+     MELON — photo card, photo, hours, and description overrides
+     Figma (430px frame, nav=129px):
+       card: left=212, top=172, 186×221 → right=32, top=43, bottom=264
+       photo: left=215, top=158, 176×235 → right=39, top=29, bottom=264 (overflows card top by 14px, aligned at bottom)
+       hours: left=37, top=308, 149×85 → section-top=179, bottom=264 (aligned with card bottom)
+       name at section-top=90 (219−129)
+       desc at section-top=289 (418−129)
+  ════════════════════════════════ */
+  .page--melon .spec .spec-photo-card {
+    right: 30px !important;
+    top: 43px !important;
+    width: 186px !important;
+    height: 220px !important;
+    border-radius: 24px !important;
+  }
+
+  .page--melon .spec .spec-photo {
+    right: 42px !important;   /* 30+12: photo inset 12px from card right */
+    top: 43px !important;
+    width: 162px !important;
+    height: 220px !important;
+  }
+
+  /* Hours: absolute, styled like lekarze doctor-entry hours card */
+  .page--melon .spec .spec-hours {
+    position: absolute !important;
+    top: 163px !important;   /* photo card center(153) + 10px gap */
+    left: 30px !important;
+    right: auto !important;
+    height: auto !important;
+    width: auto !important;
+    background: #f4f4f4 !important;
+    border-radius: 18px !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 13px 18px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Hide desktop paragraph, show mobile-formatted one */
+  .page--melon .spec .spec-hours > p:first-child {
+    display: none !important;
+  }
+  .page--melon .spec .spec-hours .spec-hours-m {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* spec-text: padding-top so specialty ends at photo center(153)−10px=143px from section top;
+     min-height ensures desc starts below photo bottom (43+220=263 → 263−20=243px) */
+  .page--melon .spec .spec-text {
+    padding-top: 51px !important;
+    min-height: 243px !important;
+  }
+
+  /* ════════════════════════════════
+     MICHAŁEK
+     Figma (430px frame, nav=129px):
+       card: left=203, top=175, 186×221 → right=41, top=46 ← matches shared CSS, no override
+       photo: left=212, top=181, 161×215 → right=57, top=52, bottom=267=card bottom
+       hours: left=42, top=358, h=38 → section-top=229, bottom=267=card bottom
+       name: top=241 → section-top=112
+       desc: top=420 → section-top=291
+  ════════════════════════════════ */
+  .page--michalek .spec .spec-photo {
+    right: 57px !important;
+    top: 52px !important;
+    width: 161px !important;
+    height: 215px !important;
+  }
+
+  .page--michalek .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;   /* photo card center(157) + 10px gap */
+    left: 30px !important;
+    right: auto !important;
+    background: #f4f4f4 !important;
+    margin-top: 0 !important;
+  }
+
+  /* padding-top so specialty ends at photo center(157)−10px=147px from section top;
+     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
+  .page--michalek .spec .spec-text {
+    padding-top: 55px !important;
+    min-height: 247px !important;
+  }
+
+  /* ════════════════════════════════
+     PAWELEC — no photo, desc moved outside spec-text (sibling after spec-hours)
+     Figma (430px frame, nav=129px):
+       name: top=251 → section-top=122 ≈ shared pad-top(98)+section-pad(20)=118 ✓
+       hours: top=405 → section-top=276; spec-text min-height(209)+section-pad(20)=229 → margin-top=47
+       desc: top=468 → section-top=339; flows naturally after hours (314+16=330) ≈ ✓
+  ════════════════════════════════ */
+  .page--pawelec .spec .spec-lek,
+  .page--pawelec .spec .spec-name,
+  .page--pawelec .spec .spec-specialty {
+    max-width: 149px !important;
+  }
+
+  .page--pawelec .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;   /* photo card center(157) + 10px gap */
+    left: 30px !important;
+    right: auto !important;
+    background: #f4f4f4 !important;
+    margin-top: 0 !important;
+  }
+
+  /* padding-top so specialty ends at photo center(157)−10px=147px from section top;
+     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
+  .page--pawelec .spec .spec-text {
+    padding-top: 55px !important;
+    min-height: 247px !important;
+  }
+
+  /* ════════════════════════════════
+     BARAN — spec-desc is now a standalone element (was second spec-text div);
+     hours were on the right column (desktop), moved to left below name on mobile.
+     Photo card center: shared top=46, height=221 → center=157px
+     Text ends at 157−10=147px; hours start at 157+10=167px
+  ════════════════════════════════ */
+  .page--baran .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;   /* photo card center(157) + 10px gap */
+    left: 30px !important;
+    right: auto !important;
+    height: auto !important;
+    width: auto !important;
+    background: #f4f4f4 !important;
+    border-radius: 18px !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 13px 18px !important;
+    margin-top: 0 !important;
+    padding-left: 18px !important;
+    padding-top: 13px !important;
+  }
+
+  /* Hide desktop paragraph (right-column nbsp-padded), show mobile-formatted one */
+  .page--baran .spec .spec-hours > p:first-child {
+    display: none !important;
+  }
+  .page--baran .spec .spec-hours .spec-hours-m {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* padding-top: specialty "Psychoterapia" is 1 line → shorter block → more padding;
+     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
+  .page--baran .spec .spec-text {
+    padding-top: 69px !important;
+    min-height: 247px !important;
+  }
+
+}

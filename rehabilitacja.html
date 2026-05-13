@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehabilitacja – Przy Zieleniaku Garwolin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Decorative radial ellipse -->
+  <div class="rehab-radial"></div>
+
+  <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <div class="page-header">
+    <header class="nav">
+      <div class="nav-blur"></div>
+
+      <a href="index.html" class="logo" aria-label="Przy Zieleniaku">
+        <div class="logo-icon-wrap">
+          <img src="assets/logo/logo-icon.svg" alt="" class="logo-icon-img" />
+        </div>
+        <img src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" class="logo-wordmark" />
+      </a>
+
+      <nav class="nav-pill" aria-label="Menu główne">
+        <a href="index.html">Home</a>
+        <a href="uslugi.html">Usługi</a>
+        <a href="specjalisci.html">Specjaliści</a>
+        <a href="index.html#cennik">Cennik</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+
+      <a href="tel:665664695" class="nav-phone" aria-label="Zadzwoń">
+        <img src="assets/icons/Phone.svg" alt="" />
+      </a>
+    </header>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       REHABILITACJA SECTION
+  ══════════════════════════════════════ -->
+  <section class="rehabilitacja">
+
+    <div class="rehab-header-pill">REHABILITACJA</div>
+
+    <div class="rehab-content">
+
+      <h2>Terapia wspierająca powrót do sprawności.</h2>
+
+      <p>Prowadzimy terapię manualną wspierającą leczenie ortopedyczne oraz proces regeneracji po urazach i przeciążeniach. Rehabilitacja ukierunkowana jest na zmniejszenie bólu, poprawę ruchomości stawów oraz przywrócenie prawidłowej funkcji narządu ruchu. Program terapii dostosowywany jest indywidualnie do potrzeb i możliwości pacjenta.</p>
+
+      <h2 class="rehab-specialists-heading">Nasi specjaliści:</h2>
+
+      <div class="rehab-specialists">
+        <a href="kondej.html" class="rehab-specialist-pill">
+          Mgr. Michał Kondej
+          <span class="chevron"></span>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="site-footer">
+
+    <div class="footer-card">
+
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <img src="assets/logo/logo-icon.svg" alt="" />
+        </div>
+        <img class="footer-logo-wordmark" src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" />
+      </div>
+
+      <nav class="footer-nav">
+        <a href="uslugi.html" class="footer-pill">Usługi</a>
+        <a href="specjalisci.html" class="footer-pill">Specjaliści</a>
+        <a href="index.html#cennik" class="footer-pill">Cennik</a>
+        <a href="index.html#opinie" class="footer-pill">Opinie</a>
+        <a href="index.html#kontakt" class="footer-pill">Kontakt</a>
+      </nav>
+
+      <div class="footer-legal">
+        <a href="regulamin.html" class="footer-pill">Regulamin</a>
+        <a href="polityka-prywatnosci.html" class="footer-pill">Polityka prywatności</a>
+        <button class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+          <img src="assets/icons/go to the top arrow.svg" alt="" />
+          Powrót do góry
+        </button>
+      </div>
+
+      <div class="footer-contact">
+        <div class="footer-contact-row footer-contact-phone">
+          <img src="assets/icons/Phone.svg" alt="" />
+          <span>665 664 695</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/clock-green.svg" alt="" class="icon-clock" />
+          <span>Pon. - Pt. 9:00 - 18:00</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/Map green.svg" alt="" class="icon-pin" />
+          <span>Ul. Krótka 1, piętro 2<br>08 - 400 Garwolin</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/mail.svg" alt="" class="icon-email" />
+          <span>Rejestracja.ziel23@gmail.com</span>
+        </div>
+        <div class="footer-contact-row">
+          <div class="footer-social-icons">
+            <img src="assets/icons/instagram.svg" alt="" class="icon-social" />
+            <img src="assets/icons/Facebook.svg" alt="" class="icon-social" />
+          </div>
+          <span>Przychodnia_przy_zieleniaku</span>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 Przychodnia Lekarzy Specjalistów przy zieleniaku</p>
+
+    </div><!-- .footer-card -->
+
+  </footer>
+
+</div><!-- .page -->
+
+<script>
+  function applyScale() {
+    if (window.innerWidth <= 768) {
+      document.querySelector('.page').style.transform = 'none';
+      document.querySelector('.page').style.width = '100%';
+      document.body.style.height = '';
+      return;
+    }
+    const scale = Math.min(window.innerWidth / 1920, 1);
+    document.querySelector('.page').style.transform = `scale(${scale})`;
+    document.querySelector('.page').style.transformOrigin = '0 0';
+    document.body.style.height = (document.querySelector('.page').offsetHeight * scale) + 'px';
+  }
+  applyScale();
+  window.addEventListener('resize', applyScale);
+</script>
+
+<script src="sticky-nav.js"></script>
+</body>
+</html>

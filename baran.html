@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mgr. Izabela Baran – Przy Zieleniaku Garwolin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page page--baran">
+
+  <!-- Decorative radial gradient -->
+  <div class="spec-radial"></div>
+
+  <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <div class="page-header">
+    <header class="nav">
+      <div class="nav-blur"></div>
+
+      <a href="index.html" class="logo" aria-label="Przy Zieleniaku">
+        <div class="logo-icon-wrap">
+          <img src="assets/logo/logo-icon.svg" alt="" class="logo-icon-img" />
+        </div>
+        <img src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" class="logo-wordmark" />
+      </a>
+
+      <nav class="nav-pill" aria-label="Menu główne">
+        <a href="index.html">Home</a>
+        <a href="uslugi.html">Usługi</a>
+        <a href="specjalisci.html">Specjaliści</a>
+        <a href="index.html#cennik">Cennik</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+
+      <a href="tel:665664695" class="nav-phone" aria-label="Zadzwoń">
+        <img src="assets/icons/Phone.svg" alt="" />
+      </a>
+    </header>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SPECIALIST PROFILE SECTION
+       Footer abs top=1128 → section height = 1128−158 = 970px
+       All tops: Figma absolute − 158px
+  ══════════════════════════════════════ -->
+  <section class="spec" style="height:970px">
+
+    <!-- Photo card: left=1128, top=31 (abs 189−158), w=480, h=571 -->
+    <div class="spec-photo-card" style="left:1128px;top:31px;width:480px;height:571px"></div>
+    <img class="spec-photo"
+         src="assets/images/Pan Iza.png"
+         alt="Mgr. Izabela Baran"
+         style="left:1164px;top:57px;width:409px;height:545px" />
+
+    <!-- Name/specialty: left=352, top=144 (abs 302−158) -->
+    <div class="spec-text" style="top:144px;left:352px">
+      <p class="spec-lek">Mgr.</p>
+      <p class="spec-name">Izabela Baran</p>
+      <p class="spec-specialty">Psychoterapia</p>
+    </div>
+
+    <!-- Description: left=352, top=286 (abs 444−158), w=500; moved outside spec-text for mobile flow -->
+    <p class="spec-desc" style="position:absolute;top:286px;left:352px;width:500px">Jest psychologiem, a obecnie uczestniczy w czteroletnim szkoleniu w Szkole Psychoterapii Dialog, gdzie zdobywa wiedzę i umiejętności niezbędne do prowadzenia skutecznej terapii. Jej droga zawodowa jest ściśle związana z Polskim Towarzystwem Psychologicznym, w którym jest aktywną członkinią, oraz z Sekcją Naukową Terapii Rodzin, co pozwala jej na bieżąco śledzić nowinki w dziedzinie psychologii i psychoterapii.<br><br>W swojej praktyce terapeutycznej koncentruje się na pracy z dziećmi, młodzieżą oraz dorosłymi. Jej celem jest nie tylko pomoc w radzeniu sobie z bieżącymi problemami, ale także wspieranie pacjentów w ich osobistym rozwoju.<br><br>Wierzy, że każdy człowiek ma potencjał do zmiany i wzrostu, a jej rola polega na towarzyszeniu im w tej podróży. Pracuje pod stałą superwizją, co pozwala jej na refleksję nad własnymi działaniami oraz zapewnia wysoką jakość oferowanej pomocy. W swoim podejściu łączy różne metody terapeutyczne, dostosowując je do indywidualnych potrzeb pacjentów.</p>
+
+    <!-- Hours RIGHT: left=1128, top=661 (abs 819−158), w=480, h=205, padding-left=81px -->
+    <div class="spec-hours" style="left:1128px;top:661px;width:480px;height:205px;padding-left:81px;align-items:flex-start;padding-top:35px">
+      <p>Poniedziałek&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9:00 - 18:00<br><br>Wtorek&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9:00 - 14:00<br><br>Piątek&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9:00 - 18:00</p>
+      <p class="spec-hours-m">Poniedziałek  9:00 - 18:00<br>Wtorek  9:00 - 14:00<br>Piątek  9:00 - 18:00</p>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="site-footer">
+
+    <div class="footer-card">
+
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <img src="assets/logo/logo-icon.svg" alt="" />
+        </div>
+        <img class="footer-logo-wordmark" src="assets/logo/logo-wordmark.svg" alt="Przy Zieleniaku" />
+      </div>
+
+      <nav class="footer-nav">
+        <a href="uslugi.html" class="footer-pill">Usługi</a>
+        <a href="specjalisci.html" class="footer-pill">Specjaliści</a>
+        <a href="index.html#cennik" class="footer-pill">Cennik</a>
+        <a href="index.html#opinie" class="footer-pill">Opinie</a>
+        <a href="index.html#kontakt" class="footer-pill">Kontakt</a>
+      </nav>
+
+      <div class="footer-legal">
+        <a href="regulamin.html" class="footer-pill">Regulamin</a>
+        <a href="polityka-prywatnosci.html" class="footer-pill">Polityka prywatności</a>
+        <button class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+          <img src="assets/icons/go to the top arrow.svg" alt="" />
+          Powrót do góry
+        </button>
+      </div>
+
+      <div class="footer-contact">
+        <div class="footer-contact-row footer-contact-phone">
+          <img src="assets/icons/Phone.svg" alt="" />
+          <span>665 664 695</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/clock-green.svg" alt="" class="icon-clock" />
+          <span>Pon. - Pt. 9:00 - 18:00</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/Map green.svg" alt="" class="icon-pin" />
+          <span>Ul. Krótka 1, piętro 2<br>08 - 400 Garwolin</span>
+        </div>
+        <div class="footer-contact-row">
+          <img src="assets/icons/mail.svg" alt="" class="icon-email" />
+          <span>Rejestracja.ziel23@gmail.com</span>
+        </div>
+        <div class="footer-contact-row">
+          <div class="footer-social-icons">
+            <img src="assets/icons/instagram.svg" alt="" class="icon-social" />
+            <img src="assets/icons/Facebook.svg" alt="" class="icon-social" />
+          </div>
+          <span>Przychodnia_przy_zieleniaku</span>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 Przychodnia Lekarzy Specjalistów przy zieleniaku</p>
+
+    </div><!-- .footer-card -->
+
+  </footer>
+
+</div><!-- .page -->
+
+<script>
+  function applyScale() {
+    if (window.innerWidth <= 768) {
+      document.querySelector('.page').style.transform = 'none';
+      document.querySelector('.page').style.width = '100%';
+      document.body.style.height = '';
+      return;
+    }
+    const scale = Math.min(window.innerWidth / 1920, 1);
+    document.querySelector('.page').style.transform = `scale(${scale})`;
+    document.querySelector('.page').style.transformOrigin = '0 0';
+    document.body.style.height = (document.querySelector('.page').offsetHeight * scale) + 'px';
+  }
+  applyScale();
+  window.addEventListener('resize', applyScale);
+</script>
+
+<script src="sticky-nav.js"></script>
+</body>
+</html>
