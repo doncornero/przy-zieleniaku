@@ -2626,6 +2626,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
+  html {
+    scroll-padding-top: 123px;
+  }
+
   /* ── Hide hamburger on desktop (default hidden, shown only inside query) ── */
   .nav-hamburger {
     display: none;
