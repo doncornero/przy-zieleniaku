@@ -5058,12 +5058,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .policy-card {
     margin: 0;
-    padding: 20px 16px;
+    padding: 24px 20px !important;
     border-radius: 20px;
   }
 
-  .page:not(.page--home) .policy-card p {
+  .page:not(.page--home) .policy-card p,
+  .page:not(.page--home) .policy-card .policy-title,
+  .page:not(.page--home) .policy-card .policy-bold,
+  .page:not(.page--home) .policy-card .policy-sub {
     font-size: 13px;
+    line-height: 1.6;
   }
 
   /* ════════════════════════════════
