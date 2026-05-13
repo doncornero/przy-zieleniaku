@@ -3755,17 +3755,20 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ════════════════════════ */
   .page:not(.page--home) {
     overflow: visible;
+    padding-top: 123px;
   }
 
   .page:not(.page--home) .page-header {
-    height: auto;
+    height: 0;
     width: 100%;
     overflow: visible;
   }
 
   .page:not(.page--home) .nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 123px;
     padding: 0 32px;
