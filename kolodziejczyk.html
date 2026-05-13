@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="page">
+<div class="page page--kolodziejczyk">
 
   <!-- Decorative radial gradient -->
   <div class="spec-radial"></div>
@@ -66,8 +66,13 @@
       <p class="spec-specialty">Dietetyka</p>
     </div>
 
+    <!-- Hours: moved before description so it flows after name on mobile -->
+    <div class="spec-hours" style="left:1111px;top:719px;width:480px;height:99px;border-radius:50px">
+      <p>Poniedziałek&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15:00 - 20:00</p>
+    </div>
+
     <!-- Description: abs left=340, abs top=367 → rel top=209px, width=634px -->
-    <div class="spec-text" style="top:209px;left:340px;width:634px">
+    <div class="spec-text spec-desc-block" style="top:209px;left:340px;width:634px">
       <p class="spec-desc">Jest dyplomowaną dietetyczką kliniczną. Poza studiami na uczelni medycznej swoją wiedzę zdobywała, uczestnicząc w licznych szkoleniach i kursach specjalistycznych. Nieustannie rozwija swoje kompetencje, szkoląc się u najlepszych specjalistów w dziedzinie dietetyki oraz śledząc aktualną literaturę naukową.<br><br>Chętnie dzieli się swoją wiedzą z innymi, występuje również w roli eksperta z zakresu dietetyki na antenie programu „Pytanie na Śniadanie".<br><br>Specjalizuje się między innymi w pracy z pacjentami zmagającymi się z:</p>
       <ul class="spec-mgr-list">
         <li><img src="assets/icons/przyzieleniaku dots dark.svg" alt="" />nadwagą i otyłością,</li>
@@ -80,13 +85,8 @@
       <p class="spec-desc">W pracy z pacjentem stosuje podejście holistyczne. Zwraca uwagę na wszystkie elementy stylu życia od odpowiednio zbilansowanej diety i aktywności fizycznej, przez właściwą suplementację, aż po regenerację i zdrowy, jakościowy sen.<br><br>Opiera się na analizie wyników badań i skupia się na poszukiwaniu przyczyn problemów zdrowotnych, a nie jedynie ich objawów. Duży nacisk kładzie na edukację pacjentów oraz budowanie trwałych, zdrowych nawyków żywieniowych, które mogą stać się naturalną częścią codziennego stylu życia.<br><br>Każdego pacjenta traktuje indywidualnie, uwzględniając jego potrzeby, preferencje, możliwości oraz cele zdrowotne. W swojej pracy kieruje się zasadą zdrowego i racjonalnego podejścia do odżywiania bez zbędnych restrykcji, zgodnie z zasadą 80/20.<br><br>Jeśli jesteś gotowa na zmianę, warto zrobić pierwszy krok. Konsultacja ze specjalistą może pomóc odzyskać równowagę, poprawić samopoczucie i zadbać o zdrowie w sposób świadomy i trwały.</p>
     </div>
 
-    <!-- Hours: abs left=1111, abs top=877 → rel top=719px, w=480, h=99, border-radius=50px -->
-    <div class="spec-hours" style="left:1111px;top:719px;width:480px;height:99px;border-radius:50px">
-      <p>Poniedziałek&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15:00 - 20:00</p>
-    </div>
-
     <!-- "Umów wizytę" CTA: abs left=1111, abs top=1016 → rel top=858px, w=480, h=99 -->
-    <a href="index.html#kontakt"
+    <a href="index.html#kontakt" class="spec-umow-btn"
        style="position:absolute;left:1111px;top:858px;width:480px;height:99px;background:var(--sage);border-radius:50px;display:flex;align-items:center;justify-content:center;gap:24px;text-decoration:none;color:var(--teal);font-size:22px;font-weight:500;font-variation-settings:'wdth' 100;transition:background 0.15s"
        onmouseover="this.style.background='var(--white)'" onmouseout="this.style.background='var(--sage)'">
       Umów wizytę<span class="chevron-lg"></span>
