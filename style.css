@@ -5387,4 +5387,41 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     border-radius: 50px !important;
   }
 
+  /* ════════════════════════════════
+     WESOŁOWSKA — Katarzyna Wesołowska, Psychoterapia / terapia EMDR
+     1-line name, 1-line specialty → padding-top: 69px (same as Smarz/Baran)
+     2-day hours → multi-line card (Melon/Baran pattern)
+  ════════════════════════════════ */
+  /* padding-top: 69px → text ends at 20+69+58=147px (photo center 157px − 10px gap)
+     min-height: 247px → desc starts below photo card bottom (46+221=267 → 267−20=247px) */
+  .page--wesolowska .spec .spec-text {
+    padding-top: 69px !important;
+    min-height: 247px !important;
+  }
+  .page--wesolowska .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;
+    left: 30px !important;
+    right: auto !important;
+    height: auto !important;
+    width: auto !important;
+    background: #f4f4f4 !important;
+    border-radius: 18px !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 13px 18px !important;
+    margin-top: 0 !important;
+  }
+  .page--wesolowska .spec .spec-hours > p:first-child {
+    display: none !important;
+  }
+  .page--wesolowska .spec .spec-hours .spec-hours-m {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+  }
+
 }
