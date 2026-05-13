@@ -5337,6 +5337,12 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
      1-line specialty; hours absolute left below name (same as Kosiecz/Smarz);
      spec-desc-block flows statically below photo area.
   ════════════════════════════════ */
+  /* Narrow left-column cap so "Kołodziejczyk" doesn't reach the photo */
+  .page--kolodziejczyk .spec .spec-lek,
+  .page--kolodziejczyk .spec .spec-name,
+  .page--kolodziejczyk .spec .spec-specialty {
+    max-width: 46%;
+  }
   .page--kolodziejczyk .spec .spec-text {
     padding-top: 69px !important;
     min-height: 247px !important;
@@ -5347,6 +5353,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: 30px !important;
     right: auto !important;
     margin-top: 0 !important;
+  }
+  /* Hide wide desktop text, show compact mobile version */
+  .page--kolodziejczyk .spec .spec-hours > p:first-child {
+    display: none !important;
+  }
+  .page--kolodziejczyk .spec .spec-hours .spec-hours-m {
+    display: block !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
   }
   .page--kolodziejczyk .spec-desc-block {
     position: static !important;
