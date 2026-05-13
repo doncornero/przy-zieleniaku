@@ -4112,8 +4112,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: 1.5;
     margin-top: 16px;
     text-align: justify;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+    hyphens: none;
   }
 
   /* Hours: static, rendered as inline card */
@@ -5426,6 +5425,35 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 12px !important;
     line-height: 1.4 !important;
     white-space: nowrap !important;
+  }
+
+  /* ════════════════════════════════
+     KONDEJ — Michał Kondej, Rehabilitacja
+     No photo → full-width layout, all static flow: name → hours pill → desc
+  ════════════════════════════════ */
+  .page--kondej .spec .spec-lek,
+  .page--kondej .spec .spec-name,
+  .page--kondej .spec .spec-specialty {
+    max-width: 100%;
+  }
+  .page--kondej .spec .spec-text {
+    padding-top: 16px !important;
+    min-height: 0 !important;
+  }
+  .page--kondej .spec .spec-hours {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    margin-top: 16px !important;
+  }
+  .page--kondej .spec .spec-hours > p:first-child {
+    display: none !important;
+  }
+  .page--kondej .spec .spec-hours .spec-hours-m {
+    display: block !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
   }
 
 }
