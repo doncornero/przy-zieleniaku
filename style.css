@@ -4029,7 +4029,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     width: 100% !important;
     height: auto !important;
-    padding: 20px 30px 48px;
+    padding: 20px 27px 48px;
   }
 
   /* Header pill — listing pages (lekarze, specjalisci) */
