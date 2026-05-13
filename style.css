@@ -3166,7 +3166,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     width: 100%;
     max-width: 370px;
     height: 55px;
-    margin: 0 auto 16px;
+    margin: 0 auto 32px;
     font-size: 20px;
     left: auto;
     top: auto;
@@ -3181,6 +3181,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     margin-bottom: 10px;
     left: auto !important;
     top: auto !important;
+  }
+
+  .page--home .service-pill--sage {
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   /* ══════════
@@ -3245,7 +3250,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto;
     width: 100%;
     max-width: 360px;
-    height: 340px;
+    height: 300px;
     overflow: hidden;
     padding: 0;
     display: flex;
@@ -3258,7 +3263,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: absolute;
     bottom: 0;
     top: auto;
-    right: 15px;
+    right: 0px;
     left: auto;
     height: 290px;
     width: auto;
@@ -3267,8 +3272,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--home .kontakt-hero-text {
     position: absolute;
-    top: 40px;
-    left: 20px;
+    top: 45px;
+    left: 32px;
     width: 46%;
     font-size: 13px;
     line-height: 1.45;
@@ -3311,6 +3316,18 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     border-radius: 26px;
   }
 
+  .page--home .kontakt-info-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .page--home .kontakt-info-row img {
+    margin-top: 0;
+    justify-self: center;
+  }
+
   .page--home .kontakt-info-row span {
     font-size: 15px;
   }
@@ -3339,17 +3356,25 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     height: auto;
     padding: 28px 24px 28px;
     border-radius: 26px;
+    align-items: center;
   }
 
   .page--home .kontakt-social-heading {
     font-size: 17px;
+    text-align: center;
     margin-bottom: 20px;
+  }
+
+  .page--home .kontakt-social-btns {
+    justify-content: center;
   }
 
   .page--home .kontakt-social-btn {
     width: 119px;
     height: 48px;
     padding: 0 14px;
+    justify-content: center;
+    gap: 16px;
   }
 
   .page--home .kontakt-social-btn img {
@@ -3363,7 +3388,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto;
     width: 100%;
     max-width: 350px;
-    height: 260px;
+    aspect-ratio: 1;
+    height: auto;
     border-radius: 26px;
     object-fit: cover;
     display: block;
@@ -3389,7 +3415,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     height: auto;
     background: var(--white);
     border-radius: 26px;
-    padding: 20px 0 24px;
+    padding: 28px 0 32px;
   }
 
   .page--home .schedule-bg-shape {
