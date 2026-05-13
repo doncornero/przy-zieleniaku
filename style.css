@@ -3767,8 +3767,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: sticky;
     top: 0;
     width: 100%;
-    height: auto;
-    padding: 12px 16px;
+    height: 123px;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -3783,11 +3783,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: 0;
     left: 0;
     right: 0;
-    bottom: -60px;
+    bottom: -80px;
     background: rgba(1, 94, 85, 0.72);
-    filter: blur(35px);
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    filter: blur(35.104px);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
     z-index: -1;
   }
 
@@ -3798,8 +3798,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     display: flex;
     align-items: center;
     padding: 0 14px;
-    gap: 12px;
-    height: 68px;
+    gap: 16px;
+    height: 75px;
     width: auto;
     flex-shrink: 1;
     min-width: 0;
@@ -3807,8 +3807,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .logo-icon-wrap {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: none;
     border-radius: 0;
     flex-shrink: 0;
@@ -3818,12 +3818,12 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .logo-icon-img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
 
   .page:not(.page--home) .logo-wordmark {
-    width: 110px;
+    width: 123px;
     height: auto;
     object-fit: contain;
   }
@@ -3840,8 +3840,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    width: 68px;
-    height: 68px;
+    width: 75px;
+    height: 75px;
     background: var(--white);
     border: none;
     border-radius: 14px;
