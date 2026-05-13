@@ -3398,6 +3398,18 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     vertical-align: top;
   }
 
+  /* Remove teal separator lines between day groups */
+  tbody tr:not(:first-child):has(.sch-day) .page--home .sch-day::before,
+  .page--home tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
+    display: none;
+  }
+
+  .page--home tbody tr:not(:first-child):has(.sch-day) .sch-day,
+  .page--home tbody tr:not(:first-child):has(.sch-day) .sch-spec,
+  .page--home tbody tr:not(:first-child):has(.sch-day) .sch-time {
+    padding-top: 25px;
+  }
+
   .page--home .sch-spec {
     font-size: 11px;
     padding: 6px 6px 3px 0;
@@ -3465,12 +3477,12 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Name takes all available space, price stays right-aligned */
-  .page--home .cennik-row > span:first-child {
+  .page--home .cennik-row > span:first-child:not(:only-child) {
     min-width: 0;
     flex: 1;
   }
 
-  .page--home .cennik-row span:last-child {
+  .page--home .cennik-row span:last-child:not(:only-child) {
     white-space: nowrap;
     flex-shrink: 0;
     text-align: right;
