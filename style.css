@@ -922,7 +922,7 @@ body {
   line-height: 1.35;
 }
 
-.cennik-row > span:first-child {
+.cennik-row>span:first-child {
   min-width: 390px;
   flex-shrink: 0;
 }
@@ -1458,16 +1458,19 @@ body {
 tbody tr:not(:first-child):has(.sch-day) .sch-day {
   padding-top: 40px;
 }
+
 tbody tr:not(:first-child):has(.sch-day) .sch-spec,
 tbody tr:not(:first-child):has(.sch-day) .sch-time {
   padding-top: 40px;
 }
+
 tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   content: '';
   position: absolute;
   top: 20px;
   left: 44px;
-  width: 655px; /* card 743px - 44px left - 44px right */
+  width: 655px;
+  /* card 743px - 44px left - 44px right */
   height: 2px;
   background: #015e55;
 }
@@ -2111,7 +2114,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 }
 
 /* Mobile-only hours paragraph (shown only inside @media 768px block) */
-.spec-hours-m { display: none; }
+.spec-hours-m {
+  display: none;
+}
 
 /* CTA "Specjaliści" button — Figma abs top=3799 → relative 3641px */
 .spec-cta {
@@ -2658,13 +2663,12 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: 480px;
     height: 900px;
     background: linear-gradient(180deg,
-      rgba(197, 220, 186, 0.00) 0%,
-      rgba(197, 220, 186, 0.95) 22%,
-      #C5DCBA 38%,
-      #C5DCBA 62%,
-      #015E55 84%,
-      #015E55 100%
-    );
+        rgba(197, 220, 186, 0.00) 0%,
+        rgba(197, 220, 186, 0.95) 22%,
+        #C5DCBA 38%,
+        #C5DCBA 62%,
+        #015E55 84%,
+        #015E55 100%);
     filter: blur(24px);
     z-index: 1;
   }
@@ -2678,7 +2682,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: 0;
     width: 100%;
     height: 123px;
-    padding: 0 39px 0 32px;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2705,7 +2709,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: static;
     width: 222px;
     height: 75px;
-    padding-left: 19px;
+    padding-left: 14px;
     padding-right: 0;
     border-radius: 14px;
     gap: 16px;
@@ -2863,7 +2867,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .mobile-menu-nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     margin-top: 96px;
   }
 
@@ -3222,11 +3226,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     width: 100%;
     height: auto !important;
     margin-top: 0;
-    padding: 0 20px 40px;
+    padding: 0 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 28px;
   }
 
   .page--home .kontakt-header-pill,
@@ -3282,15 +3286,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto;
     align-self: center;
     width: 220px;
-    height: 56px;
-    font-size: 16px;
+    height: 70px;
+    font-size: 18px;
     border-width: 2px;
     flex-shrink: 0;
     margin: 20px 0;
+    padding: 0 28px;
   }
 
   .page--home .kontakt-cta-phone span {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .page--home .kontakt-cta-phone img {
@@ -3483,11 +3488,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--home .cennik {
     width: 100%;
     height: auto !important;
-    padding: 0 16px 40px;
+    padding: 0 16px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    gap: 16px;
   }
 
   .page--home .cennik-header-pill {
@@ -3520,7 +3525,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Name takes all available space, price stays right-aligned */
-  .page--home .cennik-row > span:first-child:not(:only-child) {
+  .page--home .cennik-row>span:first-child:not(:only-child) {
     min-width: 0;
     flex: 1;
   }
@@ -3535,7 +3540,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding-left: 8px;
   }
 
-  .page--home .cennik-row--sub > span:first-child {
+  .page--home .cennik-row--sub>span:first-child {
     min-width: 0;
     flex: 1;
   }
@@ -3748,6 +3753,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* ════════════════════════
      NAV — NON-HOME PAGES
   ════════════════════════ */
+  .page:not(.page--home) {
+    overflow: visible;
+  }
+
+  .page:not(.page--home) .page-header {
+    height: auto;
+    width: 100%;
+    overflow: visible;
+  }
+
   .page:not(.page--home) .nav {
     position: sticky;
     top: 0;
@@ -3824,7 +3839,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 68px;
     height: 68px;
     background: var(--white);
@@ -3837,8 +3852,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page .nav-hamburger span {
     display: block;
-    width: 40px;
-    height: 4px;
+    width: 44px;
+    height: 5px;
     background: var(--teal);
     border-radius: 3px;
   }
@@ -5089,7 +5104,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ════════════════════════════════ */
   .page--kosiecz .spec .spec-hours {
     position: absolute !important;
-    top: 167px !important;   /* photo card center(157) + 10px gap */
+    top: 167px !important;
+    /* photo card center(157) + 10px gap */
     left: 30px !important;
     right: auto !important;
     margin-top: 0 !important;
@@ -5126,7 +5142,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page--melon .spec .spec-photo {
-    right: 42px !important;   /* 30+12: photo inset 12px from card right */
+    right: 42px !important;
+    /* 30+12: photo inset 12px from card right */
     top: 43px !important;
     width: 162px !important;
     height: 220px !important;
@@ -5135,7 +5152,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* Hours: absolute, styled like lekarze doctor-entry hours card */
   .page--melon .spec .spec-hours {
     position: absolute !important;
-    top: 163px !important;   /* photo card center(153) + 10px gap */
+    top: 163px !important;
+    /* photo card center(153) + 10px gap */
     left: 30px !important;
     right: auto !important;
     height: auto !important;
@@ -5151,9 +5169,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Hide desktop paragraph, show mobile-formatted one */
-  .page--melon .spec .spec-hours > p:first-child {
+  .page--melon .spec .spec-hours>p:first-child {
     display: none !important;
   }
+
   .page--melon .spec .spec-hours .spec-hours-m {
     display: block !important;
     font-size: 12px !important;
@@ -5187,7 +5206,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--michalek .spec .spec-hours {
     position: absolute !important;
-    top: 167px !important;   /* photo card center(157) + 10px gap */
+    top: 167px !important;
+    /* photo card center(157) + 10px gap */
     left: 30px !important;
     right: auto !important;
     background: #f4f4f4 !important;
@@ -5216,7 +5236,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--pawelec .spec .spec-hours {
     position: absolute !important;
-    top: 167px !important;   /* photo card center(157) + 10px gap */
+    top: 167px !important;
+    /* photo card center(157) + 10px gap */
     left: 30px !important;
     right: auto !important;
     background: #f4f4f4 !important;
@@ -5238,7 +5259,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ════════════════════════════════ */
   .page--baran .spec .spec-hours {
     position: absolute !important;
-    top: 167px !important;   /* photo card center(157) + 10px gap */
+    top: 167px !important;
+    /* photo card center(157) + 10px gap */
     left: 30px !important;
     right: auto !important;
     height: auto !important;
@@ -5256,9 +5278,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Hide desktop paragraph (right-column nbsp-padded), show mobile-formatted one */
-  .page--baran .spec .spec-hours > p:first-child {
+  .page--baran .spec .spec-hours>p:first-child {
     display: none !important;
   }
+
   .page--baran .spec .spec-hours .spec-hours-m {
     display: block !important;
     font-size: 12px !important;
