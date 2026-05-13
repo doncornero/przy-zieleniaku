@@ -27,7 +27,7 @@
           '<span class="mobile-menu-x"></span>' +
         '</button>' +
         '<nav class="mobile-menu-nav">' +
-          '<a href="uslugi.html" class="mobile-menu-item">Usługi</a>' +
+          '<a href="index.html#uslugi" class="mobile-menu-item">Usługi</a>' +
           '<a href="lekarze.html" class="mobile-menu-item">Lekarze</a>' +
           '<a href="specjalisci-mgr.html" class="mobile-menu-item">Specjaliści</a>' +
           '<a href="index.html#cennik" class="mobile-menu-item">Cennik</a>' +
