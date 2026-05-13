@@ -4111,8 +4111,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 12px;
     line-height: 1.5;
     margin-top: 16px;
-    text-align: justify;
-    hyphens: none;
   }
 
   /* Hours: static, rendered as inline card */
