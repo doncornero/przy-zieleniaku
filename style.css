@@ -5392,10 +5392,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
      1-line name, 1-line specialty → padding-top: 69px (same as Smarz/Baran)
      2-day hours → multi-line card (Melon/Baran pattern)
   ════════════════════════════════ */
-  /* padding-top: 69px → text ends at 20+69+58=147px (photo center 157px − 10px gap)
+  /* "Katarzyna Wesołowska" wraps to 2 lines at 56% max-width → text height ~82px (same as Kołodziejczyk)
+     padding-top: 45px → text ends at 20+45+82=147px (photo center 157px − 10px gap)
      min-height: 247px → desc starts below photo card bottom (46+221=267 → 267−20=247px) */
   .page--wesolowska .spec .spec-text {
-    padding-top: 69px !important;
+    padding-top: 45px !important;
     min-height: 247px !important;
   }
   .page--wesolowska .spec .spec-hours {
