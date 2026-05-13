@@ -4891,6 +4891,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: static !important;
   }
 
+  .page:not(.page--home) .bio-two-col .bio-col-pill {
+    margin-top: 8px;
+  }
+
   .page:not(.page--home) .bio-col {
     width: 100% !important;
     position: static !important;
