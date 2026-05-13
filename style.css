@@ -3052,7 +3052,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding: 20px 0 18px;
     background: transparent;
     border-radius: 0;
-    overflow: hidden;
+    overflow-x: clip;   /* clip carousel horizontal overflow without cutting off dots vertically */
     transform: translateZ(0);
   }
 
@@ -3461,15 +3461,28 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--home .cennik-row {
     font-size: 12px;
     gap: 8px;
+    justify-content: space-between;
+  }
+
+  /* Name takes all available space, price stays right-aligned */
+  .page--home .cennik-row > span:first-child {
+    min-width: 0;
+    flex: 1;
   }
 
   .page--home .cennik-row span:last-child {
     white-space: nowrap;
     flex-shrink: 0;
+    text-align: right;
   }
 
   .page--home .cennik-row--sub {
     padding-left: 8px;
+  }
+
+  .page--home .cennik-row--sub > span:first-child {
+    min-width: 0;
+    flex: 1;
   }
 
   .page--home .cennik-bullet {
@@ -5202,6 +5215,26 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* padding-top: specialty "Psychoterapia" is 1 line → shorter block → more padding;
      min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
   .page--baran .spec .spec-text {
+    padding-top: 69px !important;
+    min-height: 247px !important;
+  }
+
+  /* ════════════════════════════════
+     SMARŻ — specialty "Ortopedia dziecięca" is 1 line
+     Photo card center: shared top=46, height=221 → center=157px
+     Text ends at 157−10=147px; hours start at 157+10=167px
+  ════════════════════════════════ */
+  .page--smarz .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;
+    left: 30px !important;
+    right: auto !important;
+    background: #f4f4f4 !important;
+    margin-top: 0 !important;
+  }
+
+  /* 1-line specialty → shorter block → more padding to end at center−10=147px */
+  .page--smarz .spec .spec-text {
     padding-top: 69px !important;
     min-height: 247px !important;
   }
