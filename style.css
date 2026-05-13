@@ -5343,8 +5343,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--kolodziejczyk .spec .spec-specialty {
     max-width: 46%;
   }
+  /* padding-top: 45px → text ends at 20+45+82=147px (photo center 157px − 10px gap)
+     min-height: 247px → desc starts below photo card bottom (46+221=267 → 267−20=247px) */
   .page--kolodziejczyk .spec .spec-text {
-    padding-top: 69px !important;
+    padding-top: 45px !important;
     min-height: 247px !important;
   }
   .page--kolodziejczyk .spec .spec-hours {
