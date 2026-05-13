@@ -4932,8 +4932,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     padding: 14px 28px;
     font-size: 12px;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    margin-top: 36px;
+    margin-bottom: 28px;
     white-space: normal;
     line-height: 1.5;
     flex-direction: column;
