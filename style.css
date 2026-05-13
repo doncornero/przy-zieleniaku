@@ -4818,16 +4818,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .bio-content {
     margin-left: 0;
-    padding-top: 32px;
-    padding-left: 33px;
-    padding-right: 16px;
+    padding-top: 16px;
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
   }
 
   .page:not(.page--home) .bio-content h2 {
     font-size: 12px;
     font-weight: 500;
-    margin-top: 22px;
+    margin-top: 8px;
     margin-bottom: 14px;
   }
 
