@@ -3474,6 +3474,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 12px;
     gap: 8px;
     justify-content: space-between;
+    padding-left: 8px;
   }
 
   /* Name takes all available space, price stays right-aligned */
