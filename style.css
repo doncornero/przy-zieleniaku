@@ -5334,18 +5334,25 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   /* ════════════════════════════════
      KOŁODZIEJCZYK — Julia Kołodziejczyk, Dietetyka
+     1-line specialty; hours absolute left below name (same as Kosiecz/Smarz);
+     spec-desc-block flows statically below photo area.
   ════════════════════════════════ */
-  .page--kolodziejczyk .spec .spec-text:not(.spec-desc-block) {
+  .page--kolodziejczyk .spec .spec-text {
     padding-top: 69px !important;
     min-height: 247px !important;
   }
-  .page--kolodziejczyk .spec .spec-desc-block {
-    padding-top: 0 !important;
-    min-height: 0 !important;
-    margin-top: 0;
+  .page--kolodziejczyk .spec .spec-hours {
+    position: absolute !important;
+    top: 167px !important;
+    left: 30px !important;
+    right: auto !important;
+    margin-top: 0 !important;
   }
-  .page--kolodziejczyk .spec-mgr-list li img {
-    filter: brightness(0) invert(1);
+  .page--kolodziejczyk .spec-desc-block {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
   }
   .page--kolodziejczyk .spec-umow-btn {
     position: static !important;
