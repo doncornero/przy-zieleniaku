@@ -4240,10 +4240,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hours: absolute at 155px (photo center 120px + 35px gap — spec-specialty can wrap to 2 lines) */
+  /* Hours: absolute at 130px (photo center 120px + 10px gap) */
   .page:not(.page--home) .doctor-entry .spec-hours {
     position: absolute !important;
-    top: 155px !important;
+    top: 130px !important;
     left: 0 !important;
     right: auto !important;
     background: #f4f4f4 !important;
@@ -4308,6 +4308,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .doctor-entry .spec-mgr-desc p:last-child {
     margin-bottom: 0;
+  }
+
+  /* Wesołowska: 2-line name + 2-line specialty → text ends at ~138px, push hours lower */
+  .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
+    top: 150px !important;
   }
 
   /* Kołodziejczyk: name too long at 56% — force wrap at 46% */
