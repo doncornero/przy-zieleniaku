@@ -4912,7 +4912,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     padding: 14px 20px;
     font-size: 20px;
-    margin-top: 32px;
+    margin-top: 12px;
     margin-bottom: 24px;
     text-align: center;
     white-space: normal;
