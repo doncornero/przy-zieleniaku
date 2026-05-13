@@ -4164,21 +4164,19 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ══════════════════════════════════════════ */
 
   /*
-   * Grid: left col (text+hours) | right col (photo, 186px)
-   * Row 1 = 230px — photo card height; spec-text (align-self:start) and
-   *          spec-hours (align-self:end) both live here so hours bottom
-   *          aligns exactly with photo card bottom
-   * Row 2 = description (spans both columns)
+   * Position-based layout mirroring individual spec pages:
+   * Photo card (186×220) sits absolute right:0 top:10 → center at 120px
+   * spec-text padding-top pushes name block so it ends ~10px above center
+   * spec-hours positioned absolute at top:130px (10px below center)
+   * Description flows statically below the photo area (min-height:230px)
    */
   .page:not(.page--home) .doctor-entry {
-    display: grid;
-    grid-template-columns: 1fr 186px;
-    grid-template-rows: 230px auto;
+    display: block;
     position: relative;
     padding-bottom: 48px;
   }
 
-  /* Photo card (sage bg): full height, starts at same level as photo */
+  /* Photo card (sage bg) */
   .page:not(.page--home) .doctor-entry .spec-photo-card {
     position: absolute !important;
     right: 0 !important;
@@ -4189,7 +4187,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     border-radius: 24px;
   }
 
-  /* Photo link: smaller than card, same top — card background visible as frame */
+  /* Photo link: inset from card so card shows as frame */
   .page:not(.page--home) .spec-photo-link {
     position: absolute !important;
     left: auto !important;
@@ -4212,21 +4210,20 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     object-position: top center;
   }
 
-  /* Text: left col, row 1 — margin-top pushes it below photo's top area */
+  /* Text: static block, padding-top positions name block above photo center */
   .page:not(.page--home) .doctor-entry .spec-text {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    margin-top: 40px;
-    padding: 0 !important;
-    min-height: 0 !important;
-    width: auto !important;
+    padding-top: 45px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 230px !important;
+    width: 100% !important;
   }
 
   .page:not(.page--home) .doctor-entry .spec-lek,
   .page:not(.page--home) .doctor-entry .spec-name,
   .page:not(.page--home) .doctor-entry .spec-specialty {
-    max-width: 100%;
+    max-width: 56%;
   }
 
   .page:not(.page--home) .doctor-entry .spec-lek {
@@ -4234,7 +4231,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .doctor-entry .spec-name {
-    font-size: 24px;
+    font-size: 20px;
     line-height: normal;
   }
 
@@ -4243,36 +4240,40 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hours: left col, row 1 — pinned to bottom so it aligns with photo card bottom */
+  /* Hours: absolute at 155px (photo center 120px + 35px gap — spec-specialty can wrap to 2 lines) */
   .page:not(.page--home) .doctor-entry .spec-hours {
-    position: static !important;
-    grid-column: 1;
-    grid-row: 1;
+    position: absolute !important;
+    top: 155px !important;
+    left: 0 !important;
+    right: auto !important;
     background: #f4f4f4 !important;
     border-radius: 18px !important;
     padding: 13px 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: flex-start !important;
-    align-self: end;
-    justify-self: start;
-    width: calc(100% - 24px) !important;
+    justify-content: flex-start !important;
+    width: auto !important;
     height: auto !important;
     box-sizing: border-box !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
 
-  .page:not(.page--home) .doctor-entry .spec-hours p {
+  .page:not(.page--home) .doctor-entry .spec-hours > p:first-child {
+    display: none !important;
+  }
+
+  .page:not(.page--home) .doctor-entry .spec-hours .spec-hours-m {
+    display: block !important;
     font-size: 12px;
     line-height: 1.4;
     color: var(--teal);
-    white-space: normal;
-    overflow-wrap: break-word;
+    white-space: nowrap;
   }
 
-  /* Description: full width, row 2 */
+  /* Description: static flow after spec-text (which reserves 230px for photo) */
   .page:not(.page--home) .doctor-entry .spec-desc {
-    grid-column: 1 / -1;
-    grid-row: 2;
     position: static !important;
     left: auto !important;
     top: auto !important;
@@ -4287,10 +4288,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
      SPECJALIŚCI — SPEC-MGR-DESC & STACKED ENTRIES
   ══════════════════════════════════════════ */
 
-  /* spec-mgr-desc inside doctor-entry: full width, grid row 2 (same as spec-desc) */
+  /* spec-mgr-desc inside doctor-entry: static flow, full width */
   .page:not(.page--home) .doctor-entry .spec-mgr-desc {
-    grid-column: 1 / -1;
-    grid-row: 2;
     position: static !important;
     left: auto !important;
     top: auto !important;
@@ -4311,27 +4310,32 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     margin-bottom: 0;
   }
 
-  /* Stacked variant: description is inside spec-text; use block layout */
-  .page:not(.page--home) .doctor-entry--stacked {
-    display: block !important;
-    padding-right: 200px;
-    min-height: 240px;
+  /* Kołodziejczyk: name too long at 56% — force wrap at 46% */
+  .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-lek,
+  .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-name,
+  .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-specialty {
+    max-width: 46%;
   }
 
-  .page:not(.page--home) .doctor-entry--stacked .spec-text .spec-desc {
-    font-size: 14px;
-    line-height: 1.55;
-    margin-top: 16px;
+  /* No-photo variant: full width, no reserved height */
+  .page:not(.page--home) .doctor-entry--no-photo .spec-text {
+    min-height: 0 !important;
+    padding-top: 16px !important;
   }
 
-  .page:not(.page--home) .doctor-entry--stacked .spec-hours {
+  .page:not(.page--home) .doctor-entry--no-photo .spec-lek,
+  .page:not(.page--home) .doctor-entry--no-photo .spec-name,
+  .page:not(.page--home) .doctor-entry--no-photo .spec-specialty {
+    max-width: 100%;
+  }
+
+  .page:not(.page--home) .doctor-entry--no-photo .spec-hours {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    display: inline-flex !important;
+    width: fit-content !important;
     margin-top: 16px !important;
-  }
-
-  /* No-photo stacked variant */
-  .page:not(.page--home) .doctor-entry--stacked.doctor-entry--no-photo {
-    padding-right: 0;
-    min-height: 0;
   }
 
   /* ══════════════════════════════════════════
