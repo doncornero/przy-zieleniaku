@@ -2895,8 +2895,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     white-space: normal;
     text-align: left;
     line-height: 1.15;
-    padding-left: 30px;
-    padding-right: 30px;
   }
 
   .mobile-menu-secondary {
@@ -4935,7 +4933,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .bio-two-col .bio-col-pill {
-    margin-top: 8px;
+    margin-top: 0;
   }
 
   .page:not(.page--home) .bio-col {
