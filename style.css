@@ -4235,8 +4235,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hide forced <br> in names on mobile (e.g. Michałek listing) */
-  .page:not(.page--home) .doctor-entry .spec-name br {
+  /* Hide forced <br> in Michałek's name only (his name wraps fine without it) */
+  .page:not(.page--home) .doctor-entry--michalek .spec-name br {
     display: none;
   }
 
@@ -4317,6 +4317,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   /* Wesołowska: 2-line name + 2-line specialty → text ends at ~149px, push hours lower */
   .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
+    top: 155px !important;
+  }
+
+  /* Pawelec listing (lekarze): 2-line name + 2-line specialty → push hours lower */
+  .page:not(.page--home) .doctor-entry--pawelec .spec-hours {
     top: 155px !important;
   }
 
