@@ -2891,6 +2891,14 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     white-space: nowrap;
   }
 
+  .mobile-menu-item--two-line {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .mobile-menu-secondary {
     display: flex;
     flex-direction: column;
@@ -3046,18 +3054,21 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     width: 44px !important;
     height: 30px !important;
     flex-shrink: 0;
+    min-width: 52px;
   }
 
   .page--home .usp-card:nth-child(2) img {
     width: 52px !important;
     height: 24px !important;
     flex-shrink: 0;
+    min-width: 52px;
   }
 
   .page--home .usp-card:nth-child(3) img {
     width: 40px !important;
     height: 40px !important;
     flex-shrink: 0;
+    min-width: 52px;
   }
 
   /* ═══════════
@@ -3190,7 +3201,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--home .service-pill--sage {
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   /* ══════════
@@ -3200,7 +3211,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 40px 16px 60px;
+    padding: 8px 16px 28px;
   }
 
   .page--home .audience-card {
@@ -3230,7 +3241,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     width: 100%;
     height: auto !important;
     margin-top: 0;
-    padding: 0 20px 60px;
+    padding: 0 20px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3421,7 +3432,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     height: auto;
     background: var(--white);
     border-radius: 26px;
-    padding: 28px 0 32px;
+    padding: 24px 16px 24px 20px;
   }
 
   .page--home .schedule-bg-shape {
@@ -3438,7 +3449,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--home .sch-day {
     font-size: 13px;
     font-weight: 600;
-    padding: 10px 8px 10px 18px;
+    padding: 10px 8px 10px 0;
     white-space: nowrap;
     width: 1px;
     vertical-align: top;
@@ -4108,8 +4119,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     top: auto !important;
     width: 100% !important;
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.55;
     margin-top: 16px;
   }
 
@@ -4316,8 +4327,14 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Wesołowska: 2-line name + 2-line specialty → text ends at ~149px, push hours lower */
+  /* Wesołowska: 2-line name + 2-line specialty (5 lines total ~101px)
+     padding-top 14px → text ends at 115px = 5px above photo center (120px)
+     hours at 130px = 10px below center (same as general rule) */
+  .page:not(.page--home) .doctor-entry--wesolowska .spec-text {
+    padding-top: 14px !important;
+  }
   .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
-    top: 155px !important;
+    top: 130px !important;
   }
 
   /* Pawelec listing (lekarze): 2-line name + 2-line specialty → push hours lower */
@@ -4331,6 +4348,12 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-specialty {
     max-width: 46%;
   }
+  /* Kołodziejczyk: 2-line name — reduce padding-top so text ends ~10px above photo center (120px) */
+  .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-text {
+    padding-top: 25px !important;
+    min-height: 230px !important;
+  }
+  /* hours stays at general 130px (10px below center) — no override needed */
 
   /* No-photo variant: full width, no reserved height */
   .page:not(.page--home) .doctor-entry--no-photo .spec-text {
@@ -4776,10 +4799,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     top: auto !important;
     margin-left: 0;
+    margin-top: 24px;
     width: 100%;
     padding-left: 22px;
     padding-right: 16px;
-    padding-top: 20px;
+    padding-top: 0;
   }
 
   .page:not(.page--home) .diet-lower h2 {
@@ -4881,7 +4905,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page:not(.page--home) .bio-list li img {
     width: 14px;
     height: 7px;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
   .page:not(.page--home) .bio-sub-pill {
@@ -4996,6 +5020,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     background: var(--sage);
     border-radius: 50%;
     flex-shrink: 0;
+    margin-top: 6px;
   }
 
   .page:not(.page--home) .bio-step-circle span {
