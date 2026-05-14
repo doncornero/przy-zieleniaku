@@ -3201,7 +3201,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--home .service-pill--sage {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   /* ══════════
@@ -4976,7 +4976,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     padding: 14px 28px 14px 36px;
     font-size: 12px;
-    margin-top: 36px;
+    margin-top: 20px;
     margin-bottom: 28px;
     white-space: normal;
     line-height: 1.5;
