@@ -5295,7 +5295,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ════════════════════════════════ */
   .page--pawelec .spec .spec-hours {
     position: absolute !important;
-    top: 167px !important;
+    top: 185px !important;
     left: 30px !important;
     right: auto !important;
     height: auto !important;
