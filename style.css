@@ -5293,12 +5293,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
        hours: top=405 → section-top=276; spec-text min-height(209)+section-pad(20)=229 → margin-top=47
        desc: top=468 → section-top=339; flows naturally after hours (314+16=330) ≈ ✓
   ════════════════════════════════ */
-  .page--pawelec .spec .spec-lek,
-  .page--pawelec .spec .spec-name,
-  .page--pawelec .spec .spec-specialty {
-    max-width: 149px !important;
-  }
-
   .page--pawelec .spec .spec-hours {
     position: absolute !important;
     top: 167px !important;
