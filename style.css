@@ -4216,7 +4216,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-bottom: 0 !important;
-    min-height: 260px !important;
+    min-height: 230px !important;
     width: 100% !important;
   }
 
@@ -4245,10 +4245,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hours: absolute at 150px (photo center 120px + 30px gap for text breathing room) */
+  /* Hours: absolute at 130px (photo center 120px + 10px gap — same as individual pages) */
   .page:not(.page--home) .doctor-entry .spec-hours {
     position: absolute !important;
-    top: 150px !important;
+    top: 130px !important;
     left: 0 !important;
     right: auto !important;
     background: #f4f4f4 !important;
@@ -4277,7 +4277,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     white-space: nowrap;
   }
 
-  /* Description: static flow after spec-text (which reserves 260px for photo + hours clearance) */
+  /* Description: static flow after spec-text (which reserves 230px for photo area) */
   .page:not(.page--home) .doctor-entry .spec-desc {
     position: static !important;
     left: auto !important;
@@ -4317,7 +4317,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   /* Wesołowska: 2-line name + 2-line specialty → text ends at ~149px, push hours lower */
   .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
-    top: 170px !important;
+    top: 155px !important;
   }
 
   /* Kołodziejczyk: name too long at 56% — force wrap at 46% */
