@@ -2893,7 +2893,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .mobile-menu-item--two-line {
     white-space: normal;
-    text-align: center;
+    text-align: left;
     line-height: 1.15;
     padding-left: 30px;
     padding-right: 30px;
@@ -4407,7 +4407,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .ort-content h2 {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 12px;
     margin-bottom: 4px;
@@ -4576,7 +4576,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .rehab-content h2 {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 20px;
@@ -4644,7 +4644,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .psych-content h2 {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 12px;
     margin-bottom: 4px;
@@ -4707,7 +4707,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .diet-content h2 {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 12px;
     margin-bottom: 4px;
@@ -4868,7 +4868,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .bio-content h2 {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 8px;
     margin-bottom: 14px;
@@ -4927,7 +4927,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .bio-two-col {
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
     width: 100%;
     left: auto !important;
     top: auto !important;
@@ -4946,6 +4946,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .bio-col p {
     font-size: 12px;
+    margin-top: 10px;
     margin-bottom: 0;
     line-height: 1.5;
   }

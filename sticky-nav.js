@@ -32,6 +32,7 @@
           '<a href="specjalisci-mgr.html" class="mobile-menu-item">Specjaliści</a>' +
           '<a href="index.html#cennik" class="mobile-menu-item">Cennik</a>' +
           '<a href="index.html#kontakt" class="mobile-menu-item">Kontakt</a>' +
+          '<a href="index.html#godziny" class="mobile-menu-item mobile-menu-item--two-line">Godziny<br>pracy</a>' +
         '</nav>' +
         '<div class="mobile-menu-secondary">' +
           '<a href="regulamin.html" class="mobile-menu-secondary-btn">Regulamin</a>' +
