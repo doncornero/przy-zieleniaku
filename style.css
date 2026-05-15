@@ -4082,8 +4082,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     width: 100% !important;
     height: auto !important;
-    min-height: 247px;
-    padding: 20px 33px 48px;
+    min-height: 0;
+    padding: 267px 33px 48px;
   }
 
   /* Header pill — listing pages (lekarze, specjalisci) */
@@ -4131,9 +4131,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     top: auto !important;
     width: 45% !important;
-    min-height: 0;
-    padding-top: 98px;
-    padding-bottom: 16px;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .page:not(.page--home) .spec-lek,
@@ -4192,6 +4192,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* No-photo variant (kondej.html) */
   .spec--no-photo .spec-photo-card,
   .spec--no-photo .spec-photo { display: none !important; }
+
+  .spec--no-photo {
+    padding-top: 20px !important;
+  }
 
   .spec--no-photo .spec-text {
     width: 100% !important;
@@ -5235,266 +5239,20 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* ════════════════════════════════
-     KOSIECZ — hours pill bottom aligned with photo card bottom
-     Selector specificity 0,3,0 — beats the shared 0,3,0 rule via source order
+     KOSIECZ — photo crop adjustment
   ════════════════════════════════ */
-  .page--kosiecz .spec .spec-hours {
-    position: absolute !important;
-    top: 167px !important;
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-
-  .page--kosiecz .spec .spec-hours > p:first-child { display: none !important; }
-  .page--kosiecz .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
-  }
-
-  /* padding-top: 55px → text ends at 20+55+72=147px (photo center 157px − 10px gap) */
-  /* min-height: 247px → spec-text bottom at 267px = photo card bottom → desc starts there */
-  .page--kosiecz .spec .spec-text {
-    padding-top: 55px !important;
-    min-height: 247px !important;
-  }
-
-  /* Photo slightly inset from card edges — forehead stays inside card */
   .page--kosiecz .spec .spec-photo {
     top: 52px !important;
     height: 215px !important;
   }
 
   /* ════════════════════════════════
-     MELON — photo card, photo, hours, and description overrides
-     Figma (430px frame, nav=129px):
-       card: left=212, top=172, 186×221 → right=32, top=43, bottom=264
-       photo: left=215, top=158, 176×235 → right=39, top=29, bottom=264 (overflows card top by 14px, aligned at bottom)
-       hours: left=37, top=308, 149×85 → section-top=179, bottom=264 (aligned with card bottom)
-       name at section-top=90 (219−129)
-       desc at section-top=289 (418−129)
+     KOŁODZIEJCZYK — long name; button + desc-block static
   ════════════════════════════════ */
-
-
-  /* Hours: absolute, styled like lekarze doctor-entry hours card */
-  .page--melon .spec .spec-hours {
-    position: absolute !important;
-    top: 163px !important;
-    /* photo card center(153) + 10px gap */
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-
-  /* Hide desktop paragraph, show mobile-formatted one */
-  .page--melon .spec .spec-hours>p:first-child {
-    display: none !important;
-  }
-
-  .page--melon .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
-  }
-
-  /* spec-text: padding-top so specialty ends at photo center(153)−10px=143px from section top;
-     min-height ensures desc starts below photo bottom (43+220=263 → 263−20=243px) */
-  .page--melon .spec .spec-text {
-    padding-top: 51px !important;
-    min-height: 243px !important;
-  }
-
-  /* ════════════════════════════════
-     MICHAŁEK
-     Figma (430px frame, nav=129px):
-       card: left=203, top=175, 186×221 → right=41, top=46 ← matches shared CSS, no override
-       photo: left=212, top=181, 161×215 → right=57, top=52, bottom=267=card bottom
-       hours: left=42, top=358, h=38 → section-top=229, bottom=267=card bottom
-       name: top=241 → section-top=112
-       desc: top=420 → section-top=291
-  ════════════════════════════════ */
-  .page--michalek .spec .spec-text {
-    padding-top: 55px !important;
-    padding-bottom: 70px !important;
-    min-height: 0 !important;
-  }
-
-  /* ════════════════════════════════
-     PAWELEC — no photo, desc moved outside spec-text (sibling after spec-hours)
-     Figma (430px frame, nav=129px):
-       name: top=251 → section-top=122 ≈ shared pad-top(98)+section-pad(20)=118 ✓
-       hours: top=405 → section-top=276; spec-text min-height(209)+section-pad(20)=229 → margin-top=47
-       desc: top=468 → section-top=339; flows naturally after hours (314+16=330) ≈ ✓
-  ════════════════════════════════ */
-  .page--pawelec .spec .spec-hours {
-    position: absolute !important;
-    top: 185px !important;
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-
-  .page--pawelec .spec .spec-hours > p:first-child { display: none !important; }
-  .page--pawelec .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
-  }
-
-  /* padding-top so specialty ends at photo center(157)−10px=147px from section top;
-     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
-  .page--pawelec .spec .spec-text {
-    padding-top: 55px !important;
-    min-height: 247px !important;
-  }
-
-  /* ════════════════════════════════
-     BARAN — spec-desc is now a standalone element (was second spec-text div);
-     hours were on the right column (desktop), moved to left below name on mobile.
-     Photo card center: shared top=46, height=221 → center=157px
-     Text ends at 157−10=147px; hours start at 157+10=167px
-  ════════════════════════════════ */
-  .page--baran .spec .spec-hours {
-    position: absolute !important;
-    top: 167px !important;
-    /* photo card center(157) + 10px gap */
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-    padding-left: 18px !important;
-    padding-top: 13px !important;
-  }
-
-  /* Hide desktop paragraph (right-column nbsp-padded), show mobile-formatted one */
-  .page--baran .spec .spec-hours>p:first-child {
-    display: none !important;
-  }
-
-  .page--baran .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
-  }
-
-  /* padding-top: specialty "Psychoterapia" is 1 line → shorter block → more padding;
-     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
-  .page--baran .spec .spec-text {
-    padding-top: 69px !important;
-    min-height: 247px !important;
-  }
-
-  /* ════════════════════════════════
-     SMARŻ — specialty "Ortopedia dziecięca" is 1 line
-     Photo card center: shared top=46, height=221 → center=157px
-     Text ends at 157−10=147px; hours start at 157+10=167px
-  ════════════════════════════════ */
-  .page--smarz .spec .spec-hours {
-    position: absolute !important;
-    top: 167px !important;
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-
-  .page--smarz .spec .spec-hours > p:first-child { display: none !important; }
-  .page--smarz .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
-  }
-
-  /* 1-line specialty → shorter block → more padding to end at center−10=147px */
-  .page--smarz .spec .spec-text {
-    padding-top: 69px !important;
-    min-height: 247px !important;
-  }
-
-  /* ════════════════════════════════
-     KOŁODZIEJCZYK — Julia Kołodziejczyk, Dietetyka
-     1-line specialty; hours absolute left below name (same as Kosiecz/Smarz);
-     spec-desc-block flows statically below photo area.
-  ════════════════════════════════ */
-  /* Narrow left-column cap so "Kołodziejczyk" doesn't reach the photo */
   .page--kolodziejczyk .spec .spec-lek,
   .page--kolodziejczyk .spec .spec-name,
   .page--kolodziejczyk .spec .spec-specialty {
     max-width: 46%;
-  }
-  /* padding-top: 45px → text ends at 20+45+82=147px (photo center 157px − 10px gap)
-     min-height: 247px → desc starts below photo card bottom (46+221=267 → 267−20=247px) */
-  .page--kolodziejczyk .spec .spec-text {
-    padding-top: 45px !important;
-    min-height: 247px !important;
-  }
-  .page--kolodziejczyk .spec .spec-hours {
-    position: absolute !important;
-    top: 167px !important;
-    left: 30px !important;
-    right: auto !important;
-    margin-top: 0 !important;
-  }
-  /* Hide wide desktop text, show compact mobile version */
-  .page--kolodziejczyk .spec .spec-hours > p:first-child {
-    display: none !important;
-  }
-  .page--kolodziejczyk .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 10px !important;
-    white-space: nowrap !important;
-    line-height: 1 !important;
   }
   .page--kolodziejczyk .spec-desc-block {
     position: static !important;
@@ -5515,44 +5273,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     justify-content: center !important;
     gap: 16px !important;
     border-radius: 50px !important;
-  }
-
-  /* ════════════════════════════════
-     WESOŁOWSKA — Katarzyna Wesołowska, Psychoterapia / terapia EMDR
-     1-line name, 1-line specialty → padding-top: 69px (same as Smarz/Baran)
-     2-day hours → multi-line card (Melon/Baran pattern)
-  ════════════════════════════════ */
-  /* "Katarzyna Wesołowska" wraps to 2 lines at 56% max-width → text height ~82px (same as Kołodziejczyk)
-     padding-top: 45px → text ends at 20+45+82=147px (photo center 157px − 10px gap)
-     min-height: 247px → desc starts below photo card bottom (46+221=267 → 267−20=247px) */
-  .page--wesolowska .spec .spec-text {
-    padding-top: 45px !important;
-    min-height: 247px !important;
-  }
-  .page--wesolowska .spec .spec-hours {
-    position: absolute !important;
-    top: 167px !important;
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-  .page--wesolowska .spec .spec-hours > p:first-child {
-    display: none !important;
-  }
-  .page--wesolowska .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
   }
 
   /* ════════════════════════════════
