@@ -2969,18 +2969,15 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page--home .hero-copy {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    padding-top: 151px;
+    padding-left: 24px;
   }
 
   .page--home .hero-copy h1 {
-    position: absolute;
-    left: 85px;
-    top: 151px;
     font-size: 24px;
     font-weight: 500;
     white-space: normal;
@@ -2999,22 +2996,19 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page--home .hero-sub {
-    position: absolute;
-    left: 85px;
-    top: 211px;
     font-size: 15px;
     font-weight: 500;
     white-space: normal;
     line-height: 1.4;
-    margin: 0;
+    margin: 4px 0 0;
     color: var(--teal);
     text-shadow: 5px 0px 3px rgba(255, 255, 255, 0.99);
   }
 
   .page--home .cta-phone {
-    position: absolute;
-    left: 86px;
-    top: 460px;
+    position: static;
+    align-self: flex-start;
+    margin-top: 200px;
     width: 258px;
     height: 65px;
     border-width: 2px;
