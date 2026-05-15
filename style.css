@@ -3228,7 +3228,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page--home .audience-card {
-    width: 268px;
+    width: 100%;
+    max-width: 340px;
     padding: 20px 24px 24px;
     border-radius: 20px;
   }
