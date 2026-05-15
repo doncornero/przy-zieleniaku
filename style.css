@@ -3011,7 +3011,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--home .cta-phone {
     position: static;
-    align-self: center;
     margin-top: 200px;
     width: 258px;
     height: 65px;
