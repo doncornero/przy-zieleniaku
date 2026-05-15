@@ -3028,9 +3028,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   /* USP cards */
   .page--home .usp-row {
-    position: absolute;
-    left: 82px;
-    top: 569px;
+    position: relative;
+    width: 267px;
+    margin: 569px auto 0;
     z-index: 10;
     display: flex;
     flex-direction: column;
