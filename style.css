@@ -4418,12 +4418,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-specialty {
     max-width: 46%;
   }
-  /* Kołodziejczyk: 2-line name — reduce padding-top so text ends ~10px above photo center (120px) */
-  .page:not(.page--home) .doctor-entry--kolodziejczyk .spec-text {
-    padding-top: 25px !important;
-    min-height: 230px !important;
-  }
-  /* hours stays at general 130px (10px below center) — no override needed */
 
   /* No-photo variant: full width, no float beside */
   .page:not(.page--home) .doctor-entry--no-photo .spec-text {
