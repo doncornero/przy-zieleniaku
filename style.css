@@ -5333,13 +5333,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
        name: top=241 → section-top=112
        desc: top=420 → section-top=291
   ════════════════════════════════ */
-  .page--michalek .spec .spec-photo {
-    right: 57px !important;
-    top: 52px !important;
-    width: 161px !important;
-    height: 215px !important;
-  }
-
   .page--michalek .spec .spec-hours {
     position: absolute !important;
     top: 167px !important;
