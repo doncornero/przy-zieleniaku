@@ -5300,6 +5300,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     transform: none !important;
   }
 
+  .spec-radial,
+  .ort-radial,
+  .rehab-radial,
+  .psych-radial,
+  .diet-radial,
+  .bio-radial,
+  .policy-radial {
+    display: none !important;
+  }
+
 }
 
 /* Hide mobile-only line breaks on desktop */
