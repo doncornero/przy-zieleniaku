@@ -2971,16 +2971,14 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--home .hero-copy {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 78%;
     z-index: 5;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     padding-top: 151px;
-    padding-left: 40px;
-    padding-right: 40px;
   }
 
   .page--home .hero-copy h1 {
