@@ -5333,35 +5333,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
        name: top=241 → section-top=112
        desc: top=420 → section-top=291
   ════════════════════════════════ */
-  .page--michalek .spec .spec-hours {
-    position: absolute !important;
-    top: 190px !important;
-    left: 30px !important;
-    right: auto !important;
-    height: auto !important;
-    width: auto !important;
-    background: #f4f4f4 !important;
-    border-radius: 18px !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 13px 18px !important;
-    margin-top: 0 !important;
-  }
-
-  .page--michalek .spec .spec-hours > p:first-child { display: none !important; }
-  .page--michalek .spec .spec-hours .spec-hours-m {
-    display: block !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
-  }
-
-  /* padding-top so specialty ends at photo center(157)−10px=147px from section top;
-     min-height ensures desc starts below photo bottom (46+221=267 → 267−20=247px) */
   .page--michalek .spec .spec-text {
     padding-top: 55px !important;
+    padding-bottom: 16px !important;
     min-height: 247px !important;
   }
 
