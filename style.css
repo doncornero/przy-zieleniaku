@@ -4082,7 +4082,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     width: 100% !important;
     height: auto !important;
-    padding: 20px 33px 48px;
+    padding: 20px 48% 48px 33px;
   }
 
   /* Header pill — listing pages (lekarze, specjalisci) */
@@ -4134,11 +4134,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding-top: 98px;
   }
 
-  /* Constrain text to left column so it doesn't flow under photo */
   .page:not(.page--home) .spec-lek,
   .page:not(.page--home) .spec-name,
   .page:not(.page--home) .spec-specialty {
-    max-width: 56%;
+    max-width: 100%;
   }
 
   .page:not(.page--home) .spec-lek {
@@ -4165,7 +4164,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     min-height: 38px !important;
     height: auto !important;
     width: auto !important;
-    max-width: 56%;
+    max-width: 100%;
     padding: 6px 16px !important;
     margin-top: 12px;
     margin-bottom: 0;
@@ -4211,6 +4210,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     top: auto !important;
     width: 100% !important;
+    padding-right: 0 !important;
     font-size: 14px;
     line-height: 1.55;
     margin-top: 16px;
