@@ -2,6 +2,14 @@
   var nav = document.querySelector('.nav');
   if (!nav) return;
 
+  // ── Move nav outside .page so position:fixed works against the viewport,
+  //    not against .page's transform context ──
+  var page = document.querySelector('.page');
+  if (page && page.parentNode) {
+    if (page.classList.contains('page--home')) nav.classList.add('page--home');
+    page.parentNode.insertBefore(nav, page);
+  }
+
   // ── Inject hamburger button if not already in nav ──
   if (!nav.querySelector('.nav-hamburger')) {
     var btn = document.createElement('button');
@@ -14,8 +22,7 @@
   }
 
   // ── Inject mobile menu overlay if not already present ──
-  var page = document.querySelector('.page');
-  if (page && !document.getElementById('mobile-menu')) {
+  if (!document.getElementById('mobile-menu')) {
     var overlay = document.createElement('div');
     overlay.className = 'mobile-menu';
     overlay.id = 'mobile-menu';
@@ -39,10 +46,10 @@
           '<a href="polityka-prywatnosci.html" class="mobile-menu-secondary-btn">Polityka prywatności</a>' +
         '</div>' +
       '</div>';
-    page.appendChild(overlay);
+    document.body.appendChild(overlay);
   }
 
-  // ── Hamburger toggle (works for both injected and pre-existing menus) ──
+  // ── Hamburger toggle ──
   var hamburger = document.getElementById('nav-hamburger');
   var menu = document.getElementById('mobile-menu');
 
@@ -70,53 +77,54 @@
       a.addEventListener('click', closeMenu);
     });
 
-    // Close on overlay click (outside the panel)
     menu.addEventListener('click', function (e) {
       if (e.target === menu) closeMenu();
     });
   }
 
-  // ── Sticky nav on desktop scroll ──
-  var ticking = false;
+  // ── Nav positioning ──
+  // Desktop: position:fixed + scale transform (nav is outside .page, so fixed works
+  //          against the real viewport, not the transformed ancestor).
+  // Mobile:  clear inline styles and let CSS handle it (mobile CSS already uses fixed).
 
   function isMobile() { return window.innerWidth <= 768; }
 
   function updateNav() {
     if (isMobile()) {
-      nav.style.transform = '';
+      nav.style.cssText = '';          // clear all inline styles; mobile CSS takes over
       nav.classList.remove('nav--sticky');
-      ticking = false;
       return;
     }
     var scale = Math.min(window.innerWidth / 1920, 1);
-    var scrollY = window.scrollY;
-    if (scrollY > 0) {
-      nav.style.transform = 'translate3d(0,' + (scrollY / scale) + 'px,0)';
-      nav.classList.add('nav--sticky');
-    } else {
-      nav.style.transform = '';
-      nav.classList.remove('nav--sticky');
-    }
-    ticking = false;
+    nav.style.position = 'fixed';
+    nav.style.top = '0';
+    nav.style.left = '0';
+    nav.style.zIndex = '100';
+    nav.style.transform = 'scale(' + scale + ')';
+    nav.style.transformOrigin = '0 0';
+    nav.classList.add('nav--sticky');
   }
+
+  // ── Hash-link clicks on desktop: scroll to visual position ──
+  // (The browser's default anchor scroll uses layout coords, not visual coords,
+  //  which lands at the wrong position inside a scaled .page.)
+  document.addEventListener('click', function (e) {
+    if (isMobile()) return;
+    var link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var hash = link.getAttribute('href');
+    if (!hash || hash === '#') return;
+    var target = document.querySelector(hash);
+    if (!target) return;
+    e.preventDefault();
+    var top = target.getBoundingClientRect().top;
+    window.scrollTo(0, window.scrollY + top);
+    history.pushState(null, '', hash);
+  });
 
   window.addEventListener('resize', updateNav);
-  window.addEventListener('hashchange', updateNav);
-  window.addEventListener('scroll', function () {
-    if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
-  }, { passive: true });
-
-  function startPoll(durationMs) {
-    var end = Date.now() + durationMs;
-    function poll() {
-      updateNav();
-      if (Date.now() < end) requestAnimationFrame(poll);
-    }
-    requestAnimationFrame(poll);
-  }
-
-  window.addEventListener('load', function () { startPoll(800); });
-  window.addEventListener('pageshow', function () { startPoll(800); });
+  window.addEventListener('load', updateNav);
+  window.addEventListener('pageshow', updateNav);
 
   updateNav();
 })();

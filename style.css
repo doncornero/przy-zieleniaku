@@ -704,7 +704,7 @@ body {
   position: absolute;
   left: 453px;
   /* 665-212 */
-  top: 37px;
+  top: 27px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -717,7 +717,7 @@ body {
   position: absolute;
   left: 640px;
   /* 852-212 */
-  top: 37px;
+  top: 27px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -784,7 +784,7 @@ body {
   position: absolute;
   left: 1040px;
   /* 1252-212 */
-  top: 38px;
+  top: 28px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1200,10 +1200,10 @@ body {
 /* Phone CTA: card top(173) + 286 = 459, card left(362) + 110 = 472 */
 .kontakt-cta-phone {
   position: absolute;
-  top: 459px;
+  top: 490px;
   left: 472px;
-  width: 452px;
-  height: 114px;
+  width: 400px;
+  height: 96px;
   background: var(--white);
   border: 4px solid var(--teal);
   border-radius: 69px;
@@ -1229,14 +1229,14 @@ body {
 }
 
 .kontakt-cta-phone img {
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
   display: block;
   transition: filter 0.2s;
 }
 
 .kontakt-cta-phone span {
-  font-size: 35px;
+  font-size: 29px;
   font-weight: 500;
   color: var(--teal);
   font-variation-settings: 'wdth' 100;
@@ -1960,6 +1960,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   background: var(--white);
 }
 
+.diet-umow--mobile {
+  display: none;
+}
+
 /* Large chevron for "Umów wizytę" — matches Figma's bigger arrow */
 .chevron-lg {
   flex-shrink: 0;
@@ -2680,7 +2684,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* ══════════════
      NAVIGATION
   ══════════════ */
-  .page--home .nav {
+  .page--home .nav,
+  .nav.page--home {
     position: fixed;
     top: 0;
     left: 0;
@@ -2695,7 +2700,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     z-index: 100;
   }
 
-  .page--home .nav-blur {
+  .page--home .nav-blur,
+  .nav.page--home .nav-blur {
     display: block;
     position: absolute;
     top: 0;
@@ -2709,7 +2715,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     z-index: -1;
   }
 
-  .page--home .logo {
+  .page--home .logo,
+  .nav.page--home .logo {
     position: static;
     width: 222px;
     height: 75px;
@@ -2721,33 +2728,39 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto;
   }
 
-  .page--home .logo-icon-wrap {
+  .page--home .logo-icon-wrap,
+  .nav.page--home .logo-icon-wrap {
     width: 45px;
     height: 45px;
     border-radius: 0;
     background: none;
   }
 
-  .page--home .logo-icon-img {
+  .page--home .logo-icon-img,
+  .nav.page--home .logo-icon-img {
     width: 45px;
     height: 45px;
   }
 
-  .page--home .logo-wordmark {
+  .page--home .logo-wordmark,
+  .nav.page--home .logo-wordmark {
     width: 123px;
     height: 32px;
   }
 
-  .page--home .nav-pill {
+  .page--home .nav-pill,
+  .nav.page--home .nav-pill {
     display: none !important;
   }
 
-  .page--home .nav-phone {
+  .page--home .nav-phone,
+  .nav.page--home .nav-phone {
     display: none !important;
   }
 
   /* Hamburger — shown only inside this media query */
-  .page--home .nav-hamburger {
+  .page--home .nav-hamburger,
+  .nav.page--home .nav-hamburger {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2763,7 +2776,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding: 0;
   }
 
-  .page--home .nav-hamburger span {
+  .page--home .nav-hamburger span,
+  .nav.page--home .nav-hamburger span {
     display: block;
     width: 48px;
     height: 5px;
@@ -3777,7 +3791,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     overflow: visible;
   }
 
-  .page:not(.page--home) .nav {
+  .page:not(.page--home) .nav,
+  .nav:not(.page--home) {
     position: fixed;
     top: 0;
     left: 0;
@@ -3793,7 +3808,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     overflow: visible;
   }
 
-  .page:not(.page--home) .nav-blur {
+  .page:not(.page--home) .nav-blur,
+  .nav:not(.page--home) .nav-blur {
     display: block;
     position: absolute;
     top: 0;
@@ -3807,7 +3823,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     z-index: -1;
   }
 
-  .page:not(.page--home) .logo {
+  .page:not(.page--home) .logo,
+  .nav:not(.page--home) .logo {
     position: static;
     background: var(--white);
     border-radius: 14px;
@@ -3822,7 +3839,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     text-decoration: none;
   }
 
-  .page:not(.page--home) .logo-icon-wrap {
+  .page:not(.page--home) .logo-icon-wrap,
+  .nav:not(.page--home) .logo-icon-wrap {
     width: 45px;
     height: 45px;
     background: none;
@@ -3833,24 +3851,29 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     justify-content: center;
   }
 
-  .page:not(.page--home) .logo-icon-img {
+  .page:not(.page--home) .logo-icon-img,
+  .nav:not(.page--home) .logo-icon-img {
     width: 45px;
     height: 45px;
   }
 
-  .page:not(.page--home) .logo-wordmark {
+  .page:not(.page--home) .logo-wordmark,
+  .nav:not(.page--home) .logo-wordmark {
     width: 123px;
     height: auto;
     object-fit: contain;
   }
 
   .page:not(.page--home) .nav-pill,
-  .page:not(.page--home) .nav-phone {
+  .page:not(.page--home) .nav-phone,
+  .nav:not(.page--home) .nav-pill,
+  .nav:not(.page--home) .nav-phone {
     display: none !important;
   }
 
-  /* Hamburger — injected by sticky-nav.js, also applies to home page */
-  .page .nav-hamburger {
+  /* Hamburger — injected by sticky-nav.js; nav is moved outside .page, so both selectors needed */
+  .page .nav-hamburger,
+  .nav .nav-hamburger {
     display: flex !important;
     flex-direction: column;
     align-items: center;
@@ -3866,7 +3889,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding: 0;
   }
 
-  .page .nav-hamburger span {
+  .page .nav-hamburger span,
+  .nav .nav-hamburger span {
     display: block;
     width: 44px;
     height: 5px;
@@ -4333,6 +4357,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
   .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
     top: 130px !important;
+  }
+
+  /* Melon: 2-line specialty on mobile → push hours lower */
+  .page:not(.page--home) .doctor-entry--melon .spec-hours {
+    top: 155px !important;
   }
 
   /* Pawelec listing (lekarze): 2-line name + 2-line specialty → push hours lower */
@@ -5553,4 +5582,19 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: 1 !important;
   }
 
+}
+
+/* Hide mobile-only line breaks on desktop */
+@media (min-width: 769px) {
+  .doctor-entry--michalek .spec-name br,
+  .doctor-entry--melon .spec-specialty br,
+  .doctor-entry--pawelec .spec-name br,
+  .doctor-entry--pawelec .spec-specialty br {
+    display: none;
+  }
+
+  /* More breathing room between lines in multi-day hours on listing pages */
+  .page:not(.page--home) .doctor-entry .spec-hours > p:first-child {
+    line-height: 1.8;
+  }
 }
