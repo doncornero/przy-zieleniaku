@@ -4101,10 +4101,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* Photo card: absolute right, % units so it scales 360px→430px */
   .page:not(.page--home) .spec-photo-card {
     position: absolute !important;
-    right: 9.5% !important;
+    right: 2% !important;
     top: 46px !important;
     left: auto !important;
-    width: 43% !important;
+    width: 44% !important;
     height: 221px !important;
     border-radius: 27px;
     overflow: hidden;
@@ -4113,10 +4113,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   /* Doctor photo: inset slightly from card */
   .page:not(.page--home) .spec-photo {
     position: absolute !important;
-    right: 12% !important;
+    right: 4% !important;
     top: 43px !important;
     left: auto !important;
-    width: 39% !important;
+    width: 40% !important;
     height: 224px !important;
     object-fit: cover;
     object-position: top center;
@@ -4138,7 +4138,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page:not(.page--home) .spec-lek,
   .page:not(.page--home) .spec-name,
   .page:not(.page--home) .spec-specialty {
-    max-width: 56%;
+    max-width: 52%;
   }
 
   .page:not(.page--home) .spec-lek {
@@ -4164,7 +4164,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     height: 38px !important;
     width: auto !important;
-    max-width: 56%;
+    max-width: 52%;
     padding: 0 16px;
     margin-top: 12px;
     margin-bottom: 0;
