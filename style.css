@@ -3282,11 +3282,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     max-width: 360px;
     height: 300px;
     overflow: hidden;
-    padding: 0;
+    padding: 28px 0 18px 32px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 18px;
+    justify-content: flex-start;
   }
 
   .page--home .kontakt-justyna {
@@ -3301,9 +3300,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page--home .kontakt-hero-text {
-    position: absolute;
-    top: 45px;
-    left: 32px;
+    position: static;
+    top: auto;
+    left: auto;
     width: 46%;
     font-size: 13px;
     line-height: 1.45;
