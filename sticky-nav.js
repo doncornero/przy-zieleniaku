@@ -118,7 +118,7 @@
     if (!target) return;
     e.preventDefault();
     var top = target.getBoundingClientRect().top;
-    window.scrollTo(0, window.scrollY + top);
+    window.scrollTo(0, window.scrollY + top - nav.getBoundingClientRect().height);
     history.pushState(null, '', hash);
   });
 
