@@ -2657,10 +2657,27 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   /* Hide desktop-only decorative elements */
-  .page--home .radial-ellipse,
   .page--home .audience-bg-photo,
   .page--home .audience-teal-blur {
     display: none;
+  }
+
+  /* Radial gradients — resized and repositioned for mobile */
+  .page--home .radial-ellipse {
+    display: block;
+    width: 700px;
+    height: 700px;
+  }
+
+  .page--home .radial-ellipse--right {
+    left: auto;
+    right: -200px;
+    top: 2700px;
+  }
+
+  .page--home .radial-ellipse--left {
+    left: -200px;
+    top: 4300px;
   }
 
   /* Mobile sage gradient — spans from photo fade through reviews into teal */
