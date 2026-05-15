@@ -3202,7 +3202,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page--home .service-pill {
     position: static !important;
-    width: 240px !important;
+    width: 100% !important;
+    max-width: 340px;
     height: 50px !important;
     padding: 0 20px !important;
     font-size: 15px !important;
