@@ -4082,8 +4082,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     width: 100% !important;
     height: auto !important;
-    min-height: 0;
-    padding: 267px 33px 48px;
+    min-height: 267px;
+    padding: 20px 33px 48px;
   }
 
   /* Header pill — listing pages (lekarze, specjalisci) */
@@ -4132,7 +4132,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     width: 45% !important;
     min-height: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 16px !important;
     padding-bottom: 0 !important;
   }
 
@@ -4166,9 +4166,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     min-height: 38px !important;
     height: auto !important;
     width: auto !important;
-    max-width: 45%;
+    max-width: 45% !important;
     padding: 6px 16px !important;
-    margin-top: 12px;
+    margin-top: 12px !important;
     margin-bottom: 0;
     border-radius: 50px;
     display: inline-flex !important;
@@ -4209,16 +4209,16 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .spec--no-photo .spec-hours { max-width: 100%; }
 
-  /* Description: flows naturally below spec-text (min-height 247px
-     pushes desc well below the 221px photo) */
   .page:not(.page--home) .spec-desc {
     position: static !important;
     left: auto !important;
     top: auto !important;
     width: 100% !important;
+    min-height: 0 !important;
+    clear: both;
     font-size: 14px;
     line-height: 1.55;
-    margin-top: 16px;
+    margin-top: 16px !important;
   }
 
   /* CTA button */
