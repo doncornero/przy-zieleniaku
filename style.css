@@ -4122,8 +4122,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     width: 46% !important;
     height: 221px !important;
-    object-fit: cover;
+    object-fit: contain;
     object-position: 50% 15%;
+    background: transparent;
     z-index: 3;
   }
 
@@ -4261,54 +4262,58 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding-bottom: 48px;
   }
 
-  /* Photo card (sage bg) */
+  /* Photo card: float right — creates column for text on left */
   .page:not(.page--home) .doctor-entry .spec-photo-card {
-    position: absolute !important;
-    right: 0 !important;
+    position: static !important;
     left: auto !important;
-    top: 10px !important;
-    width: 186px !important;
-    height: 220px !important;
-    border-radius: 24px;
+    top: auto !important;
+    float: right;
+    width: calc(47% + 28px) !important;
+    height: 221px !important;
+    margin-bottom: 40px;
+    border-radius: 27px;
+    overflow: hidden;
   }
 
-  /* Photo link: inset from card so card shows as frame */
+  /* Photo link: absolute over card — right:0/top:0 from doctor-entry
+     equals right:33px/top:20px from section (section padding already offsets) */
   .page:not(.page--home) .spec-photo-link {
     position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
     left: auto !important;
-    right: 12px !important;
-    top: 10px !important;
-    width: 162px !important;
-    height: 220px !important;
+    width: calc(47% + 28px) !important;
+    height: 221px !important;
     display: block !important;
     z-index: 3;
   }
 
-  /* Photo inside the link */
+  /* Photo inside the link: fills the link box */
   .page:not(.page--home) .spec-photo-link .spec-photo {
     position: static !important;
     left: auto !important;
     top: auto !important;
-    width: 162px !important;
-    height: 220px !important;
-    object-fit: cover;
-    object-position: top center;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    object-position: 50% 15%;
   }
 
-  /* Text: static block, padding-top positions name block above photo center */
+  /* Text: static flow beside float */
   .page:not(.page--home) .doctor-entry .spec-text {
-    padding-top: 45px !important;
+    position: static !important;
+    padding-top: 16px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-bottom: 0 !important;
-    min-height: 230px !important;
-    width: 100% !important;
+    min-height: 0 !important;
+    width: 45% !important;
   }
 
   .page:not(.page--home) .doctor-entry .spec-lek,
   .page:not(.page--home) .doctor-entry .spec-name,
   .page:not(.page--home) .doctor-entry .spec-specialty {
-    max-width: 56%;
+    max-width: 100%;
   }
 
   .page:not(.page--home) .doctor-entry .spec-lek {
@@ -4320,7 +4325,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hide forced <br> in Michałek's name only (his name wraps fine without it) */
+  /* Hide forced <br> in Michałek's name only */
   .page:not(.page--home) .doctor-entry--michalek .spec-name br {
     display: none;
   }
@@ -4330,23 +4335,23 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     line-height: normal;
   }
 
-  /* Hours: absolute at 130px (photo center 120px + 10px gap — same as individual pages) */
+  /* Hours: static flow beside float, below spec-text */
   .page:not(.page--home) .doctor-entry .spec-hours {
-    position: absolute !important;
-    top: 130px !important;
-    left: 0 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
     right: auto !important;
     background: #f4f4f4 !important;
     border-radius: 18px !important;
-    padding: 13px 18px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
+    padding: 10px 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
     width: auto !important;
+    max-width: 45% !important;
+    min-height: 48px !important;
     height: auto !important;
     box-sizing: border-box !important;
-    margin-top: 0 !important;
+    margin-top: 12px !important;
     margin-bottom: 0 !important;
   }
 
@@ -4362,7 +4367,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     white-space: nowrap;
   }
 
-  /* Description: static flow after spec-text (which reserves 230px for photo area) */
+  /* Description: clears float, full width */
   .page:not(.page--home) .doctor-entry .spec-desc {
     position: static !important;
     left: auto !important;
@@ -4371,7 +4376,8 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 14px;
     line-height: 1.55;
     max-width: 100%;
-    margin-top: 24px;
+    clear: both;
+    margin-top: 16px !important;
   }
 
   /* ══════════════════════════════════════════
@@ -4398,22 +4404,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
 
   .page:not(.page--home) .doctor-entry .spec-mgr-desc p:last-child {
     margin-bottom: 0;
-  }
-
-  /* Wesołowska: 2-line name + 2-line specialty → text ends at ~149px, push hours lower */
-  /* Wesołowska: 2-line name + 2-line specialty (5 lines total ~101px)
-     padding-top 14px → text ends at 115px = 5px above photo center (120px)
-     hours at 130px = 10px below center (same as general rule) */
-  .page:not(.page--home) .doctor-entry--wesolowska .spec-text {
-    padding-top: 14px !important;
-  }
-  .page:not(.page--home) .doctor-entry--wesolowska .spec-hours {
-    top: 130px !important;
-  }
-
-  /* Melon: 2-line specialty on mobile → push hours lower */
-  .page:not(.page--home) .doctor-entry--melon .spec-hours {
-    top: 155px !important;
   }
 
   /* Pawelec listing (lekarze): 2-line name + 2-line specialty → push hours lower */
