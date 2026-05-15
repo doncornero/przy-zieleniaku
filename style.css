@@ -4175,7 +4175,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     margin-bottom: 0;
     border-radius: 18px;
     display: inline-flex !important;
-    align-items: center;
+    align-items: center !important;
   }
 
   /* Show mobile abbreviated hours, hide long desktop paragraph */
