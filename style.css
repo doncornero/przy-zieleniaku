@@ -783,8 +783,8 @@ body {
 .footer-contact {
   position: absolute;
   left: 1040px;
-  /* 1252-212 */
-  top: 28px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 14px;
