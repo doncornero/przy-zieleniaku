@@ -4216,7 +4216,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     clear: both;
     font-size: 14px;
     line-height: 1.55;
-    margin-top: 24px !important;
+    margin-top: 40px !important;
   }
 
   /* CTA button */
