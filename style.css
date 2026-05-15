@@ -4109,6 +4109,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     float: right;
     width: calc(43% + 28px) !important;
     height: 221px !important;
+    margin-bottom: 40px;
     border-radius: 27px;
     overflow: hidden;
   }
