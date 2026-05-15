@@ -5320,6 +5320,26 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
         rgba(151, 186, 159, .17) 82.27%, transparent 100%);
   }
 
+  .page--lekarze .spec-radial {
+    background:
+      radial-gradient(ellipse 350px 360px at 100% 10%,
+        rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+        rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+        rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+      radial-gradient(ellipse 350px 360px at 0% 37%,
+        rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+        rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+        rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+      radial-gradient(ellipse 350px 360px at 100% 63%,
+        rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+        rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+        rgba(151, 186, 159, .17) 82.27%, transparent 100%),
+      radial-gradient(ellipse 350px 360px at 0% 90%,
+        rgba(197, 220, 186, .86) 0%, rgba(196, 219, 185, .71) 14.29%,
+        rgba(195, 219, 185, .65) 34.48%, rgba(188, 213, 181, .45) 57.14%,
+        rgba(151, 186, 159, .17) 82.27%, transparent 100%);
+  }
+
   .ort-radial,
   .rehab-radial,
   .psych-radial,
