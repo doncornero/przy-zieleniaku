@@ -843,7 +843,9 @@ body {
 .footer-copy {
   position: absolute;
   bottom: 16px;
-  left: 318px;
+  left: 40px;
+  width: 336px;
+  text-align: center;
   font-size: 10px;
   font-weight: 500;
   color: var(--teal);
