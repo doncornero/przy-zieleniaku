@@ -3804,16 +3804,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     width: 100%;
   }
 
-  /* Hide desktop decorative radials */
-  .spec-radial,
-  .ort-radial,
-  .rehab-radial,
-  .psych-radial,
-  .diet-radial,
-  .bio-radial,
-  .policy-radial {
-    display: none !important;
-  }
 
   /* ════════════════════════
      NAV — NON-HOME PAGES
