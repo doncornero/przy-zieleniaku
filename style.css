@@ -4082,6 +4082,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     width: 100% !important;
     height: auto !important;
+    min-height: 247px;
     padding: 20px 33px 48px;
   }
 
@@ -4130,8 +4131,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     left: auto !important;
     top: auto !important;
     width: 45% !important;
-    min-height: 247px;
+    min-height: 0;
     padding-top: 98px;
+    padding-bottom: 16px;
   }
 
   .page:not(.page--home) .spec-lek,
@@ -5336,7 +5338,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--michalek .spec .spec-text {
     padding-top: 55px !important;
     padding-bottom: 16px !important;
-    min-height: 247px !important;
+    min-height: 0 !important;
   }
 
   /* ════════════════════════════════
