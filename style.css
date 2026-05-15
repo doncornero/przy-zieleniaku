@@ -929,6 +929,12 @@ body {
   flex-shrink: 0;
 }
 
+.cennik-row>span:last-child:not(:only-child) {
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+}
+
 /* Category header row (no price, slightly more space above) */
 .cennik-row--cat {
   margin-top: 4px;
