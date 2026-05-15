@@ -4384,7 +4384,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
      SPECJALIŚCI — SPEC-MGR-DESC & STACKED ENTRIES
   ══════════════════════════════════════════ */
 
-  /* spec-mgr-desc inside doctor-entry: static flow, full width */
+  /* spec-mgr-desc inside doctor-entry: clears float, full width */
   .page:not(.page--home) .doctor-entry .spec-mgr-desc {
     position: static !important;
     left: auto !important;
@@ -4395,6 +4395,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 14px;
     line-height: 1.55;
     max-width: 100%;
+    clear: both;
     margin-top: 24px;
   }
 
@@ -4424,8 +4425,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
   /* hours stays at general 130px (10px below center) — no override needed */
 
-  /* No-photo variant: full width, no reserved height */
+  /* No-photo variant: full width, no float beside */
   .page:not(.page--home) .doctor-entry--no-photo .spec-text {
+    width: 100% !important;
     min-height: 0 !important;
     padding-top: 16px !important;
   }
