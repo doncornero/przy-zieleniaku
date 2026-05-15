@@ -4114,14 +4114,14 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     overflow: hidden;
   }
 
-  /* Doctor photo: absolute — 43% of padding-box ≈ same visual width as float card */
+  /* Doctor photo: absolute — slightly inset from card edges */
   .page:not(.page--home) .spec-photo {
     position: absolute !important;
     right: 33px !important;
     top: 20px !important;
     left: auto !important;
-    width: 43% !important;
-    height: 221px !important;
+    width: 38% !important;
+    height: 190px !important;
     object-fit: cover;
     object-position: 50% 15%;
     z-index: 3;
