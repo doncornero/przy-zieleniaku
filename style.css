@@ -1276,14 +1276,17 @@ body {
 
 .kontakt-info-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 18px;
 }
 
 .kontakt-info-row img {
   flex-shrink: 0;
   display: block;
-  margin-top: 2px;
+  min-width: 44px;
+  max-width: 44px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .kontakt-info-row span {
