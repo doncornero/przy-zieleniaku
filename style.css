@@ -4162,10 +4162,11 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: static !important;
     left: auto !important;
     top: auto !important;
-    height: 38px !important;
+    min-height: 38px !important;
+    height: auto !important;
     width: auto !important;
     max-width: 56%;
-    padding: 0 16px;
+    padding: 6px 16px !important;
     margin-top: 12px;
     margin-bottom: 0;
     border-radius: 50px;
