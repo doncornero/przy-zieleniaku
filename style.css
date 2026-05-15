@@ -5335,7 +5335,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   ════════════════════════════════ */
   .page--michalek .spec .spec-hours {
     position: absolute !important;
-    top: 210px !important;
+    top: 190px !important;
     left: 30px !important;
     right: auto !important;
     height: auto !important;
