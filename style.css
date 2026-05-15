@@ -3762,6 +3762,15 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     white-space: nowrap;
   }
 
+  .page--home .footer-nav {
+    top: auto !important;
+    transform: none !important;
+  }
+  .page--home .footer-contact {
+    top: auto !important;
+    transform: none !important;
+  }
+
 }
 
 /* ═══════════════════════════════════════════════════
@@ -5282,6 +5291,15 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     font-size: 10px !important;
     white-space: nowrap !important;
     line-height: 1 !important;
+  }
+
+  .page:not(.page--home) .footer-nav {
+    top: auto !important;
+    transform: none !important;
+  }
+  .page:not(.page--home) .footer-contact {
+    top: auto !important;
+    transform: none !important;
   }
 
 }
