@@ -4108,7 +4108,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: auto !important;
     float: right;
     width: calc(47% + 28px) !important;
-    height: 260px !important;
+    height: 221px !important;
     margin-bottom: 40px;
     border-radius: 27px;
     overflow: hidden;
@@ -4121,7 +4121,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     top: 20px !important;
     left: auto !important;
     width: 46% !important;
-    height: 260px !important;
+    height: 221px !important;
     object-fit: cover;
     object-position: 50% 15%;
     z-index: 3;
