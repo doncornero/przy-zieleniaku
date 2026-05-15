@@ -4123,7 +4123,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     height: 221px !important;
     object-fit: cover;
     object-position: top center;
-    border-radius: 27px;
     z-index: 3;
   }
 
@@ -4173,7 +4172,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     padding: 6px 16px !important;
     margin-top: 12px !important;
     margin-bottom: 0;
-    border-radius: 50px;
+    border-radius: 18px;
     display: inline-flex !important;
     align-items: center;
   }
