@@ -1453,7 +1453,7 @@ body {
   color: var(--teal);
   font-variation-settings: 'wdth' 100;
   vertical-align: top;
-  padding: 16px 24px 16px 75px;
+  padding: 10px 24px 10px 75px;
   white-space: nowrap;
   width: 175px;
   position: relative;
@@ -3484,7 +3484,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page--home .sch-day {
     font-size: 13px;
     font-weight: 600;
-    padding: 10px 8px 10px 0;
+    padding: 6px 8px 10px 0;
     white-space: nowrap;
     width: 1px;
     vertical-align: top;
