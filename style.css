@@ -4099,21 +4099,21 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     border-radius: 50px;
   }
 
-  /* Photo card: float right — text and hours flow naturally beside it */
+  /* Photo card: float right
+     calc(43% + 28px): float uses content width (section−66px padding),
+     +28px compensates so visual size matches original absolute width:43% */
   .page:not(.page--home) .spec-photo-card {
     position: static !important;
     left: auto !important;
     top: auto !important;
     float: right;
-    width: 43% !important;
+    width: calc(43% + 28px) !important;
     height: 221px !important;
     border-radius: 27px;
     overflow: hidden;
   }
 
-  /* Doctor photo: absolute matched to float card
-     right: 33px = section padding-right → aligns with float's right edge
-     width: calc(43% - 28px) = 43% of content width → matches card */
+  /* Doctor photo: absolute — 43% of padding-box ≈ same visual width as float card */
   .page:not(.page--home) .spec-photo {
     position: absolute !important;
     right: 33px !important;
