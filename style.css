@@ -5320,6 +5320,10 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
         rgba(151, 186, 159, .17) 82.27%, transparent 100%);
   }
 
+  .page:not(.page--home) .spec-radial {
+    height: calc(100% - 200px);
+  }
+
   .page--lekarze .spec-radial {
     background:
       radial-gradient(ellipse 350px 360px at 100% 10%,
