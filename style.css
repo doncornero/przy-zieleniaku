@@ -5319,4 +5319,9 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   .page:not(.page--home) .doctor-entry .spec-hours > p:first-child {
     line-height: 1.8;
   }
+
+  /* Align hours with doctor name (second line) in schedule table */
+  .sch-time {
+    vertical-align: bottom;
+  }
 }
