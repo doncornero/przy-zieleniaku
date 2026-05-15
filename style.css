@@ -4187,7 +4187,23 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     color: var(--teal);
   }
 
-  /* Description: flows naturally below spec-text (min-height 209px
+  /* No-photo variant (kondej.html) */
+  .spec--no-photo .spec-photo-card,
+  .spec--no-photo .spec-photo { display: none !important; }
+
+  .spec--no-photo .spec-text {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding-top: 24px;
+  }
+
+  .spec--no-photo .spec-lek,
+  .spec--no-photo .spec-name,
+  .spec--no-photo .spec-specialty { max-width: 100%; }
+
+  .spec--no-photo .spec-hours { max-width: 100%; }
+
+  /* Description: flows naturally below spec-text (min-height 247px
      pushes desc well below the 221px photo) */
   .page:not(.page--home) .spec-desc {
     position: static !important;
