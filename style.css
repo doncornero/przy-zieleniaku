@@ -2991,7 +2991,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     color: var(--teal);
     text-shadow: 5px 0px 3px rgba(255, 255, 255, 0.99);
     margin: 0;
-    text-align: center;
   }
 
   .mobile-br {
@@ -3010,7 +3009,6 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     margin: 4px 0 0;
     color: var(--teal);
     text-shadow: 5px 0px 3px rgba(255, 255, 255, 0.99);
-    text-align: center;
   }
 
   .page--home .cta-phone {
