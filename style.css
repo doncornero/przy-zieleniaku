@@ -4563,7 +4563,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     background: var(--sage);
     border-radius: 13px;
-    height: 170px;
+    height: 220px;
     overflow: hidden;
   }
 
