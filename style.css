@@ -4992,6 +4992,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .page:not(.page--home) .bio-sub-pill {
+    display: block;
     position: static !important;
     left: auto !important;
     top: auto !important;
