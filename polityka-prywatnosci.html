@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    wait_for_update: 500,
+  });
+</script>
+<link rel="stylesheet" href="assets/consent.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF9GCR202C"></script>
 <script>
@@ -198,5 +207,14 @@
 </script>
 
 <script src="sticky-nav.js"></script>
+<div id="consent-banner" style="display:none">
+  <p>Ta strona używa plików cookies do analizy ruchu. 
+  Przeczytaj naszą <a href="/polityka-prywatnosci.html">politykę prywatności</a>.</p>
+  <div class="consent-buttons">
+    <button id="consent-decline">Odrzuć</button>
+    <button id="consent-accept">Akceptuj</button>
+  </div>
+</div>
+<script src="assets/consent.js"></script>
 </body>
 </html>

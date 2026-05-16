@@ -1,0 +1,58 @@
+#consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--teal, #015E55);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 9999;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+#consent-banner p {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+#consent-banner a {
+  color: white;
+  text-decoration: underline;
+}
+
+.consent-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#consent-accept {
+  background: white;
+  color: var(--teal, #015E55);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#consent-decline {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
