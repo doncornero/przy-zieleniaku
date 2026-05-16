@@ -901,7 +901,7 @@ body {
   width: 741px;
   background: var(--white);
   border-radius: 39px;
-  padding: 48px 45px 48px 95px;
+  padding: 48px 45px 48px 45px;
   display: flex;
   flex-direction: column;
   gap: 20px;
