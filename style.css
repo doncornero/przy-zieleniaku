@@ -1090,7 +1090,7 @@ body {
 .ort-doctor-photo {
   position: absolute;
   object-fit: cover;
-  object-position: top center;
+  object-position: center center;
   display: block;
   pointer-events: none;
   z-index: 1;
