@@ -4577,6 +4577,14 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     pointer-events: none;
   }
 
+  .ort-doctors-mobile .ort-mobile-card:nth-child(1) .ort-mobile-card-photo {
+    object-position: center 30%;
+  }
+
+  .ort-doctors-mobile .ort-mobile-card:nth-child(3) .ort-mobile-card-photo {
+    object-position: center 30%;
+  }
+
   .ort-mobile-card-pill {
     position: absolute;
     bottom: 10px;
