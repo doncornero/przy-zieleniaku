@@ -4563,7 +4563,7 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
     position: relative;
     background: var(--sage);
     border-radius: 13px;
-    height: 220px;
+    height: 200px;
     overflow: hidden;
   }
 
@@ -4578,11 +4578,19 @@ tbody tr:not(:first-child):has(.sch-day) .sch-day::before {
   }
 
   .ort-doctors-mobile .ort-mobile-card:nth-child(1) .ort-mobile-card-photo {
-    object-position: center 30%;
+    object-position: center 20%; /* Kosiecz */
+  }
+
+  .ort-doctors-mobile .ort-mobile-card:nth-child(2) .ort-mobile-card-photo {
+    object-position: center 20%; /* Melon */
   }
 
   .ort-doctors-mobile .ort-mobile-card:nth-child(3) .ort-mobile-card-photo {
-    object-position: center 30%;
+    object-position: center 15%; /* Michałek */
+  }
+
+  .ort-doctors-mobile .ort-mobile-card:nth-child(4) .ort-mobile-card-photo {
+    object-position: center 20%; /* Pawelec */
   }
 
   .ort-mobile-card-pill {
