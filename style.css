@@ -73,6 +73,11 @@ body {
   overflow: hidden;
 }
 
+/* Offset anchor scroll targets by nav height on cross-page navigation */
+.reviews, .services, .kontakt, .cennik {
+  scroll-margin-top: 100px;
+}
+
 .mobile-menu {
   display: none;
 }
